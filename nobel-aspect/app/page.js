@@ -34,7 +34,7 @@ export default function Home() {
     {
       id: 2,
       icon: "",
-      title: "Designing",
+      title: "Design",
       description:
         "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas",
     },
@@ -112,10 +112,7 @@ export default function Home() {
               Unleash your brand&apos;s potential with our{" "}
               <span className="text-siteRubinRed-800">cutting-edge marketing!</span>
             </h2>
-            <p className="text-xs sm:text-base lg:text-lg text-siteTextIcon-disabled font-semibold">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis velit ac tellus efficitur congue at
-              nec mi. Vestibulum id congue ligula, sed laoreet turpis. Mauris vestibulum condimentum mi ut sagittis
-            </p>
+            <p className="text-xs sm:text-base lg:text-lg text-siteTextIcon-disabled font-semibold"></p>
             <a
               href="/"
               className="w-fit flex justify-center items-center gap-3 py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
@@ -130,7 +127,7 @@ export default function Home() {
             </a>
           </div>
           <div className="absolute right-0 bottom-0 w-[200px] sm:w-[300px] md:w-[350px] lg:w-[400px] xl:w-[500px] flex items-center justify-center order-1 md:order-none z-10">
-            <Image src={"/home_banner.svg"} className="w-full h-full object-cover" alt="" width={1000} height={1000} />
+            <Image src={"/home_banner.svg"} className="w-[90%] h-full object-cover" alt="" width={1000} height={1000} />
           </div>
         </div>
       </section>
@@ -183,11 +180,11 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
             <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
-              Designing{" "}
+              Case Studies{" "}
             </h2>
             <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
-              Our battle-tested developers specialize in a wide range of web development services. Here are some of the
-              solutions that we can deliver for you.
+              Our battle-tested developers specialize in a wide range of designing. Here are some of the solutions that
+              we can deliver for you.
             </p>
           </div>
           <div className="flex flex-wrap justify-evenly gap-y-5">
@@ -229,7 +226,7 @@ export default function Home() {
       <section className="bg-white pb-20 px-4">
         <div className="py-8 px-4 h-60 md:h-[400px] mx-auto max-w-screen-xl sm:py-16 lg:px-6 bg-[url('/newsletter-banner.jpg')] bg-cover bg-center rounded-3xl flex flex-col gap-10 items-center justify-center">
           <h1 className="mx-auto font-medium text-sitePrimary-700 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-screen-md">
-            Let&apos;s make some great digital products together
+            Let&apos;s make some great Digital products together
           </h1>
           <a
             href="#"
@@ -247,10 +244,7 @@ export default function Home() {
             <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
               Enquiry
             </h2>
-            <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac ipsum velit. Curabitur risus ante, gravida
-              sit amet nulla ac,
-            </p>
+            {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
             <form action="#" className="space-y-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full">
@@ -322,7 +316,7 @@ export default function Home() {
                 >
                   <option value="Digital Marketing">Digital Marketing</option>
                   <option value="Branding">Branding</option>
-                  <option value="Designing">Designing</option>
+                  <option value="Design">Design</option>
                 </select>
               </div>
               <div className="sm:col-span-2">

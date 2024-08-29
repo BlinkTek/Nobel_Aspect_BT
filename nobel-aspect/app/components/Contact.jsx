@@ -23,10 +23,8 @@ const Contact = () => {
               </div>
             </div>
             <h3 className="mb-2 text-xl font-medium">Email</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">
-              Our friendly team is here to help.
-            </p>
-            <p className="text-siteTextIcon-primary pt-5">hi@user.com </p>
+            <p className="text-siteTextIcon-secondary dark:text-gray-400">Our friendly team is here to help.</p>
+            <p className="text-siteTextIcon-primary pt-5">info@nobleaspect.com</p>
           </div>
 
           <div className="flex flex-col items-center text-center p-5 rounded-2xl text-gray-500 dark:text-gray-400">
@@ -39,13 +37,7 @@ const Contact = () => {
                   height="1em"
                   viewBox="0 0 24 24"
                 >
-                  <g
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  >
+                  <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
                     <circle cx="12" cy="10" r="3" />
                     <path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8" />
                   </g>
@@ -53,11 +45,10 @@ const Contact = () => {
               </div>
             </div>
             <h3 className="mb-2 text-xl font-medium">Office</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">
-              Come say hello at our office HQ.
-            </p>
+            <p className="text-siteTextIcon-secondary dark:text-gray-400">Come say hello at our office HQ.</p>
             <p className="text-siteTextIcon-primary pt-5">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              99 Wall St Ste 2077 <br />
+              New York, NY 10005
             </p>
           </div>
 
@@ -79,10 +70,8 @@ const Contact = () => {
               </div>
             </div>
             <h3 className="mb-2 text-xl font-medium">Phone</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">
-              Mon-Fri from 8am to 7pm.{" "}
-            </p>
-            <p className="text-siteTextIcon-primary pt-5">+1 (555) 000-0000</p>
+            <p className="text-siteTextIcon-secondary dark:text-gray-400">Mon-Fri from 8am to 7pm. </p>
+            <p className="text-siteTextIcon-primary pt-5">+1 (201) 844-2537</p>
           </div>
         </div>
       </div>

@@ -2,7 +2,19 @@ const serviceDAO = require("../dao/service.dao");
 
 const createService = async (req, res) => {
   try {
-    const service = await serviceDAO.createService(req.body);
+
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded.' });
+    }
+
+    const serviceData = {
+      image: req.file.path,
+      serviceTitle: req.body.serviceTitle,
+      information: req.body.information,
+      features: req.body.features || [], // Handle features array
+    };
+
+    const service = await serviceDAO.createService(serviceData);
     res.status(201).json(service);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -32,7 +44,14 @@ const getServiceById = async (req, res) => {
 
 const updateService = async (req, res) => {
   try {
-    const service = await serviceDAO.updateService(req.params.id, req.body);
+    const serviceData = {
+      image: req.body.image,
+      serviceTitle: req.body.serviceTitle,
+      information: req.body.information,
+      features: req.body.features || [], // Handle features array
+    };
+
+    const service = await serviceDAO.updateService(req.params.id, serviceData);
     if (!service) {
       return res.status(404).json({ message: "Service not found" });
     }
@@ -54,10 +73,26 @@ const deleteService = async (req, res) => {
   }
 };
 
+const getServiceByTitle = async (req, res) => {
+  try {
+    const { serviceTitle } = req.body;
+    const service = await serviceDAO.findServiceByTitle(serviceTitle);
+
+    if (!service) {
+      return res.status(404).json({ message: "Service not found" });
+    }
+
+    res.status(200).json(service);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   createService,
   getAllServices,
   getServiceById,
   updateService,
   deleteService,
+  getServiceByTitle,
 };

@@ -12,7 +12,7 @@ const Page = () => {
     firstname: "",
     lastname: "",
     email: "",
-    field: "Select Field",
+    field: "Select Industry",
     services: "Select Services",
     message: "",
   });
@@ -43,7 +43,7 @@ const Page = () => {
         firstname: "",
         lastname: "",
         email: "",
-        field: "Select Field",
+        field: "Select Industry",
         service: "Select Services",
         message: "",
       });
@@ -64,9 +64,7 @@ const Page = () => {
           <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
             Enquiry Menu
           </h2>
-          <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
+          {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
 
           {/* Display success or error messages */}
           {error && <p className="mb-4 text-sm text-red-500">{error}</p>}
@@ -124,7 +122,7 @@ const Page = () => {
             </div>
             <div className="w-full">
               <label htmlFor="field" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                Select Field
+                Select Industry
               </label>
               <select
                 name="field"
@@ -134,7 +132,7 @@ const Page = () => {
                 className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
-                <option value="Select Field">Select Field</option>
+                <option value="Select Field">Select Industry</option>
                 <option value="Person">Person</option>
                 <option value="Company">Company</option>
                 <option value="Both">Both</option>
@@ -155,7 +153,7 @@ const Page = () => {
                 <option value="Select Services">Select Services</option>
                 <option value="Digital Marketing">Digital Marketing</option>
                 <option value="Branding">Branding</option>
-                <option value="Designing">Designing</option>
+                <option value="Design">Design</option>
               </select>
             </div>
             <div className="sm:col-span-2">

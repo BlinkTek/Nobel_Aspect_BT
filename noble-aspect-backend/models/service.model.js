@@ -8,12 +8,15 @@ const serviceSchema = new mongoose.Schema(
     },
     serviceTitle: {
       type: String,
-      enum: ["Digital Marketing", "Designing", "Branding"],
       required: true,
     },
     information: {
       type: String,
       required: true,
+    },
+    features: {
+      type: [String], // Array of strings for features
+      default: [],    // Set default value to an empty array
     },
   },
   {

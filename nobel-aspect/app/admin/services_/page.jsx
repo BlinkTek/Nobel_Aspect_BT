@@ -118,8 +118,8 @@ const columns = [
 const serviceOptions = [
   { name: "Marketing", uid: "marketing" },
   { name: "Branding", uid: "branding" },
-  { name: "Designing", uid: "designing" },
-];
+  { name: "Design", uid: "design" },
+];  
 
 const users = [
   // {
@@ -153,7 +153,7 @@ const users = [
   },
   {
     id: 4,
-    service: "designing",
+    service: "design",
     image: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
     information:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id egestas turpis. Nam eu pellentesque arcu. Maecenas sagittis id massa quis ullamcorper. Mauris convallis ipsum orci, quis scelerisque nibh pretium et. In dignissim ac elit nec interdum. Integer et ante ultrices, sodales nunc quis, cursus nulla. Pellentesque faucibus libero a interdum consectetur.",
@@ -167,7 +167,7 @@ const users = [
   },
   {
     id: 6,
-    service: "designing",
+    service: "design",
     image: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     information:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id egestas turpis. Nam eu pellentesque arcu. Maecenas sagittis id massa quis ullamcorper. Mauris convallis ipsum orci, quis scelerisque nibh pretium et. In dignissim ac elit nec interdum. Integer et ante ultrices, sodales nunc quis, cursus nulla. Pellentesque faucibus libero a interdum consectetur.",
@@ -188,7 +188,7 @@ const users = [
   },
   {
     id: 9,
-    service: "designing",
+    service: "design",
     image: "https://i.pravatar.cc/150?img=4",
     information:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id egestas turpis. Nam eu pellentesque arcu. Maecenas sagittis id massa quis ullamcorper. Mauris convallis ipsum orci, quis scelerisque nibh pretium et. In dignissim ac elit nec interdum. Integer et ante ultrices, sodales nunc quis, cursus nulla. Pellentesque faucibus libero a interdum consectetur.",

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -19,33 +19,38 @@ import {
 import Logo from "./Logo";
 import { Icon } from "@iconify/react";
 import { usePathname } from "next/navigation";
+import axios from "axios";
 
 export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Home",
-    "Services",
-    "Case Study",
-    "About us",
-    "Contact us",
-  ];
+  const menuItems = ["Home", "Services", "Case Study", "About us", "Contact us"];
+
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/service/list");
+      setServices(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
-    <Navbar
-      onMenuOpenChange={setIsMenuOpen}
-      disableAnimation
-      isBordered
-      isBlurred={false}
-    >
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
+    <Navbar onMenuOpenChange={setIsMenuOpen} disableAnimation isBordered isBlurred={false}>
+      <NavbarContent justify="start">
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden text-black" />
         <NavbarBrand>
-          <Logo />
+          <Logo wordmark />
         </NavbarBrand>
       </NavbarContent>
 
@@ -73,7 +78,7 @@ export default function Header() {
               </Button>
             </DropdownTrigger>
           </NavbarItem>
-          <DropdownMenu
+          {/* <DropdownMenu
             aria-label="ACME features"
             className="w-full"
             itemClasses={{
@@ -124,7 +129,25 @@ export default function Header() {
                 <span className="text-gray-500 font-semibold">Designing</span>
               </a>
             </DropdownItem>
-          </DropdownMenu>
+          </DropdownMenu> */}
+
+          {!loading && (
+            <DropdownMenu
+              aria-label="ACME features"
+              className="w-full"
+              itemClasses={{
+                base: "gap-4",
+              }}
+            >
+              {services.map((service, index) => (
+                <DropdownItem key={service.serviceTitle} className="focus:ring-black">
+                  <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1  ">
+                    <span className="text-gray-500 font-semibold">{service.serviceTitle}</span>
+                  </a>
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          )}
         </Dropdown>
         <NavbarItem>
           <Link
@@ -172,7 +195,7 @@ export default function Header() {
               variant="bordered"
               className="text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0"
             >
-              Enquire
+              Enquiry
             </Button>
           )}
         </NavbarItem>

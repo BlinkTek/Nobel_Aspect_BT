@@ -122,7 +122,7 @@ const columns = [
 const serviceOptions = [
   { name: "Marketing", uid: "Digital Marketing" },
   { name: "Branding", uid: "Branding" },
-  { name: "Designing", uid: "Designing" },
+  { name: "Design", uid: "Design" },
 ];
 
 function capitalize(str) {
@@ -219,7 +219,7 @@ export default function App() {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredItems.slice(start, end);
+    return filteredItems.slice(start, end).reverse();
   }, [page, filteredItems, rowsPerPage]);
 
   const sortedItems = React.useMemo(() => {

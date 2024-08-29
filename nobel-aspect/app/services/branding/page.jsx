@@ -9,23 +9,19 @@ const Branding = () => {
   const [serviceData, setServiceData] = useState([
     {
       icon: "",
-      content:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas at dolor lacinia, int erdum risus elementum, frin gilla sapien.Nullam a sapien vulputate",
+      content: `<b>Craft Your Identity:</b> Our branding services are designed to define and amplify your unique identity. We delve deep into your brand’s essence to create a compelling narrative that resonates with your audience and sets you apart from the competition.`,
     },
     {
       icon: "",
-      content:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas at dolor lacinia, int erdum risus elementum, frin gilla sapien.Nullam a sapien vulputate",
+      content: `<b>Visual Impact:</b> We transform your brand’s story into visually captivating elements that convey your message effectively. From logos to color schemes, our design expertise ensures that every visual aspect of your brand is memorable and impactful.`,
     },
     {
       icon: "",
-      content:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas at dolor lacinia, int erdum risus elementum, frin gilla sapien.Nullam a sapien vulputate",
+      content: `<b>Strategic Alignment:</b> Our approach integrates your brand’s goals with strategic insights to build a cohesive and engaging brand experience. We focus on aligning your branding efforts with market trends and audience expectations to maximize your reach and influence.`,
     },
     {
       icon: "",
-      content:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas at dolor lacinia, int erdum risus elementum, frin gilla sapien.Nullam a sapien vulputate",
+      content: `<b>Long-Term Success:</b> At the heart of our branding strategy is a commitment to your long-term success. We build strong brand foundations that not only capture attention but also foster lasting connections, ensuring your brand evolves with the changing landscape.`,
     },
   ]);
   return (
@@ -49,20 +45,12 @@ const Branding = () => {
               Branding
             </h2>
             <p className="text-base lg:text-lg text-siteTextIcon-disabled font-semibold">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              quis velit ac tellus efficitur congue at nec mi. Vestibulum id
-              congue ligula, sed laoreet turpis. Mauris vestibulum condimentum
-              mi ut sagittis
+              At Noble Aspect, LLC, we understand that a strong brand is the foundation of success. Our branding
+              services are designed to create a powerful and authentic identity that resonates with your audience.
             </p>
           </div>
           <div className="w-full sm:w-2/3 md:w-full flex items-center justify-center order-1 md:order-none z-10">
-            <Image
-              src={"/branding.svg"}
-              className="w-full h-full object-cover"
-              alt=""
-              width={1000}
-              height={1000}
-            />
+            <Image src={"/branding.svg"} className="w-full h-full object-cover" alt="" width={1000} height={1000} />
           </div>
         </div>
       </section>
@@ -75,9 +63,8 @@ const Branding = () => {
               Branding{" "}
             </h2>
             <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
-              Our battle-tested developers specialize in a wide range of web
-              development services. Here are some of the solutions that we can
-              deliver for you.
+              Our battle-tested developers specialize in a wide range of web development services. Here are some of the
+              solutions that we can deliver for you.
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
@@ -98,17 +85,14 @@ const Branding = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                       >
-                        <g fill="none" stroke="currentColor" stroke-width="1.5">
+                        <g fill="none" stroke="currentColor" strokeWidth="1.5">
                           <path d="M2 12.204c0-2.289 0-3.433.52-4.381c.518-.949 1.467-1.537 3.364-2.715l2-1.241C9.889 2.622 10.892 2 12 2s2.11.622 4.116 1.867l2 1.241c1.897 1.178 2.846 1.766 3.365 2.715S22 9.915 22 12.203v1.522c0 3.9 0 5.851-1.172 7.063S17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.212S2 17.626 2 13.725z" />
-                          <path
-                            stroke-linecap="round"
-                            d="M9 16c.85.63 1.885 1 3 1s2.15-.37 3-1"
-                          />
+                          <path strokeLinecap="round" d="M9 16c.85.63 1.885 1 3 1s2.15-.37 3-1" />
                         </g>
                       </svg>
                     </div>
                   </div>
-                  <p>{item.content}</p>
+                  <p dangerouslySetInnerHTML={{ __html: item.content }} />
                 </div>
               );
             })}

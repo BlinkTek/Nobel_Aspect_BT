@@ -13,7 +13,7 @@ require("dotenv").config();
 // };
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect("mongodb+srv://noble:0hT5yw1EGXyVcTuW@cluster0.hszw1.mongodb.net/noble")
   .then(() => {
     console.log("Database Connected");
   })

@@ -21,10 +21,15 @@ const deleteCaseStudy = async (id) => {
   return await CaseStudy.findByIdAndDelete(id);
 };
 
+const findCaseStudyByTitle = async (casestudyTitle) => {
+  return await CaseStudy.findOne({ casestudyTitle });
+};
+
 module.exports = {
   createCaseStudy,
   getAllCaseStudies,
   getCaseStudyById,
   updateCaseStudy,
   deleteCaseStudy,
+  findCaseStudyByTitle,
 };

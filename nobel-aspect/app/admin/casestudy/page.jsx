@@ -27,6 +27,7 @@ import {
 
 import Image from "next/image";
 import axios from "axios";
+import { Editor } from "primereact/editor";
 
 const PlusIcon = ({ size = 24, width, height, ...props }) => (
   <svg
@@ -119,7 +120,7 @@ const columns = [
 const serviceOptions = [
   { name: "Marketing", uid: "Digital Marketing" },
   { name: "Branding", uid: "Branding" },
-  { name: "Designing", uid: "Designing" },
+  { name: "Design", uid: "Design" },
 ];
 
 function capitalize(str) {
@@ -135,6 +136,7 @@ export default function App() {
     image: "",
     casestudyTitle: "",
     information: "",
+    content: "",
   });
 
   const [users, setUsers] = useState([]);
@@ -155,8 +157,8 @@ export default function App() {
     fetchData();
   }, []);
 
-  const modalOpen =
-    ((mode = "add", user) => {
+  const modalOpen = useCallback(
+    (mode = "add", user) => {
       const userData = user || {
         image: "",
         casestudyTitle: "",
@@ -167,22 +169,52 @@ export default function App() {
       setModalData(userData);
       setModalMode(mode);
     },
-    []);
+    [onOpen]
+  );
 
   const handleChange = (e) => {
-    setModalData({
-      ...modalData,
-      [e.target.id]: e.target.value,
-    });
+    const { id, value, files } = e.target;
+    if (id === "image") {
+      // Handle file input
+      setModalData({
+        ...modalData,
+        [id]: files[0], // Assuming you only want the first file
+      });
+    } else {
+      // Handle other input types
+      setModalData({
+        ...modalData,
+        [id]: value,
+      });
+    }
   };
 
   const handleSubmit = async (onClose) => {
     try {
-      const response = await axios.post("http://localhost:8000/caseStudy/create", modalData);
+      // Create a FormData object
+      const formData = new FormData();
+      formData.append("casestudyTitle", modalData.casestudyTitle);
+      formData.append("information", modalData.information);
+      formData.append("content", modalData.content);
+
+      // Check if there is a file and append it
+      if (modalData.image) {
+        formData.append("image", modalData.image);
+      }
+
+      // Send the form data to the server
+      const response = await axios.post("http://localhost:8000/caseStudy/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       console.log(response.data);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to add case study. Please try again later.");
     }
+
+    // Close the modal and fetch data
     onClose();
     fetchData();
   };
@@ -252,7 +284,7 @@ export default function App() {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredItems.slice(start, end);
+    return filteredItems.slice(start, end).reverse();
   }, [page, filteredItems, rowsPerPage]);
 
   const sortedItems = React.useMemo(() => {
@@ -282,24 +314,46 @@ export default function App() {
         case "actions":
           return (
             <div className="relative flex justify-end items-center gap-2">
-              <Dropdown className="bg-background border-1 border-default-200">
-                <DropdownTrigger>
-                  <Button isIconOnly radius="full" size="sm" variant="light">
-                    <VerticalDotsIcon className="text-default-400" />
-                  </Button>
-                </DropdownTrigger>
-                <DropdownMenu className="text-black">
-                  <DropdownItem onPress={() => modalOpen("view", user)}>View</DropdownItem>
-                  <DropdownItem onPress={() => modalOpen("edit", user)}>Edit</DropdownItem>
-                  <DropdownItem onPress={() => deleteCaseStudy(user)} className="text-red-500">
-                    Delete
-                  </DropdownItem>
-                </DropdownMenu>
-              </Dropdown>
+              <button
+                type="button"
+                className="text-white bg-slate-500 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={() => modalOpen("view", user)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">
+                  <path
+                    fill="currentColor"
+                    d="m.5 7.5l-.464-.186a.5.5 0 0 0 0 .372zm14 0l.464.186a.5.5 0 0 0 0-.372zm-7 4.5c-2.314 0-3.939-1.152-5.003-2.334a9.4 9.4 0 0 1-1.449-2.164l-.08-.18l-.004-.007v-.001L.5 7.5l-.464.186v.002l.003.004l.026.063l.078.173a10.4 10.4 0 0 0 1.61 2.406C2.94 11.653 4.814 13 7.5 13zm-7-4.5l.464.186l.004-.008a3 3 0 0 1 .08-.18a9.4 9.4 0 0 1 1.449-2.164C3.56 4.152 5.186 3 7.5 3V2C4.814 2 2.939 3.348 1.753 4.666a10.4 10.4 0 0 0-1.61 2.406a6 6 0 0 0-.104.236l-.002.004v.001H.035zm7-4.5c2.314 0 3.939 1.152 5.003 2.334a9.4 9.4 0 0 1 1.449 2.164l.08.18l.004.007v.001L14.5 7.5l.464-.186v-.002l-.003-.004l-.026-.063l-.078-.173a10.4 10.4 0 0 0-1.61-2.406C12.06 3.348 10.186 2 7.5 2zm7 4.5l-.464-.186l-.003.008l-.015.035l-.066.145a9.4 9.4 0 0 1-1.449 2.164C11.44 10.848 9.814 12 7.5 12v1c2.686 0 4.561-1.348 5.747-2.665a10.4 10.4 0 0 0 1.61-2.407a6 6 0 0 0 .104-.236l.002-.004v-.001h.001zM7.5 9A1.5 1.5 0 0 1 6 7.5H5A2.5 2.5 0 0 0 7.5 10zM9 7.5A1.5 1.5 0 0 1 7.5 9v1A2.5 2.5 0 0 0 10 7.5zM7.5 6A1.5 1.5 0 0 1 9 7.5h1A2.5 2.5 0 0 0 7.5 5zm0-1A2.5 2.5 0 0 0 5 7.5h1A1.5 1.5 0 0 1 7.5 6z"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                className="text-white bg-slate-500 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={() => modalOpen("edit", user)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 28 28">
+                  <path
+                    fill="currentColor"
+                    d="M24.85 3.15a3.93 3.93 0 0 0-5.561 0L4.503 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L24.85 8.71a3.93 3.93 0 0 0 0-5.56m-4.5 1.06a2.432 2.432 0 1 1 3.439 3.44l-1.54 1.539l-3.439-3.44zm-2.6 2.6l3.44 3.44L9.002 22.437a2.1 2.1 0 0 1-.93.544l-4.241 1.187l1.187-4.24a2.13 2.13 0 0 1 .544-.93z"
+                  />
+                </svg>
+              </button>
+              <button
+                type="button"
+                className="text-white bg-slate-500 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={() => deleteCaseStudy(user)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
+                  <path
+                    fill="currentColor"
+                    d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0m-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1"
+                  />
+                </svg>
+              </button>
             </div>
           );
-        // case "information":
-        //   return `${cellValue.slice(0, 60)}....`;
+        case "image":
+          return <img src={cellValue} alt="" width={100} height={50} />;
         default:
           return cellValue;
       }
@@ -532,22 +586,19 @@ export default function App() {
                           htmlFor="casestudyTitle"
                           className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                         >
-                          Select title
+                          Case Study title
                         </label>
-                        <select
+                        <input
+                          type="text"
                           name="casestudyTitle"
                           id="casestudyTitle"
                           value={modalData.casestudyTitle}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
                           className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Enter Field"
                           required
-                        >
-                          <option value="Select Field">Select Field</option>
-                          <option value="Digital Marketing">Digital Marketing</option>
-                          <option value="Branding">Branding</option>
-                          <option value="Designing">Designing</option>
-                        </select>
+                        />
                       </div>
                       <div className="w-full">
                         <label
@@ -556,21 +607,18 @@ export default function App() {
                         >
                           Image
                         </label>
-                        <select
+                        <input
+                          type="file"
                           name="image"
                           id="image"
-                          value={modalData.image}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
                           className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          accept="image/*"
                           required
-                        >
-                          <option value="Add image">Add image</option>
-                          <option value="Person">Person</option>
-                          <option value="Company">Company</option>
-                          <option value="Both">Both</option>
-                        </select>
+                        />
                       </div>
+
                       <div className="sm:col-span-2">
                         <label
                           htmlFor="information"
@@ -588,6 +636,23 @@ export default function App() {
                           placeholder="Add information"
                           required
                         ></textarea>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label
+                          htmlFor="information"
+                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                        >
+                          Case Study Content
+                        </label>
+                        <Editor
+                          value={modalData.content}
+                          onTextChange={(e) => {
+                            const value = e.htmlValue;
+                            setModalData({ ...modalData, value });
+                          }}
+                          style={{ height: "120px" }}
+                        />
                       </div>
                     </form>
                   </ModalBody>

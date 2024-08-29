@@ -21,10 +21,15 @@ const deleteService = async (id) => {
   return await Service.findByIdAndDelete(id);
 };
 
+const findServiceByTitle = async (serviceTitle) => {
+  return await Service.findOne({ serviceTitle });
+};
+
 module.exports = {
   createService,
   getAllServices,
   getServiceById,
   updateService,
   deleteService,
+  findServiceByTitle,
 };

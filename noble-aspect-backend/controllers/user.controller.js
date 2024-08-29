@@ -29,9 +29,8 @@ const createUser = async (req, res) => {
 const loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log('login:::',email);
+
     const user = await userDAO.findUserByEmail(email);
-    console.log("userrrrrrr::::",user);
 
     if (!user) {
       return res.status(400).json({ message: "User not found" });
@@ -43,9 +42,16 @@ const loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ id: user._id }, 'nobleespects', { expiresIn: "1h" });
+    const token = jwt.sign({ id: user._id }, "nobleespects", { expiresIn: "1h" });
 
-    res.json({ token });
+    const response = {
+      name: user.name,
+      email: user.email,
+      token: token,
+      password: user.password,
+    };
+
+    res.json({ message: "Login successfully", data: response });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
