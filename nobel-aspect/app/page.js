@@ -143,7 +143,6 @@ export default function Home() {
       </section>
 
       {/* Case Study Section */}
-
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
@@ -196,7 +195,7 @@ export default function Home() {
             Let&apos;s make some great Digital products together
           </h1>
           <a
-            href="#"
+            href="/contact"
             className="inline-flex justify-center items-center py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
           >
             Contact us
@@ -212,7 +211,7 @@ export default function Home() {
               Enquiry
             </h2>
             {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
-            <form action="#" className="space-y-4">
+            <form className="space-y-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                   <label
@@ -301,7 +300,9 @@ export default function Home() {
                 type="submit"
                 className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-700 sm:w-fit hover:bg-sitePrimary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
-                Submit
+                <a href="/enquiry">
+                  Submit
+                </a>
               </button>
             </form>
           </div>

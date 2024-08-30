@@ -25,7 +25,13 @@ export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Home", "Services", "Case Study", "About us", "Contact us"];
+  const menuItems = [
+    { name: "Home", link: "/" },
+    { name: "Services", link: "/services/Branding" },
+    { name: "Case Study", link: "/casestudy" },
+    { name: "About us", link: "/about" },
+    { name: "Contact us", link: "/contact" },
+  ];
 
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -205,8 +211,8 @@ export default function Header() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link color="foreground" className="w-full" href="#" size="lg">
-              {item}
+            <Link color="foreground" className="w-full" href={item.link} size="lg">
+              {item.name}
             </Link>
           </NavbarMenuItem>
         ))}

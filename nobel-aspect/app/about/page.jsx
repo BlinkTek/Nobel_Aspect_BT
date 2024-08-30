@@ -40,7 +40,7 @@ const Designing = () => {
           <div className="space-y-8 md:space-y-0">
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
-                <Image className="w-full md:w-[52%] dark:hidden" src="/about_1.png" alt="dashboard image" />
+                <Image width={500} height={500} className="w-full md:w-[52%] dark:hidden" src="/about_1.png" alt="dashboard image" />
                 <div className="mt-4 md:mt-0">
                   <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
                     Why choose us ?
@@ -66,7 +66,7 @@ const Designing = () => {
             </section>
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
-                <Image className="w-full md:w-[52%] dark:hidden order-2" src="/about_2.png" alt="dashboard image" />
+                <Image width={500} height={500} className="w-full md:w-[52%] dark:hidden order-2" src="/about_2.png" alt="dashboard image" />
                 <div className="mt-4 md:mt-0 order-1">
                   <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
                     Our VALUE
@@ -90,7 +90,7 @@ const Designing = () => {
             </section>
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
-                <Image className="w-full md:w-[52%] dark:hidden" src="/about_3.png" alt="dashboard image" />
+                <Image width={500} height={500} className="w-full md:w-[52%] dark:hidden" src="/about_3.png" alt="dashboard image" />
                 <div className="mt-4 md:mt-0">
                   <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
                     OUR MISSION
