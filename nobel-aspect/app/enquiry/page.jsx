@@ -30,7 +30,7 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/inquiry/inquiries", formData, {
+      const response = await axios.post("https://nobel-aspect-bt.vercel.app/inquiry/inquiries", formData, {
         headers: {
           "Content-Type": "application/json",
         },

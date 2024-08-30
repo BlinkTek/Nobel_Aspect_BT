@@ -144,7 +144,7 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/caseStudy/list");
+      const response = await axios.get("https://nobel-aspect-bt.vercel.app/caseStudy/list");
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -203,7 +203,7 @@ export default function App() {
       }
 
       // Send the form data to the server
-      const response = await axios.post("http://localhost:8000/caseStudy/create", formData, {
+      const response = await axios.post("https://nobel-aspect-bt.vercel.app/caseStudy/create", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -221,7 +221,7 @@ export default function App() {
 
   const handleEditData = async (onClose) => {
     try {
-      const response = await axios.put(`http://localhost:8000/caseStudy/edit/${modalData._id}`, modalData);
+      const response = await axios.put(`https://nobel-aspect-bt.vercel.app/caseStudy/edit/${modalData._id}`, modalData);
       console.log(response.data);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to edit case study. Please try again later.");
@@ -232,7 +232,7 @@ export default function App() {
 
   const deleteCaseStudy = useCallback(async (user) => {
     try {
-      const response = await axios.delete(`http://localhost:8000/caseStudy/delete/${user._id}`);
+      const response = await axios.delete(`https://nobel-aspect-bt.vercel.app/caseStudy/delete/${user._id}`);
       console.log(response.data);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to delete case study. Please try again later.");

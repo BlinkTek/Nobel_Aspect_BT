@@ -37,7 +37,7 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.post(`http://localhost:8000/caseStudy/case-study`, {
+      const response = await axios.post(`https://nobel-aspect-bt.vercel.app/caseStudy/case-study`, {
         casestudyTitle: study,
       });
       setMyService(response.data);

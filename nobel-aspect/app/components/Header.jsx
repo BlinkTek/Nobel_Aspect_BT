@@ -32,7 +32,7 @@ export default function Header() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/service/list");
+      const response = await axios.get("https://nobel-aspect-bt.vercel.app/service/list");
       setServices(response.data);
       setLoading(false);
     } catch (error) {

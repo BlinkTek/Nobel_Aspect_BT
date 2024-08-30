@@ -16,7 +16,7 @@ const Page = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:8000/user/login`, {
+      const response = await axios.post(`https://nobel-aspect-bt.vercel.app/user/login`, {
         email,
         password,
       });
