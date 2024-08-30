@@ -2,19 +2,20 @@ const caseStudyDAO = require("../dao/caseStudy.dao");
 
 const createCaseStudy = async (req, res) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ message: 'No file uploaded.' });
-    }
-
     const caseStudyData = {
-      image: req.file.path, // Cloudinary file path
       casestudyTitle: req.body.casestudyTitle,
       information: req.body.information,
+      content: req.body.content,
     };
+
+    if (req.file) {
+      caseStudyData.image = req.file.path;
+    }
 
     const caseStudy = await caseStudyDAO.createCaseStudy(caseStudyData);
     res.status(201).json(caseStudy);
   } catch (err) {
+    console.log("error:::::", err);
     res.status(400).json({ message: err.message });
   }
 };
@@ -42,7 +43,17 @@ const getCaseStudyById = async (req, res) => {
 
 const updateCaseStudy = async (req, res) => {
   try {
-    const caseStudy = await caseStudyDAO.updateCaseStudy(req.params.id, req.body);
+    const caseStudyData = {
+      casestudyTitle: req.body.casestudyTitle,
+      information: req.body.information,
+      content: req.body.content,
+    };
+
+    if (req.file) {
+      caseStudyData.image = req.file.path; // Update the image if a new one is uploaded
+    }
+
+    const caseStudy = await caseStudyDAO.updateCaseStudy(req.params.id, caseStudyData);
     if (!caseStudy) {
       return res.status(404).json({ message: "Case study not found" });
     }

@@ -15,12 +15,12 @@ const serviceSchema = new mongoose.Schema(
       required: true,
     },
     features: {
-      type: [String], // Array of strings for features
-      default: [],    // Set default value to an empty array
+      type: String,
+      default: null,
     },
   },
   {
-    timestamps: true, 
+    timestamps: true,
   }
 );
 

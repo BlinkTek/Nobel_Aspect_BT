@@ -25,22 +25,14 @@ export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = [
-    "Home",
-    "Services",
-    "Case Study",
-    "About us",
-    "Contact us",
-  ];
+  const menuItems = ["Home", "Services", "Case Study", "About us", "Contact us"];
 
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}service/list`
-      );
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}service/list`);
       setServices(response.data);
       setLoading(false);
     } catch (error) {
@@ -54,19 +46,13 @@ export default function Header() {
   }, []);
 
   return (
-    <Navbar
-      onMenuOpenChange={setIsMenuOpen}
-      disableAnimation
-      isBordered
-      isBlurred={false}
-    >
+    <Navbar onMenuOpenChange={setIsMenuOpen} disableAnimation isBordered isBlurred={false}>
       <NavbarContent justify="start">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden text-black"
-        />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden text-black" />
         <NavbarBrand>
-          <Logo wordmark />
+          <Link href="/">
+            <Logo wordmark />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
@@ -75,7 +61,7 @@ export default function Header() {
           <Link
             color="foreground"
             href="/"
-            className="flex items-center justify-center min-w-20 h-10 text-small rounded-small"
+            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
             Home{" "}
           </Link>
@@ -86,7 +72,7 @@ export default function Header() {
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                className="p-0 bg-transparent min-w-fit data-[hover=true]:bg-transparent"
                 radius="sm"
                 variant="light"
               >
@@ -156,17 +142,9 @@ export default function Header() {
               }}
             >
               {services.map((service, index) => (
-                <DropdownItem
-                  key={service.serviceTitle}
-                  className="focus:ring-black"
-                >
-                  <a
-                    href={`/services/${service.serviceTitle}`}
-                    className="flex gap-2 items-center py-1  "
-                  >
-                    <span className="text-gray-500 font-semibold">
-                      {service.serviceTitle}
-                    </span>
+                <DropdownItem key={service.serviceTitle} className="focus:ring-black">
+                  <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1  ">
+                    <span className="text-gray-500 font-semibold">{service.serviceTitle}</span>
                   </a>
                 </DropdownItem>
               ))}
@@ -177,7 +155,7 @@ export default function Header() {
           <Link
             color="foreground"
             href="/casestudy"
-            className="flex items-center justify-center min-w-20 h-10 text-small rounded-small"
+            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
             Case Study{" "}
           </Link>
@@ -186,7 +164,7 @@ export default function Header() {
           <Link
             color="foreground"
             href="/about"
-            className="flex items-center justify-center min-w-20 h-10 text-small rounded-small"
+            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
             About us{" "}
           </Link>
@@ -195,7 +173,7 @@ export default function Header() {
           <Link
             color="foreground"
             href="/contact"
-            className="flex items-center justify-center min-w-20 h-10 text-small rounded-small"
+            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
             Contact us{" "}
           </Link>

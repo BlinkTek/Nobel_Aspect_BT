@@ -4,7 +4,6 @@ const caseStudySchema = new mongoose.Schema(
   {
     image: {
       type: String,
-      required: true,
     },
     casestudyTitle: {
       type: String,
@@ -12,8 +11,10 @@ const caseStudySchema = new mongoose.Schema(
     },
     information: {
       type: String,
-      required: true,
     },
+    content: {
+      type: String,
+    }
   },
   {
     timestamps: true, 

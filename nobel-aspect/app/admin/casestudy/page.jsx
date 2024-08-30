@@ -247,10 +247,22 @@ export default function App() {
   };
 
   const handleEditData = async (onClose) => {
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append("casestudyTitle", modalData.casestudyTitle);
+    formData.append("information", modalData.information);
+    formData.append("content", modalData.content);
+
+    // Check if there is a file and append it
+    if (modalData.image) {
+      formData.append("image", modalData.image);
+    }
+
+    // Send the form data to the server
     try {
       const response = await axios.put(
         `${process.env.NEXT_PUBLIC_API_URL}caseStudy/edit/${modalData._id}`,
-        modalData
+        formData
       );
       console.log(response.data);
     } catch (err) {
@@ -265,13 +277,9 @@ export default function App() {
 
   const deleteCaseStudy = useCallback(async (user) => {
     try {
-<<<<<<< HEAD
-      const response = await axios.delete(`https://nobel-aspect-bt.vercel.app/caseStudy/delete/${user._id}`);
-=======
       const response = await axios.delete(
         `${process.env.NEXT_PUBLIC_API_URL}caseStudy/delete/${user._id}`
       );
->>>>>>> 8b67825be3936da1e4e2db1584a57f5f00a7fb3e
       console.log(response.data);
     } catch (err) {
       console.log(
@@ -420,7 +428,9 @@ export default function App() {
             </div>
           );
         case "image":
-          return <img src={cellValue} alt="" width={100} height={50} />;
+          return <Image src={cellValue} alt="" width={100} height={50} />;
+        case "information":
+          return `${cellValue.slice(0, 45)}...`;
         default:
           return cellValue;
       }
@@ -668,6 +678,7 @@ export default function App() {
             isOpen={isOpen}
             onOpenChange={onOpenChange}
             className="text-black"
+            scrollBehavior="inside"
           >
             <ModalContent>
               {(onClose) => (
@@ -751,7 +762,7 @@ export default function App() {
                           value={modalData.content}
                           onTextChange={(e) => {
                             const value = e.htmlValue;
-                            setModalData({ ...modalData, value });
+                            setModalData({ ...modalData, content: value });
                           }}
                           style={{ height: "120px" }}
                         />

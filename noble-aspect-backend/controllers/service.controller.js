@@ -2,21 +2,22 @@ const serviceDAO = require("../dao/service.dao");
 
 const createService = async (req, res) => {
   try {
-
     if (!req.file) {
-      return res.status(400).json({ message: 'No file uploaded.' });
+      return res.status(400).json({ message: "No file uploaded." });
     }
 
     const serviceData = {
       image: req.file.path,
       serviceTitle: req.body.serviceTitle,
       information: req.body.information,
-      features: req.body.features || [], // Handle features array
+      features: req.body.features,
     };
 
     const service = await serviceDAO.createService(serviceData);
     res.status(201).json(service);
   } catch (err) {
+    console.log('errrrrrrr',err);
+    
     res.status(400).json({ message: err.message });
   }
 };
@@ -48,7 +49,7 @@ const updateService = async (req, res) => {
       image: req.body.image,
       serviceTitle: req.body.serviceTitle,
       information: req.body.information,
-      features: req.body.features || [], // Handle features array
+      features: req.body.features,
     };
 
     const service = await serviceDAO.updateService(req.params.id, serviceData);

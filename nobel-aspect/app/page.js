@@ -108,7 +108,7 @@ export default function Home() {
         </div>
         <div className="max-w-fit min-h-screen px-10 flex gap-10 lg:gap-24 items-center z-10">
           <div className="w-full md:w-[55%] lg:w-[65%] flex flex-col gap-5 order-2 md:order-none pb-48 sm:pb-32">
-            <h2 className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-siteTextIcon-primary md:leading-10 lg:leading-[60px]">
+            <h2 className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-sitePrimary-800 md:leading-10 lg:leading-[60px]">
               Unleash your brand&apos;s potential with our{" "}
               <span className="text-siteRubinRed-800">cutting-edge marketing!</span>
             </h2>

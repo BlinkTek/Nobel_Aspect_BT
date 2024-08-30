@@ -46,17 +46,9 @@ const Page = () => {
               priority
               className="w-full h-full object-top object-cover"
             /> */}
-            <div className="scale-[2]">
+            <div className="scale-100">
               <Logo wordmark />
             </div>
-            {/* <Image
-              src="/login-image.png"
-              alt="Man holding green arrow"
-              width={1000}
-              height={1000}
-              priority
-              className="w-full h-full object-top object-cover"
-            /> */}
           </div>
           <div className="w-full flex flex-col gap-1 items-center justify-between md:w-1/2 pt-5 pb-5">
             {/* <Logo wordmark /> */}
