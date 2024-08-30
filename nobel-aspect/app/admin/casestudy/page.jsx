@@ -162,13 +162,9 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-<<<<<<< HEAD
-      const response = await axios.get("https://nobel-aspect-bt.vercel.app/caseStudy/list");
-=======
       const response = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}caseStudy/list`
       );
->>>>>>> 8b67825be3936da1e4e2db1584a57f5f00a7fb3e
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
