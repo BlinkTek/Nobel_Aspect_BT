@@ -37,9 +37,12 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.post(`https://nobel-aspect-bt.vercel.app/caseStudy/case-study`, {
-        casestudyTitle: study,
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}caseStudy/case-study`,
+        {
+          casestudyTitle: study,
+        }
+      );
       setMyService(response.data);
       setLoading(false);
     } catch (error) {
@@ -63,7 +66,9 @@ const Page = ({ params }) => {
             <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
               {myService?.casestudyTitle}
             </h2>
-            <p className="text-base lg:text-xl font-normal text-siteTextIcon-disabled">{myService?.information}</p>
+            <p className="text-base lg:text-xl font-normal text-siteTextIcon-disabled">
+              {myService?.information}
+            </p>
           </div>
           <div className="w-full h-full">
             <img
@@ -86,7 +91,9 @@ const Page = ({ params }) => {
 
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-          <div className="mb-8 lg:mb-16 flex flex-col gap-3 mx-auto w-full">{myService?.content}</div>
+          <div className="mb-8 lg:mb-16 flex flex-col gap-3 mx-auto w-full">
+            {myService?.content}
+          </div>
         </div>
       </section>
 

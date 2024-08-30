@@ -25,14 +25,22 @@ export default function Header() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Home", "Services", "Case Study", "About us", "Contact us"];
+  const menuItems = [
+    "Home",
+    "Services",
+    "Case Study",
+    "About us",
+    "Contact us",
+  ];
 
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://nobel-aspect-bt.vercel.app/service/list");
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}service/list`
+      );
       setServices(response.data);
       setLoading(false);
     } catch (error) {
@@ -46,9 +54,17 @@ export default function Header() {
   }, []);
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} disableAnimation isBordered isBlurred={false}>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      disableAnimation
+      isBordered
+      isBlurred={false}
+    >
       <NavbarContent justify="start">
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden text-black" />
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden text-black"
+        />
         <NavbarBrand>
           <Logo wordmark />
         </NavbarBrand>
@@ -140,9 +156,17 @@ export default function Header() {
               }}
             >
               {services.map((service, index) => (
-                <DropdownItem key={service.serviceTitle} className="focus:ring-black">
-                  <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1  ">
-                    <span className="text-gray-500 font-semibold">{service.serviceTitle}</span>
+                <DropdownItem
+                  key={service.serviceTitle}
+                  className="focus:ring-black"
+                >
+                  <a
+                    href={`/services/${service.serviceTitle}`}
+                    className="flex gap-2 items-center py-1  "
+                  >
+                    <span className="text-gray-500 font-semibold">
+                      {service.serviceTitle}
+                    </span>
                   </a>
                 </DropdownItem>
               ))}

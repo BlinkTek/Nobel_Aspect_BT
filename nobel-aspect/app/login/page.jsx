@@ -16,10 +16,13 @@ const Page = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`https://nobel-aspect-bt.vercel.app/user/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}user/login`,
+        {
+          email,
+          password,
+        }
+      );
       console.log("Login successful:", response.data);
 
       localStorage.setItem("token", JSON.stringify(response.data.data));
@@ -59,11 +62,18 @@ const Page = () => {
             {/* <Logo wordmark /> */}
             <div></div>
             <div className="border-2 rounded-large shadow-md p-4 md:p-8 w-full max-w-md">
-              <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800">WELCOME BACK!</h1>
-              <p className="text-gray-500 text-center mb-8">Fill the below fields to log in</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800">
+                WELCOME BACK!
+              </h1>
+              <p className="text-gray-500 text-center mb-8">
+                Fill the below fields to log in
+              </p>
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div>
-                  <label className="block text-gray-600 text-sm font-medium mb-3" htmlFor="email">
+                  <label
+                    className="block text-gray-600 text-sm font-medium mb-3"
+                    htmlFor="email"
+                  >
                     Email Address
                   </label>
                   <input
@@ -76,7 +86,10 @@ const Page = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-600 text-sm font-medium mb-3" htmlFor="password">
+                  <label
+                    className="block text-gray-600 text-sm font-medium mb-3"
+                    htmlFor="password"
+                  >
                     Password
                   </label>
                   <input
@@ -88,7 +101,11 @@ const Page = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
-                {error && <div className="text-red-500 text-sm text-center">{error}</div>}
+                {error && (
+                  <div className="text-red-500 text-sm text-center">
+                    {error}
+                  </div>
+                )}
                 <div className="mb-2">
                   <button
                     className="w-full bg-emerald-500 text-black font-semibold py-2 px-4 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-blue-300"
@@ -99,7 +116,9 @@ const Page = () => {
                 </div>
               </form>
             </div>
-            <p className="text-siteTextIcon-disabled">© 2019 Noble Aspect LLC.</p>
+            <p className="text-siteTextIcon-disabled">
+              © 2019 Noble Aspect LLC.
+            </p>
           </div>
         </div>
       </div>

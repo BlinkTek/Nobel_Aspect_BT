@@ -39,7 +39,13 @@ const PlusIcon = ({ size = 24, width, height, ...props }) => (
     width={size || width}
     {...props}
   >
-    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}>
+    <g
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+    >
       <path d="M6 12h12" />
       <path d="M12 18V6" />
     </g>
@@ -82,7 +88,13 @@ const SearchIcon = (props) => (
       strokeLinejoin="round"
       strokeWidth="2"
     />
-    <path d="M22 22L20 20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+    <path
+      d="M22 22L20 20"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+    />
   </svg>
 );
 
@@ -129,7 +141,16 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-const INITIAL_VISIBLE_COLUMNS = ["id", "firstname", "lastname", "email", "field", "service", "message", "actions"];
+const INITIAL_VISIBLE_COLUMNS = [
+  "id",
+  "firstname",
+  "lastname",
+  "email",
+  "field",
+  "service",
+  "message",
+  "actions",
+];
 
 export default function App() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -148,7 +169,9 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://nobel-aspect-bt.vercel.app/inquiry/inquiries");
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}inquiry/inquiries`
+      );
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -173,7 +196,9 @@ export default function App() {
 
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
-  const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
+  const [visibleColumns, setVisibleColumns] = React.useState(
+    new Set(INITIAL_VISIBLE_COLUMNS)
+  );
   const [serviceFilter, setServiceFilter] = React.useState("all");
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [sortDescriptor, setSortDescriptor] = React.useState({
@@ -189,7 +214,9 @@ export default function App() {
   const headerColumns = React.useMemo(() => {
     if (visibleColumns === "all") return columns;
 
-    return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
+    return columns.filter((column) =>
+      Array.from(visibleColumns).includes(column.uid)
+    );
   }, [visibleColumns]);
 
   const filteredItems = React.useMemo(() => {
@@ -208,8 +235,13 @@ export default function App() {
       );
     }
 
-    if (serviceFilter !== "all" && Array.from(serviceFilter).length !== serviceOptions.length) {
-      filteredUsers = filteredUsers.filter((user) => Array.from(serviceFilter).includes(user.service));
+    if (
+      serviceFilter !== "all" &&
+      Array.from(serviceFilter).length !== serviceOptions.length
+    ) {
+      filteredUsers = filteredUsers.filter((user) =>
+        Array.from(serviceFilter).includes(user.service)
+      );
     }
 
     return filteredUsers;
@@ -256,9 +288,14 @@ export default function App() {
                   </Button>
                 </DropdownTrigger>
                 <DropdownMenu className="text-black">
-                  <DropdownItem onPress={() => modalOpen("view", user)}>View</DropdownItem>
+                  <DropdownItem onPress={() => modalOpen("view", user)}>
+                    View
+                  </DropdownItem>
                   {/* <DropdownItem onPress={() => modalOpen("edit", user)}>Edit</DropdownItem> */}
-                  <DropdownItem onPress={() => deleteenquiry(user.id)} className="text-red-500">
+                  <DropdownItem
+                    onPress={() => deleteenquiry(user.id)}
+                    className="text-red-500"
+                  >
                     Delete
                   </DropdownItem>
                 </DropdownMenu>
@@ -309,7 +346,11 @@ export default function App() {
           <div className="flex gap-3">
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
+                <Button
+                  endContent={<ChevronDownIcon className="text-small" />}
+                  size="sm"
+                  variant="flat"
+                >
                   Select Service
                 </Button>
               </DropdownTrigger>
@@ -322,7 +363,10 @@ export default function App() {
                 onSelectionChange={setServiceFilter}
               >
                 {serviceOptions.map((service) => (
-                  <DropdownItem key={service.uid} className="capitalize text-black">
+                  <DropdownItem
+                    key={service.uid}
+                    className="capitalize text-black"
+                  >
                     {capitalize(service.name)}
                   </DropdownItem>
                 ))}
@@ -330,7 +374,11 @@ export default function App() {
             </Dropdown>
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
+                <Button
+                  endContent={<ChevronDownIcon className="text-small" />}
+                  size="sm"
+                  variant="flat"
+                >
                   Columns
                 </Button>
               </DropdownTrigger>
@@ -343,7 +391,10 @@ export default function App() {
                 onSelectionChange={setVisibleColumns}
               >
                 {columns.map((column) => (
-                  <DropdownItem key={column.uid} className="capitalize text-black">
+                  <DropdownItem
+                    key={column.uid}
+                    className="capitalize text-black"
+                  >
                     {capitalize(column.name)}
                   </DropdownItem>
                 ))}
@@ -404,12 +455,22 @@ export default function App() {
         />
         {false ? (
           <span className="text-small text-default-400">
-            {selectedKeys === "all" ? "All items selected" : `${selectedKeys.size} of ${items.length} selected`}
+            {selectedKeys === "all"
+              ? "All items selected"
+              : `${selectedKeys.size} of ${items.length} selected`}
           </span>
         ) : null}
       </div>
     );
-  }, [selectedKeys, items.length, page, pages, hasSearchFilter, onRowsPerPageChange, rowsPerPage]);
+  }, [
+    selectedKeys,
+    items.length,
+    page,
+    pages,
+    hasSearchFilter,
+    onRowsPerPageChange,
+    rowsPerPage,
+  ]);
 
   const classNames = React.useMemo(
     () => ({
@@ -444,7 +505,8 @@ export default function App() {
             bottomContentPlacement="outside"
             checkboxesProps={{
               classNames: {
-                wrapper: "after:bg-foreground after:text-background text-background",
+                wrapper:
+                  "after:bg-foreground after:text-background text-background",
               },
             }}
             classNames={classNames}
@@ -472,13 +534,23 @@ export default function App() {
               {items.map((item, index) => (
                 <TableRow key={item._id}>
                   {(columnKey) => (
-                    <TableCell>{renderCell(item, columnKey, rowsPerPage * (page - 1) + index)}</TableCell>
+                    <TableCell>
+                      {renderCell(
+                        item,
+                        columnKey,
+                        rowsPerPage * (page - 1) + index
+                      )}
+                    </TableCell>
                   )}
                 </TableRow>
               ))}
             </TableBody>
           </Table>
-          <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="text-black">
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            className="text-black"
+          >
             <ModalContent>
               {(onClose) => (
                 <>
