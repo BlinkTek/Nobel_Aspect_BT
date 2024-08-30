@@ -39,7 +39,7 @@ export default function Header() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "${process.env.NEXT_PUBLIC_API_URL}service/list"
+        `${process.env.NEXT_PUBLIC_API_URL}service/list`
       );
       setServices(response.data);
       setLoading(false);

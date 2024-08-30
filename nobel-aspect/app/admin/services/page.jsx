@@ -162,7 +162,7 @@ export default function App() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "${process.env.NEXT_PUBLIC_API_URL}service/list"
+        `${process.env.NEXT_PUBLIC_API_URL}service/list`
       );
       setUsers(response.data);
       setLoading(false);
@@ -238,7 +238,7 @@ export default function App() {
 
       // Send the form data to the server
       const response = await axios.post(
-        "${process.env.NEXT_PUBLIC_API_URL}service/create",
+        `${process.env.NEXT_PUBLIC_API_URL}service/create`,
         formData,
         {
           headers: {

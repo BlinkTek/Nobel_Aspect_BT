@@ -170,7 +170,7 @@ export default function App() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "${process.env.NEXT_PUBLIC_API_URL}inquiry/inquiries"
+        `${process.env.NEXT_PUBLIC_API_URL}inquiry/inquiries`
       );
       setUsers(response.data);
       setLoading(false);
