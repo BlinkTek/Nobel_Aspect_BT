@@ -233,7 +233,6 @@ export default function App() {
         }
       );
 
-      console.log(response.data);
     } catch (err) {
       console.log(
         err.response?.data?.message ||
@@ -264,7 +263,6 @@ export default function App() {
         `${process.env.NEXT_PUBLIC_API_URL}caseStudy/edit/${modalData._id}`,
         formData
       );
-      console.log(response.data);
     } catch (err) {
       console.log(
         err.response?.data?.message ||
@@ -280,7 +278,6 @@ export default function App() {
       const response = await axios.delete(
         `${process.env.NEXT_PUBLIC_API_URL}caseStudy/delete/${user._id}`
       );
-      console.log(response.data);
     } catch (err) {
       console.log(
         err.response?.data?.message ||

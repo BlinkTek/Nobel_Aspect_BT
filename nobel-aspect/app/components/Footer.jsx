@@ -23,7 +23,10 @@ const Footer = ({ noDesign }) => {
             <Link href={"/"} className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6">
               Home
             </Link>
-            <Link href={"/services"} className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6">
+            <Link
+              href={"/services/Branding"}
+              className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6"
+            >
               Services
             </Link>
             <Link href={"/casestudy"} className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6">

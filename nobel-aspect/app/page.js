@@ -1,11 +1,14 @@
 "use client";
 
 import Header from "./components/Header";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Footer from "./components/Footer";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function Home() {
+  const router = useRouter();
   const [hoveredDiv, setHoveredDiv] = useState(null);
 
   const handleMouseEnter = (index) => {
@@ -16,78 +19,42 @@ export default function Home() {
     setHoveredDiv(null);
   };
 
+  const [caseStudy, setCaseStudy] = useState([]);
+
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}caseStudy/list`);
+      setCaseStudy(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   const [featuresSection, setFeaturesSection] = useState([
     {
       id: 0,
       icon: "",
       title: "Digital Marketing",
       description:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas",
+        "Discover the power of strategic digital marketing with Noble Aspect, LLC. We specialize in crafting custom strategies that elevate your brand's online presence.",
     },
     {
       id: 1,
       icon: "",
       title: "Branding",
       description:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas",
+        "At Noble Aspect, LLC, we understand that a strong brand is the foundation of success. Our branding services are designed to create a powerful and authentic identity that resonates with your audience.",
     },
     {
       id: 2,
       icon: "",
       title: "Design",
       description:
-        "Lorem ipsum dolor sit amet, co nsectetur adipiscing elit. Du is facilisis blandit erat in suscipi    Maecenas",
-    },
-  ]);
-
-  const [serviceData, setServiceData] = useState([
-    {
-      title: "Growth-marketing app for business",
-      subtitle: "Mobile App Redesign",
-      heading:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit ",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit molestie id. Praesent tincidunt venenatis tortor, a ornare orci maximus maximus. ",
-    },
-    {
-      title: "Growth-marketing app for business",
-      subtitle: "Mobile App Redesign",
-      heading:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit ",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit molestie id. Praesent tincidunt venenatis tortor, a ornare orci maximus maximus. ",
-    },
-    {
-      title: "Growth-marketing app for business",
-      subtitle: "Mobile App Redesign",
-      heading:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit ",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit molestie id. Praesent tincidunt venenatis tortor, a ornare orci maximus maximus. ",
-    },
-    {
-      title: "Growth-marketing app for business",
-      subtitle: "Mobile App Redesign",
-      heading:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit ",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit molestie id. Praesent tincidunt venenatis tortor, a ornare orci maximus maximus. ",
-    },
-    {
-      title: "Growth-marketing app for business",
-      subtitle: "Mobile App Redesign",
-      heading:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit ",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit molestie id. Praesent tincidunt venenatis tortor, a ornare orci maximus maximus. ",
-    },
-    {
-      title: "Growth-marketing app for business",
-      subtitle: "Mobile App Redesign",
-      heading:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit ",
-      content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla rutrum tincidunt metus, quis imperdiet elit molestie id. Praesent tincidunt venenatis tortor, a ornare orci maximus maximus. ",
+        "Elevate your brand’s visual identity with our cutting-edge design services. At Noble Aspect, LLC, we create captivating, user-centred designs that not only look stunning but also drive engagement.",
     },
   ]);
 
@@ -176,6 +143,7 @@ export default function Home() {
       </section>
 
       {/* Case Study Section */}
+
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
@@ -187,37 +155,36 @@ export default function Home() {
               we can deliver for you.
             </p>
           </div>
-          <div className="flex flex-wrap justify-evenly gap-y-5">
-            {serviceData.map((item, index) => (
-              <div
-                key={index}
-                onMouseEnter={() => handleMouseEnter(index)}
-                onMouseLeave={handleMouseLeave}
-                className={`w-full sm:w-[48%] lg:w-[30%] bg-sitePrimary-100 border flex flex-col gap-3 group transition-all duration-300 ${
-                  hoveredDiv === index ? "h-fit z-20" : "h-80"
-                } border-siteNeutral-300 p-5 rounded-2xl text-gray-500 dark:text-gray-400 overflow-hidden ${
-                  hoveredDiv === index && index + 3 < serviceData.length ? "-mb-[520px]" : ""
-                }`}
-              >
-                <h2 className="mb-4 text-2xl tracking-tight font-medium text-siteTextIcon-primary">{item.title}</h2>
-                <div className="w-full h-full">
-                  <Image
-                    src={"/mobile_app.png"}
-                    alt=""
-                    width={500}
-                    height={20}
-                    className="w-full h-full object-contain"
-                  />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {caseStudy &&
+              caseStudy.map((item, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                  className={`relative bg-sitePrimary-100 border flex flex-col gap-3 group transition-all duration-300 ${
+                    hoveredDiv === index ? "h-fit z-20" : "h-80"
+                  } border-siteNeutral-300 p-5 rounded-2xl text-gray-500 dark:text-gray-400 overflow-hidden ${
+                    hoveredDiv === index &&
+                    (index + 3 < caseStudy.length || index + 2 < caseStudy.length || index + 1 < caseStudy.length)
+                      ? "-mb-[520px]"
+                      : ""
+                  }`}
+                  onClick={() => router.push(`/casestudy/${item.casestudyTitle}`)}
+                >
+                  <h2 className="mb-4 text-2xl tracking-tight font-medium text-siteTextIcon-primary">
+                    {item?.casestudyTitle}
+                  </h2>
+                  <div className="w-full h-full">
+                    <Image src={item?.image} alt="" width={500} height={20} className="w-full h-full object-contain" />
+                  </div>
+                  {hoveredDiv === index && (
+                    <p className="text-base tracking-tight font-medium text-siteTextIcon-disabled transition-opacity duration-300 ease-in-out opacity-100">
+                      {item?.information}
+                    </p>
+                  )}
                 </div>
-                <span className="text-lg tracking-tight font-medium text-sitePrimary-800">{item.subtitle}</span>
-                <h2 className="text-2xl tracking-tight font-medium text-siteTextIcon-primary">{item.heading}</h2>
-                {hoveredDiv === index && (
-                  <p className="text-base tracking-tight font-medium text-siteTextIcon-disabled transition-opacity duration-300 ease-in-out opacity-100">
-                    {item.content}
-                  </p>
-                )}
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>

@@ -191,15 +191,9 @@ export default function App() {
     } else if (id === "features") {
       // Example handling for updating an array item
       const index = parseInt(e.target.dataset.index); // assuming you use data-index for identifying items
-      console.log(index);
       const newFeatures = [...(modalData.features || [])];
-      console.log(newFeatures);
       newFeatures[index] = value;
       setModalData({
-        ...modalData,
-        features: newFeatures,
-      });
-      console.log({
         ...modalData,
         features: newFeatures,
       });
@@ -234,8 +228,6 @@ export default function App() {
           },
         }
       );
-
-      console.log(response.data);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to add case study. Please try again later.");
     }
@@ -248,7 +240,6 @@ export default function App() {
   const handleEditData = async (onClose) => {
     try {
       const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}service/edit/${modalData._id}`, modalData);
-      console.log(response.data);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to edit serice. Please try again later.");
     }
@@ -259,7 +250,6 @@ export default function App() {
   const deleteService = useCallback(async (user) => {
     try {
       const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}service/delete/${user._id}`);
-      console.log(response.data);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to delete service. Please try again later.");
     }

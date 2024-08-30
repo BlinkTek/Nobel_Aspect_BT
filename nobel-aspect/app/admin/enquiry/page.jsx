@@ -194,7 +194,6 @@ export default function App() {
 
   const filteredItems = React.useMemo(() => {
     let filteredUsers = [...users];
-    console.log(filteredUsers);
 
     if (hasSearchFilter) {
       const searchQuery = filterValue.toLowerCase();

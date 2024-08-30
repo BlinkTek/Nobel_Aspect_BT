@@ -19,7 +19,6 @@ const Page = ({ params }) => {
         serviceTitle: service,
       });
       setMyService(response.data);
-      console.log(response.data.features);
       setServiceData(JSON.parse(response.data.features));
       setLoading(false);
     } catch (error) {
