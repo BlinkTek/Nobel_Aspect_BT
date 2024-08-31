@@ -15,7 +15,7 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}service/getServiceByTitle`, {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}api/service/getServiceByTitle`, {
         serviceTitle: service,
       });
       setMyService(response.data);
