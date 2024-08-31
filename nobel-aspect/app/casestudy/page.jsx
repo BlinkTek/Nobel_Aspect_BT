@@ -24,7 +24,7 @@ const Designing = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.get(`${process.env.MAIN_URL}caseStudy/list`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}caseStudy/list`);
       setCaseStudy(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);

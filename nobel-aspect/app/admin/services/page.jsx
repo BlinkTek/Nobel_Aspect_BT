@@ -143,7 +143,7 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${process.env.MAIN_URL}service/list`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}service/list`);
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -220,7 +220,7 @@ export default function App() {
 
       // Send the form data to the server
       const response = await axios.post(
-        `${process.env.MAIN_URL}service/create`,
+        `${process.env.NEXT_PUBLIC_API_URL}service/create`,
         formData,
         {
           headers: {
@@ -239,7 +239,7 @@ export default function App() {
 
   const handleEditData = async (onClose) => {
     try {
-      const response = await axios.put(`${process.env.MAIN_URL}service/edit/${modalData._id}`, modalData);
+      const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}service/edit/${modalData._id}`, modalData);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to edit serice. Please try again later.");
     }
@@ -249,7 +249,7 @@ export default function App() {
 
   const deleteService = useCallback(async (user) => {
     try {
-      const response = await axios.delete(`${process.env.MAIN_URL}service/delete/${user._id}`);
+      const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}service/delete/${user._id}`);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to delete service. Please try again later.");
     }

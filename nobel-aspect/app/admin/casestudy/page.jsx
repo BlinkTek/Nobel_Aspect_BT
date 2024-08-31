@@ -163,7 +163,7 @@ export default function App() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${process.env.MAIN_URL}caseStudy/list`
+        `${process.env.NEXT_PUBLIC_API_URL}caseStudy/list`
       );
       setUsers(response.data);
       setLoading(false);
@@ -224,7 +224,7 @@ export default function App() {
 
       // Send the form data to the server
       const response = await axios.post(
-        `${process.env.MAIN_URL}caseStudy/create`,
+        `${process.env.NEXT_PUBLIC_API_URL}caseStudy/create`,
         formData,
         {
           headers: {
@@ -260,7 +260,7 @@ export default function App() {
     // Send the form data to the server
     try {
       const response = await axios.put(
-        `${process.env.MAIN_URL}caseStudy/edit/${modalData._id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}caseStudy/edit/${modalData._id}`,
         formData
       );
     } catch (err) {
@@ -276,7 +276,7 @@ export default function App() {
   const deleteCaseStudy = useCallback(async (user) => {
     try {
       const response = await axios.delete(
-        `${process.env.MAIN_URL}caseStudy/delete/${user._id}`
+        `${process.env.NEXT_PUBLIC_API_URL}caseStudy/delete/${user._id}`
       );
     } catch (err) {
       console.log(
