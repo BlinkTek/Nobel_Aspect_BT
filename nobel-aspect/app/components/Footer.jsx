@@ -56,7 +56,7 @@ const Footer = ({ noDesign }) => {
               <a href="https://x.com" className="text-gray-500 hover:text-sitePrimary-700">
                 <Icon icon="akar-icons:twitter-fill" width={20} />
               </a>
-              <a href="https://linkedin.com/" className="text-gray-500 hover:text-sitePrimary-700">
+              <a href="https://www.linkedin.com/company/noble-aspect-llc/" className="text-gray-500 hover:text-sitePrimary-700">
                 <Icon icon="akar-icons:linkedin-box-fill" width={20} />
               </a>
               <a href="https://facebook.com" className="text-gray-500 hover:text-sitePrimary-700">
