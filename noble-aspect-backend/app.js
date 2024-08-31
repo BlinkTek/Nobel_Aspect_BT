@@ -13,15 +13,15 @@ require("./config/db");
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Hello World");
 });
 
 // Routes
-app.use("/user", require("./routes/user.routes"));
-app.use("/inquiry", require("./routes/inquiry.routes"));
-app.use("/caseStudy", require("./routes/caseStudy.routes"));
-app.use("/service", require("./routes/service.routes"));
+app.use("/api/user", require("./routes/user.routes"));
+app.use("/api/inquiry", require("./routes/inquiry.routes"));
+app.use("/api/caseStudy", require("./routes/caseStudy.routes"));
+app.use("/api/service", require("./routes/service.routes"));
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
