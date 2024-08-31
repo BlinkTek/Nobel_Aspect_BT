@@ -17,7 +17,7 @@ const Page = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}user/login`,
+        `${process.env.MAIN_URL}user/login`,
         {
           email,
           password,
