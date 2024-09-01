@@ -31,7 +31,7 @@ const Page = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://88.222.241.66:8000/api/inquiry/inquiries`,
+        `https://api.nobleaspect.com/api/inquiry/inquiries`,
         formData,
         {
           headers: {

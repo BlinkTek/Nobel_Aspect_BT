@@ -15,7 +15,7 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.post(`http://88.222.241.66:8000/api/service/getServiceByTitle`, {
+      const response = await axios.post(`https://api.nobleaspect.com/api/service/getServiceByTitle`, {
         serviceTitle: service,
       });
       setMyService(response.data);

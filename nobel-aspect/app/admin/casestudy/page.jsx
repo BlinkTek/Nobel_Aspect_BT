@@ -163,7 +163,7 @@ export default function App() {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://88.222.241.66:8000/api/caseStudy/list`
+        `https://api.nobleaspect.com/api/caseStudy/list`
       );
       setUsers(response.data);
       setLoading(false);
@@ -224,7 +224,7 @@ export default function App() {
 
       // Send the form data to the server
       const response = await axios.post(
-        `http://88.222.241.66:8000/api/caseStudy/create`,
+        `https://api.nobleaspect.com/api/caseStudy/create`,
         formData,
         {
           headers: {
@@ -260,7 +260,7 @@ export default function App() {
     // Send the form data to the server
     try {
       const response = await axios.put(
-        `http://88.222.241.66:8000/api/caseStudy/edit/${modalData._id}`,
+        `https://api.nobleaspect.com/api/caseStudy/edit/${modalData._id}`,
         formData
       );
     } catch (err) {
@@ -276,7 +276,7 @@ export default function App() {
   const deleteCaseStudy = useCallback(async (user) => {
     try {
       const response = await axios.delete(
-        `http://88.222.241.66:8000/api/caseStudy/delete/${user._id}`
+        `https://api.nobleaspect.com/api/caseStudy/delete/${user._id}`
       );
     } catch (err) {
       console.log(

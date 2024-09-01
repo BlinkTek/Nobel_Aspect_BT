@@ -148,7 +148,7 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://88.222.241.66:8000/api/inquiry/inquiries`);
+      const response = await axios.get(`https://api.nobleaspect.com/api/inquiry/inquiries`);
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
