@@ -31,7 +31,7 @@ const Page = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}api/inquiry/inquiries`,
+        `${process.env.MAIN_URL}api/inquiry/inquiries`,
         formData,
         {
           headers: {
