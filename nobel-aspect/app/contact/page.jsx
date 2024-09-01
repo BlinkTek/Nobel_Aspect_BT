@@ -3,11 +3,15 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Icon } from "@iconify/react";
 import Contact from "../components/Contact";
 import axios from "axios";
 
 const Page = () => {
+  const key = process.env.RECAPTCHA_SITE_KEY
+  const [captcha, setCaptcha] = useState(null);
+
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -193,9 +197,14 @@ const Page = () => {
                 required
               ></textarea>
             </div>
+            <ReCAPTCHA
+              sitekey={key}
+              onChange={val => setCaptcha(val)}
+            />
             <button
+              disabled={!captcha}
               type="submit"
-              className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
+              className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full disabled:bg-siteNeutral-700"
             >
               Send Message
             </button>
@@ -209,7 +218,7 @@ const Page = () => {
       {/* Contact Section */}
       <Contact />
 
-      <Footer noDesign />
+      <Footer />
     </main>
   );
 };

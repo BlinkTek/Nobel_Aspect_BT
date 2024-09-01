@@ -16,7 +16,8 @@
     "primereact": "^10.8.2",
     "quill": "^2.0.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-google-recaptcha": "^3.1.0"
   },
   "devDependencies": {
     "@iconify/react": "^5.0.1",

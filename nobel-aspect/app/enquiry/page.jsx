@@ -210,7 +210,7 @@ const Page = () => {
       {/* Contact Section */}
       <Contact />
 
-      <Footer noDesign />
+      <Footer />
     </main>
   );
 };

@@ -105,7 +105,7 @@ const Designing = () => {
       {/* Contact Section */}
       <Contact />
 
-      <Footer noDesign />
+      <Footer />
     </main>
   );
 };

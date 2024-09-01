@@ -100,7 +100,7 @@ const Branding = () => {
         </div>
       </section>
 
-      <Footer noDesign />
+      <Footer />
     </main>
   );
 };

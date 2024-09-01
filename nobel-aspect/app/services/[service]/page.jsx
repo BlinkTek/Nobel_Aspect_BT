@@ -104,7 +104,7 @@ const Page = ({ params }) => {
         </div>
       </section>
 
-      <Footer noDesign />
+      <Footer />
     </main>
   );
 };

@@ -72,7 +72,7 @@ const Page = ({ params }) => {
       {/* Contact Section */}
       <Contact />
 
-      <Footer noDesign />
+      <Footer />
     </main>
   );
 };
