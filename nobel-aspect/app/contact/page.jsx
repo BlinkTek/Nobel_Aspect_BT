@@ -9,7 +9,7 @@ import Contact from "../components/Contact";
 import axios from "axios";
 
 const Page = () => {
-  const key = process.env.RECAPTCHA_SITE_KEY
+  const key = "6LdgLDQqAAAAAFmzp2u_r8MmOWf1ypsH_gnT43V-";
   const [captcha, setCaptcha] = useState(null);
 
   const [formData, setFormData] = useState({
@@ -34,15 +34,11 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        `https://api.nobleaspect.com/api/inquiry/inquiries`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post(`https://api.nobleaspect.com/api/inquiry/inquiries`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       setSuccessMessage("Inquiry sent successfully!");
       setError(null);
@@ -56,10 +52,7 @@ const Page = () => {
         message: "",
       });
     } catch (err) {
-      setError(
-        err.response?.data?.message ||
-          "Failed to send inquiry. Please try again later."
-      );
+      setError(err.response?.data?.message || "Failed to send inquiry. Please try again later.");
       setSuccessMessage(null);
     }
   };
@@ -78,9 +71,7 @@ const Page = () => {
 
           {/* Display success or error messages */}
           {error && <p className="mb-4 text-sm text-red-500">{error}</p>}
-          {successMessage && (
-            <p className="mb-4 text-sm text-green-500">{successMessage}</p>
-          )}
+          {successMessage && <p className="mb-4 text-sm text-green-500">{successMessage}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
@@ -102,10 +93,7 @@ const Page = () => {
                 />
               </div>
               <div className="w-full">
-                <label
-                  htmlFor="lastname"
-                  className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
-                >
+                <label htmlFor="lastname" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
                   Last Name
                 </label>
                 <input
@@ -121,10 +109,7 @@ const Page = () => {
             </div>
             <div className="flex gap-4">
               <div className="w-full">
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
-                >
+                <label htmlFor="email" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
                   Email
                 </label>
                 <input
@@ -139,10 +124,7 @@ const Page = () => {
               </div>
             </div>
             <div className="w-full">
-              <label
-                htmlFor="field"
-                className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
-              >
+              <label htmlFor="field" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
                 Select Industry
               </label>
               <select
@@ -160,10 +142,7 @@ const Page = () => {
               </select>
             </div>
             <div className="w-full">
-              <label
-                htmlFor="service"
-                className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
-              >
+              <label htmlFor="service" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
                 Select Services
               </label>
               <select
@@ -181,10 +160,7 @@ const Page = () => {
               </select>
             </div>
             <div className="sm:col-span-2">
-              <label
-                htmlFor="message"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-              >
+              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
                 Message
               </label>
               <textarea
@@ -197,10 +173,7 @@ const Page = () => {
                 required
               ></textarea>
             </div>
-            <ReCAPTCHA
-              sitekey={key}
-              onChange={val => setCaptcha(val)}
-            />
+            <ReCAPTCHA sitekey={key} onChange={(val) => setCaptcha(val)} />
             <button
               disabled={!captcha}
               type="submit"
