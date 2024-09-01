@@ -17,7 +17,7 @@ const Page = () => {
 
     try {
       const response = await axios.post(
-        `https://api.nobleaspect.com//api/user/login`,
+        `https://api.nobleaspect.com/api/user/login`,
         {
           email,
           password,
