@@ -35,7 +35,7 @@ const Page = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.MAIN_URL}api/inquiry/inquiries`,
+        `http://88.222.241.66:8000/api/inquiry/inquiries`,
         formData,
         {
           headers: {

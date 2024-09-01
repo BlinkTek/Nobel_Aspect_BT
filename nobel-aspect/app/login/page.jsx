@@ -17,7 +17,7 @@ const Page = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.MAIN_URL}api/user/login`,
+        `http://88.222.241.66:8000//api/user/login`,
         {
           email,
           password,

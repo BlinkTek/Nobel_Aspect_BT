@@ -14,7 +14,7 @@ const Page = ({ params }) => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.post(`${process.env.MAIN_URL}api/caseStudy/case-study`, {
+      const response = await axios.post(`http://88.222.241.66:8000/api/caseStudy/case-study`, {
         casestudyTitle: study,
       });
       setMyService(response.data);
