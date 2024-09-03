@@ -28,9 +28,9 @@ export default function Header() {
   const menuItems = [
     { name: "Home", link: "/" },
     { name: "Services", link: "/services/Branding" },
-    { name: "Case Study", link: "/casestudy" },
-    { name: "About us", link: "/about" },
-    { name: "Contact us", link: "/contact" },
+    { name: "Case Studies", link: "/casestudy" },
+    { name: "About Us", link: "/about" },
+    { name: "Contact Us", link: "/contact" },
   ];
 
   const [services, setServices] = useState([]);
@@ -163,7 +163,7 @@ export default function Header() {
             href="/casestudy"
             className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
-            Case Study{" "}
+            Case Studies{" "}
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -172,7 +172,7 @@ export default function Header() {
             href="/about"
             className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
-            About us{" "}
+            About Us{" "}
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -181,31 +181,20 @@ export default function Header() {
             href="/contact"
             className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
           >
-            Contact us{" "}
+            Contact Us{" "}
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
-          {pathname === "/" ? (
-            <Button
-              as={Link}
-              href=""
-              variant="bordered"
-              className="text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0"
-            >
-              Get Quote
-            </Button>
-          ) : (
-            <Button
-              as={Link}
-              href="/enquiry"
-              variant="bordered"
-              className="text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0"
-            >
-              Enquiry
-            </Button>
-          )}
+          <Button
+            as={Link}
+            href="/enquiry"
+            variant="bordered"
+            className="text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0"
+          >
+            Enquiry
+          </Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>

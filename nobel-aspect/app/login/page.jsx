@@ -109,7 +109,7 @@ const Page = () => {
               </form>
             </div>
             <p className="text-siteTextIcon-disabled">
-              © 2019 Noble Aspect LLC.
+              © 2019 Noble Aspect, LLC.
             </p>
           </div>
         </div>

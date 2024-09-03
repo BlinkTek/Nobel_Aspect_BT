@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
       link: "/admin/services",
     },
     {
-      title: "Case Study",
+      title: "Case Studies",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
