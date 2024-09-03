@@ -49,7 +49,7 @@ const Footer = ({ noDesign }) => {
                 Terms of use
               </Link>
             </div>
-            <span className="text-sm text-black mb-6 sm:text-center">
+            <span className="text-sm text-gray-500 mb-6 sm:text-center">
               © 2019 Noble Aspect, LLC. All rights reserved.
             </span>
             <div className="flex mt-6 space-x-6 justify-center md:mt-0">
