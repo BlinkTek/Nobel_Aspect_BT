@@ -11,32 +11,9 @@ const Designing = () => {
     <main className="min-h-screen">
       <Header />
 
-      {/* Banner section */}
-      <section className="bg-white">
-        <div className="px-4 mx-auto max-w-screen-xl">
-          <div className="w-full h-full">
-            <Image
-              src={"/about_banner.svg"}
-              alt=""
-              width={1400}
-              height={200}
-              className="w-full h-full object-cover object-left-bottom"
-            />
-          </div>
-        </div>
-      </section>
-
       {/* about details Section */}
       <section className="bg-white">
         <div className="py-8 mx-auto max-w-screen-xl sm:py-16">
-          <div className="max-w-screen-md flex flex-col gap-3 mb-8 lg:mb-16 text-center mx-auto w-full">
-            <h2 className="mb-4 text-4xl md:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
-              Lorem ipsum dolor sit amet.
-            </h2>
-            <p className="text-gray-500 text-base sm:text-xl font-light text-siteTextIcon-disabled">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque
-            </p>
-          </div>
           <div className="space-y-8 md:space-y-0">
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">

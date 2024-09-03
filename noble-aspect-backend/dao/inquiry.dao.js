@@ -6,7 +6,7 @@ const createInquiry = async (inquiryData) => {
 };
 
 const getAllInquiries = async () => {
-  return await Inquiry.find();
+  return await Inquiry.find().sort({ createdAt: -1 });
 };
 
 const getInquiryById = async (id) => {
