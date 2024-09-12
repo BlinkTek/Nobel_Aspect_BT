@@ -40,7 +40,7 @@ const Page = () => {
         },
       });
 
-      setSuccessMessage("Inquiry sent successfully!");
+      setSuccessMessage("The message has been sent successfully!");
       setError(null);
       // Clear form after successful submission
       setFormData({
@@ -52,7 +52,7 @@ const Page = () => {
         message: "",
       });
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to send inquiry. Please try again later.");
+      setError(err.response?.data?.message || "Something went wrong. We apologize for the inconvenience.");
       setSuccessMessage(null);
     }
   };
@@ -61,7 +61,7 @@ const Page = () => {
     <main className="min-h-screen">
       <Header />
 
-      {/** Enquiry section */}
+      {/** Inquiry section */}
       <section className="bg-siteNeutral-0 dark:bg-gray-900 flex gap-12 py-8 px-4 sm:py-16 lg:px-28">
         <div className="mx-auto max-w-screen-md w-full md:w-1/2">
           <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
@@ -80,7 +80,7 @@ const Page = () => {
                   htmlFor="firstname"
                   className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                 >
-                  First Name
+                  First Name<span className="text-red-500"> *</span>
                 </label>
                 <input
                   type="text"
@@ -94,7 +94,7 @@ const Page = () => {
               </div>
               <div className="w-full">
                 <label htmlFor="lastname" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                  Last Name
+                  Last Name<span className="text-red-500"> *</span>
                 </label>
                 <input
                   type="text"
@@ -110,7 +110,7 @@ const Page = () => {
             <div className="flex gap-4">
               <div className="w-full">
                 <label htmlFor="email" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                  Email
+                  Email<span className="text-red-500"> *</span>
                 </label>
                 <input
                   type="email"
@@ -125,7 +125,7 @@ const Page = () => {
             </div>
             <div className="w-full">
               <label htmlFor="field" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                Select Type
+                Select Type<span className="text-red-500"> *</span>
               </label>
               <select
                 name="field"
@@ -143,7 +143,7 @@ const Page = () => {
             </div>
             <div className="w-full">
               <label htmlFor="service" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                Select Services
+                Select Services<span className="text-red-500"> *</span>
               </label>
               <select
                 name="service"
@@ -161,7 +161,7 @@ const Page = () => {
             </div>
             <div className="sm:col-span-2">
               <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                Message
+                Message<span className="text-red-500"> *</span>
               </label>
               <textarea
                 id="message"
@@ -175,9 +175,9 @@ const Page = () => {
             </div>
             <ReCAPTCHA sitekey={key} onChange={(val) => setCaptcha(val)} />
             <button
-              disabled={!captcha}
+              // disabled={!captcha}
               type="submit"
-              className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full disabled:bg-siteNeutral-700"
+              className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
             >
               Send Message
             </button>

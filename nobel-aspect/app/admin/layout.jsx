@@ -133,7 +133,7 @@ const Layout = ({ children }) => {
       link: "/admin/casestudy",
     },
     {
-      title: "Enquiry",
+      title: "Inquiry",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ const Layout = ({ children }) => {
           />
         </svg>
       ),
-      link: "/admin/enquiry",
+      link: "/admin/inquiry",
     },
     // {
     //   title: "SMTP Setup",

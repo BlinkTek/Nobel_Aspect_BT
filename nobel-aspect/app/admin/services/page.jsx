@@ -144,7 +144,11 @@ export default function App() {
   const fetchData = async () => {
     try {
       const response = await axios.get(`https://api.nobleaspect.com/api/service/list`);
-      setUsers(response.data);
+      const data = response.data.map((element) => {
+        let newUser = { ...element, features: JSON.parse(element.features) };
+        return newUser;
+      });
+      setUsers(data);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -219,15 +223,11 @@ export default function App() {
       }
 
       // Send the form data to the server
-      const response = await axios.post(
-        `https://api.nobleaspect.com/api/service/create`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`https://api.nobleaspect.com/api/service/create`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to add case study. Please try again later.");
     }
@@ -592,7 +592,7 @@ export default function App() {
                       : modalMode === "edit"
                       ? "Edit Service"
                       : // : modalMode === "delete"
-                        // ? "Delete this enquiry"
+                        // ? "Delete this inquiry"
                         "View Service"}
                   </ModalHeader>
                   <ModalBody>

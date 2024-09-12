@@ -70,7 +70,7 @@ const Contact = () => {
               </div>
             </div>
             <h3 className="mb-2 text-xl font-medium">Phone</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">Mon-Fri from 8am to 7pm. </p>
+            <p className="text-siteTextIcon-secondary dark:text-gray-400">Mon-Fri from 10 am to 6 pm.</p>
             <p className="text-siteTextIcon-primary pt-5">+1 (201) 844-2537</p>
           </div>
         </div>

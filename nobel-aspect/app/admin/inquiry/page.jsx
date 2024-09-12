@@ -110,10 +110,10 @@ const ChevronDownIcon = ({ strokeWidth = 1.5, ...otherProps }) => (
 
 const columns = [
   { name: "ID", uid: "id" },
-  { name: "FIRSTNAME", uid: "firstname" },
-  { name: "LASTNAME", uid: "lastname" },
+  { name: "FIRST NAME", uid: "firstname" },
+  { name: "LAST NAME", uid: "lastname" },
   { name: "EMAIL", uid: "email" },
-  { name: "FIELD", uid: "field" },
+  { name: "TYPE", uid: "field" },
   { name: "SERVICE", uid: "service" },
   { name: "INFORMATION", uid: "message" },
   { name: "ACTIONS", uid: "actions" },
@@ -162,14 +162,22 @@ export default function App() {
   }, []);
 
   const modalOpen = useCallback(
-    () =>
-      (mode = "add", user) => {
-        onOpen();
-        setModalData(user);
-        setModalMode(mode);
-      },
+    (mode = "add", user) => {
+      onOpen();
+      setModalData(user);
+      setModalMode(mode);
+    },
     [onOpen]
   );
+
+  const deleteenquiry = useCallback(async (user) => {
+    try {
+      const response = await axios.delete(`https://api.nobleaspect.com/api/inquiry/delete/${user._id}`);
+    } catch (err) {
+      console.log(err.response?.data?.message || "Failed to delete inquiry. Please try again later.");
+    }
+    fetchData();
+  }, []);
 
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
@@ -218,7 +226,7 @@ export default function App() {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredItems.slice(start, end).reverse();
+    return filteredItems.slice(start, end);
   }, [page, filteredItems, rowsPerPage]);
 
   const sortedItems = React.useMemo(() => {

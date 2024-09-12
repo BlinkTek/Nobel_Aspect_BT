@@ -13,6 +13,10 @@ const getInquiryById = async (id) => {
   return await Inquiry.findById(id);
 };
 
+const deleteInquiry = async (id) => {
+  return await Inquiry.findByIdAndDelete(id);
+};
+
 module.exports = {
   createInquiry,
   getAllInquiries,

@@ -686,7 +686,7 @@ export default function App() {
                       : modalMode === "edit"
                       ? "Edit Case Study"
                       : // : modalMode === "delete"
-                        // ? "Delete this enquiry"
+                        // ? "Delete this inquiry"
                         "View Case Study"}
                   </ModalHeader>
                   <ModalBody>

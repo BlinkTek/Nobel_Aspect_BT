@@ -27,7 +27,7 @@ export default function Header() {
 
   const menuItems = [
     { name: "Home", link: "/" },
-    { name: "Services", link: "/services/Branding" },
+    { name: "Services", link: null },
     { name: "Case Studies", link: "/casestudy" },
     { name: "About Us", link: "/about" },
     { name: "Contact Us", link: "/contact" },
@@ -189,20 +189,37 @@ export default function Header() {
         <NavbarItem>
           <Button
             as={Link}
-            href="/enquiry"
+            href="/inquiry"
             variant="bordered"
             className="text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0"
           >
-            Enquiry
+            Inquiry
           </Button>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link color="foreground" className="w-full" href={item.link} size="lg">
-              {item.name}
-            </Link>
+            {item.link === null ? (
+              <>
+                <Link color="foreground" className="w-full" size="lg">
+                  {item.name}
+                </Link>
+                <div className="border flex flex-col px-3">
+                  {services.map((service, index) => (
+                    <Link key={service.serviceTitle}>
+                      <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1">
+                        <span className="text-gray-500">{service.serviceTitle}</span>
+                      </a>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <Link color="foreground" className="w-full" href={item.link} size="lg">
+                {item.name}
+              </Link>
+            )}
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

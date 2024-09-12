@@ -31,8 +31,21 @@ const getInquiryById = async (req, res) => {
   }
 };
 
+const deleteInquiry = async (req, res) => {
+  try {
+    const caseStudy = await inquiryDAO.deleteInquiry(req.params.id);
+    if (!caseStudy) {
+      return res.status(404).json({ message: "Inquiry not found" });
+    }
+    res.json({ message: "Inquiry deleted" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   createInquiry,
   getAllInquiries,
   getInquiryById,
+  deleteInquiry
 };

@@ -3,11 +3,15 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Icon } from "@iconify/react";
 import Contact from "../components/Contact";
 import axios from "axios";
 
 const Page = () => {
+  const key = "6LdgLDQqAAAAAFmzp2u_r8MmOWf1ypsH_gnT43V-";
+  const [captcha, setCaptcha] = useState(null);
+
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -40,7 +44,7 @@ const Page = () => {
         }
       );
 
-      setSuccessMessage("Inquiry sent successfully!");
+      setSuccessMessage("The inquiry has been sent successfully!");
       setError(null);
       // Clear form after successful submission
       setFormData({
@@ -54,7 +58,7 @@ const Page = () => {
     } catch (err) {
       setError(
         err.response?.data?.message ||
-          "Failed to send inquiry. Please try again later."
+          "Something went wrong. We apologize for the inconvenience."
       );
       setSuccessMessage(null);
     }
@@ -64,12 +68,11 @@ const Page = () => {
     <main className="min-h-screen">
       <Header />
 
-      {/** Enquiry section */}
-      {/** Enquiry section */}
+      {/** Inquiry section */}
       <section className="bg-siteNeutral-0 dark:bg-gray-900 flex gap-12 py-8 px-4 sm:py-16 lg:px-28">
         <div className="mx-auto max-w-screen-md w-full md:w-1/2">
           <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
-            Enquiry
+            Inquiry
           </h2>
           {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
 
@@ -86,7 +89,7 @@ const Page = () => {
                   htmlFor="firstname"
                   className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                 >
-                  First Name
+                  First Name<span className="text-red-500"> *</span>
                 </label>
                 <input
                   type="text"
@@ -103,7 +106,7 @@ const Page = () => {
                   htmlFor="lastname"
                   className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                 >
-                  Last Name
+                  Last Name<span className="text-red-500"> *</span>
                 </label>
                 <input
                   type="text"
@@ -122,7 +125,7 @@ const Page = () => {
                   htmlFor="email"
                   className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                 >
-                  Email
+                  Email<span className="text-red-500"> *</span>
                 </label>
                 <input
                   type="email"
@@ -140,7 +143,7 @@ const Page = () => {
                 htmlFor="field"
                 className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
               >
-                Select Type
+                Select Type<span className="text-red-500"> *</span>
               </label>
               <select
                 name="field"
@@ -161,7 +164,7 @@ const Page = () => {
                 htmlFor="service"
                 className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
               >
-                Select Services
+                Select Services<span className="text-red-500"> *</span>
               </label>
               <select
                 name="service"
@@ -182,7 +185,7 @@ const Page = () => {
                 htmlFor="message"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
               >
-                Message
+                Message<span className="text-red-500"> *</span>
               </label>
               <textarea
                 id="message"
@@ -194,6 +197,7 @@ const Page = () => {
                 required
               ></textarea>
             </div>
+            <ReCAPTCHA sitekey={key} onChange={(val) => setCaptcha(val)} />
             <button
               type="submit"
               className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
@@ -203,7 +207,7 @@ const Page = () => {
           </form>
         </div>
         <div className="mx-auto max-w-screen-md hidden md:block md:w-1/2">
-          <div className="rounded-2xl h-full overflow-hidden bg-[url('/enquiry-banner.png')] bg-cover bg-top"></div>
+          <div className="rounded-2xl h-full overflow-hidden bg-[url('/inquiry-banner.png')] bg-cover bg-top"></div>
         </div>
       </section>
 

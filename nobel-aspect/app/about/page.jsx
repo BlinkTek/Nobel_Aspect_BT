@@ -17,81 +17,106 @@ const Designing = () => {
           <div className="space-y-8 md:space-y-0">
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
-                <Image width={500} height={500} className="w-full md:w-[52%] dark:hidden" src="/about_1.png" alt="dashboard image" />
+                <Image
+                  width={500}
+                  height={500}
+                  className="w-full md:w-[52%] dark:hidden"
+                  src="/about_1.png"
+                  alt="dashboard image"
+                />
                 <div className="mt-4 md:mt-0">
                   <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
-                    Why choose us ?
+                    Digital Solutions with a Noble Touch
                   </h2>
                   <p className="mb-6 text-base lg:text-lg font-light text-gray-500 dark:text-gray-400">
-                    At Noble Aspect, LLC, we believe that every brand has a story waiting to be told, a narrative that
-                    sets it apart in a crowded digital landscape. Located in the heart of New York City’s vibrant
-                    downtown, our forward-thinking digital marketing agency is dedicated to crafting compelling brand
-                    experiences that resonate, engage, and inspire. As a team of creative visionaries and strategic
-                    thinkers, we specialise in transforming ordinary ideas into extraordinary digital realities, pushing
-                    the boundaries of what’s possible in the realm of marketing.
-                    <br /><br />
-                    Our expertise lies in our ability to blend creativity with strategy. From designing visually
-                    stunning websites that captivate the eye to developing robust digital marketing campaigns that drive
-                    engagement and conversions, we bring a full suite of services tailored to meet the unique needs of
-                    our clients. Our approach is rooted in understanding your brand, your goals, and your audience. We
-                    don’t just offer one-size-fits-all solutions; instead, we craft personalised strategies that align
-                    with your vision, ensuring that every project we undertake not only meets but exceeds your
-                    expectations.
+                    Noble Aspect, LLC is a forward thinking and innovative digital marketing agency located in New York
+                    City’s most vibrant downtown. We excel at creating captivating brand experiences, premium designs,
+                    and effective digital marketing strategies. By tailoring our approach to the unique needs of each
+                    client, we ensure that every project not only meets but exceeds expectations.
                   </p>
                 </div>
               </div>
             </section>
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
-                <Image width={500} height={500} className="w-full md:w-[52%] dark:hidden order-2" src="/about_2.png" alt="dashboard image" />
+                <Image
+                  width={500}
+                  height={500}
+                  className="w-full md:w-[52%] dark:hidden order-2"
+                  src="/about_2.png"
+                  alt="dashboard image"
+                />
                 <div className="mt-4 md:mt-0 order-1">
                   <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
-                    Our VALUE
+                    Our Vision
                   </h2>
                   <p className="mb-6 text-base lg:text-lg font-light text-gray-500 dark:text-gray-400">
-                    Innovation is at the core of everything we do at Noble Aspect. In a rapidly evolving digital world,
-                    staying ahead of trends is crucial. Our team is constantly exploring new tools, technologies, and
-                    techniques to ensure that we are always delivering cutting-edge solutions. Whether its leveraging
-                    the latest in SEO, social media marketing, content creation, or user experience design, we are
-                    committed to keeping our clients at the forefront of their industries.
-                    <br /><br />
-                    But it’s not just about the tools and techniques; it’s about the relationships we build. At Noble
-                    Aspect, we view our clients as partners. We believe in open communication, collaboration, and
-                    transparency. By working closely with you, we gain a deep understanding of your brand’s aspirations,
-                    allowing us to create marketing strategies that truly reflect your brand’s voice and values. Our
-                    goal is to become an extension of your team, sharing in your vision and contributing to your
-                    success.
+                    At Noble Aspect, LLC we envision a digital realm where creativity, authenticity, and purpose
+                    converge seamlessly. Our goal is to shape it so that every interaction is not only meaningful but
+                    also transformative.
                   </p>
                 </div>
               </div>
             </section>
             <section className="bg-white dark:bg-gray-900">
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
-                <Image width={500} height={500} className="w-full md:w-[52%] dark:hidden" src="/about_3.png" alt="dashboard image" />
+                <Image
+                  width={500}
+                  height={500}
+                  className="w-full md:w-[52%] dark:hidden"
+                  src="/about_3.png"
+                  alt="dashboard image"
+                />
                 <div className="mt-4 md:mt-0">
                   <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
-                    OUR MISSION
+                    Our Mission
                   </h2>
                   <p className="mb-6 text-base lg:text-lg font-light text-gray-500 dark:text-gray-400">
-                    Every brand is unique, and so is our approach. We pride ourselves on our flexibility and
-                    adaptability, ensuring that we can meet the diverse needs of a wide range of industries. Whether
-                    you’re a startup looking to make your mark or an established brand seeking to redefine your digital
-                    presence, Noble Aspect is equipped to handle projects of all sizes and scopes. Our comprehensive
-                    services include brand strategy, web design and development, digital advertising, SEO, content
-                    marketing, and more, all designed to help your brand shine.
-                    <br /><br />
-                    What truly sets Noble Aspect apart is our commitment to excellence. We are passionate about what we
-                    do, and it shows in our work. Our team of dedicated professionals is driven by a desire to produce
-                    outstanding results and make a lasting impact. We measure our success by the success of our clients,
-                    taking pride in knowing that our efforts contribute to their growth and achievements.
-                    <br /><br />
-                    Join us at Noble Aspect, LLC, and let’s embark on a journey to elevate your brand. Together, we can
-                    create a digital presence that not only stands out but stands the test of time. Let’s build a future
-                    where your brand’s digital reality is as noble and dynamic as your aspirations.
+                    Noble Aspect, LLC’s mission is to empower businesses and individuals by crafting tailored digital
+                    solutions that transform their digital landscapes. We strive to create a dynamic fusion between
+                    technology and human experience, amplifying connectivity and driving meaningful positive change.
                   </p>
                 </div>
               </div>
             </section>
+          </div>
+          <div className="mt-4 md:mt-0">
+            <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
+              Our Core Values
+            </h2>
+            <p className="mb-6 text-base lg:text-lg font-light text-gray-500 dark:text-gray-400">
+              <ol>
+                <li>
+                  <b className="font-bold">1. Quality:</b> We relentlessly pursue quality in everything we do. Our commitment to quality drives
+                  us to exceed expectations and deliver exceptional results.
+                </li>
+                <li>
+                  <b className="font-bold">2. Creativity:</b> Our aim to bring prospective concepts to life. We create a unique and memorable
+                  experience for our clients and their customers through creative solutions.
+                </li>
+                <li>
+                  <b className="font-bold">3. Innovation:</b> We thrive on innovation. Curiosity fuels our exploration of new ideas,
+                  technologies, and methodologies. We embrace change as an opportunity for growth.
+                </li>
+                <li>
+                  <b className="font-bold">4. Partnership:</b> We believe in the power of partnership. By fostering diverse perspectives and
+                  working together, we create solutions that resonate with our clients and their audiences.
+                </li>
+                <li>
+                  <b className="font-bold">5. Integrity:</b> Honesty, transparency, and ethical conduct are integral to our values. We build
+                  trust through our actions, maintaining unwavering ethical principles.
+                </li>
+                <li>
+                  <b className="font-bold">6. Empathy:</b> Understanding the needs, concerns, and aspirations of our clients and their
+                  stakeholders is essential. We approach every project with empathy, ensuring that our solutions align
+                  with real-world impact.
+                </li>
+              </ol>
+              <p className="pt-3">
+                Partner with us, and together, let’s create a digital reality that’s as noble and dynamic as your
+                brand’s aspirations!
+              </p>
+            </p>
           </div>
         </div>
       </section>

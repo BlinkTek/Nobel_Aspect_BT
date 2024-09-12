@@ -2,15 +2,64 @@
 
 import Header from "./components/Header";
 import { useCallback, useEffect, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import Image from "next/image";
 import Footer from "./components/Footer";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Home() {
   const router = useRouter();
   const [hoveredDiv, setHoveredDiv] = useState(null);
 
+  const key = "6LdgLDQqAAAAAFmzp2u_r8MmOWf1ypsH_gnT43V-";
+  const [captcha, setCaptcha] = useState(null);
+
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    field: "Select Industry",
+    services: "Select Services",
+    message: "",
+  });
+
+  const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`https://api.nobleaspect.com/api/inquiry/inquiries`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      setSuccessMessage("Inquiry sent successfully!");
+      setError(null);
+      // Clear form after successful submission
+      setFormData({
+        firstname: "",
+        lastname: "",
+        email: "",
+        field: "Select Industry",
+        service: "Select Services",
+        message: "",
+      });
+    } catch (err) {
+      setError(err.response?.data?.message || "Failed to send inquiry. Please try again later.");
+      setSuccessMessage(null);
+    }
+  };
   const handleMouseEnter = (index) => {
     setHoveredDiv(index);
   };
@@ -18,6 +67,25 @@ export default function Home() {
   const handleMouseLeave = () => {
     setHoveredDiv(null);
   };
+
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchDataFeatures = async () => {
+    try {
+      const response = await axios.get(`https://api.nobleaspect.com/api/service/list`);
+      setServices(response.data);
+      console.log(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchDataFeatures();
+  }, []);
 
   const [caseStudy, setCaseStudy] = useState([]);
 
@@ -137,11 +205,11 @@ export default function Home() {
           <div className="w-full md:w-[55%] lg:w-[65%] flex flex-col gap-5 order-2 md:order-none pb-48 sm:pb-32">
             <h2 className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-sitePrimary-800 md:leading-10 lg:leading-[60px]">
               Unleash your brand&apos;s potential with our{" "}
-              <span className="text-siteRubinRed-800">cutting-edge marketing!</span>
+              <span className="text-siteRubinRed-800">cutting-edge digital marketing!</span>
             </h2>
             <p className="text-xs sm:text-base lg:text-lg text-siteTextIcon-disabled font-semibold"></p>
             <a
-              href="/"
+              href="/casestudy"
               className="w-fit flex justify-center items-center gap-3 py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
             >
               See How We Work
@@ -164,24 +232,28 @@ export default function Home() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
             <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary">
-              Designed for business teams like yours
+              Customized digital services for brand aspirations
             </h2>
           </div>
           <div className="space-y-8 grid md:grid-cols-3 md:gap-12 md:space-y-0">
-            {featuresSection.map((item, index) => {
-              const Icon = item.icon;
+            {services.map((item, index) => {
+              // const Icon = item.icon;
 
               return (
                 <div key={index} className="border-l border-siteNeutral-300 pl-6">
-                  <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-lg bg-sitePrimary-700/25 lg:h-12 lg:w-12 p-2">
-                    <div className="flex justify-center items-center rounded-md bg-white w-full h-full p-0.5">
-                      <Icon />
+                  <Link href={`/services/${item.serviceTitle}`}>
+                    <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-lg bg-sitePrimary-700/25 lg:h-12 lg:w-12 p-2">
+                      <div className="flex justify-center items-center rounded-md bg-white w-full h-full p-0.5">
+                        {/* <Icon /> */}
+                        <Image src={item.image} width={30} height={30} />
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="mb-2 text-xl font-bold -ml-6 pl-6 border-l-2 border-sitePrimary-700 text-siteTextIcon-primary">
-                    {item.title}
-                  </h3>
-                  <p className="text-siteTextIcon-secondary">{item.description}</p>
+                    <h3 className="mb-2 text-xl font-bold -ml-6 pl-6 border-l-2 border-sitePrimary-700 text-siteTextIcon-primary">
+                      {item.serviceTitle}
+                    </h3>
+                    <p className="text-siteTextIcon-secondary">{item.information}</p>
+                    <p className="text-siteTextIcon-secondary pt-6">Customized digital services for brand aspirations</p>
+                  </Link>
                 </div>
               );
             })}
@@ -197,8 +269,7 @@ export default function Home() {
               Case Studies{" "}
             </h2>
             <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
-              Our battle-tested developers specialize in a wide range of designing. Here are some of the solutions that
-              we can deliver for you.
+              At Noble Aspect, LLC, we believe in results, not just promises. Explore how our digital marketing, branding, and design prowess has reshaped businesses. These aren’t just case studies but the stepping stones for your brand’s journey. Ready to take the next step? Contact Us!
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -239,94 +310,109 @@ export default function Home() {
       <section className="bg-white pb-20 px-4">
         <div className="py-8 px-4 h-60 md:h-[400px] mx-auto max-w-screen-xl sm:py-16 lg:px-6 bg-[url('/newsletter-banner.jpg')] bg-cover bg-center rounded-3xl flex flex-col gap-10 items-center justify-center">
           <h1 className="mx-auto font-medium text-sitePrimary-700 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-screen-md">
-            Let&apos;s make some great Digital products together
+            Partner with us, and together, let&apos;s create immersive digital experiences
           </h1>
           <a
             href="/contact"
             className="inline-flex justify-center items-center py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
           >
-            Contact us
+            Contact Us
           </a>
         </div>
       </section>
 
-      {/** Enquiry section */}
+      {/** Inquiry section */}
       <section className="bg-siteNeutral-100 w-full flex justify-center">
         <div className="max-w-screen-xl w-full flex gap-12 py-8 px-4 sm:py-16 xl:px-0">
           <div className="mx-auto w-full md:w-1/2">
             <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
-              Enquiry
+              Inquiry
             </h2>
             {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="w-full">
                   <label
-                    htmlFor="first_name"
+                    htmlFor="firstname"
                     className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                   >
-                    First Name<span className="text-siteRubinRed-700">*</span>
+                    First Name<span className="text-red-500"> *</span>
                   </label>
                   <input
                     type="text"
-                    id="first_name"
+                    id="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
                     className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                    placeholder="Enter First Name"
+                    placeholder="First Name"
                     required
                   />
                 </div>
                 <div className="w-full">
                   <label
-                    htmlFor="last_name"
+                    htmlFor="lastname"
                     className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
                   >
-                    Last Name<span className="text-siteRubinRed-700">*</span>
+                    Last Name<span className="text-red-500"> *</span>
                   </label>
                   <input
                     type="text"
-                    id="last_name"
+                    id="lastname"
+                    value={formData.lastname}
+                    onChange={handleChange}
                     className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                    placeholder="Enter Last Name"
+                    placeholder="Last Name"
                     required
                   />
                 </div>
               </div>
-              <div className="flex flex-col md:flex-row gap-4">
+              <div className="flex gap-4">
                 <div className="w-full">
                   <label htmlFor="email" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                    Email<span className="text-siteRubinRed-700">*</span>
+                    Email<span className="text-red-500"> *</span>
                   </label>
                   <input
                     type="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                    placeholder="Enter First Name"
-                    required
-                  />
-                </div>
-                <div className="w-full">
-                  <label htmlFor="phone" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                    Phone<span className="text-siteRubinRed-700">*</span>
-                  </label>
-                  <input
-                    type="phone"
-                    id="phone"
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                    placeholder="Enter Last Name"
+                    placeholder="Email address"
                     required
                   />
                 </div>
               </div>
               <div className="w-full">
-                <label htmlFor="select" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
-                  Service you are looking for
-                  <span className="text-siteRubinRed-700">*</span>
+                <label htmlFor="field" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                  Select Type<span className="text-red-500"> *</span>
                 </label>
                 <select
-                  name="select"
-                  id="select"
-                  className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  name="field"
+                  id="field"
+                  value={formData.field}
+                  onChange={handleChange}
+                  className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
                 >
+                  <option value="Select Field">Select Type</option>
+                  <option value="Person">Person</option>
+                  <option value="Company">Company</option>
+                  <option value="Both">Both</option>
+                </select>
+              </div>
+              <div className="w-full">
+                <label htmlFor="service" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                  Select Services<span className="text-red-500"> *</span>
+                </label>
+                <select
+                  name="service"
+                  id="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                >
+                  <option value="Select Services">Select Services</option>
                   <option value="Digital Marketing">Digital Marketing</option>
                   <option value="Branding">Branding</option>
                   <option value="Design">Design</option>
@@ -334,20 +420,25 @@ export default function Home() {
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                  Message<span className="text-siteRubinRed-700">*</span>
+                  Message<span className="text-red-500"> *</span>
                 </label>
                 <textarea
                   id="message"
                   rows="6"
-                  className="block p-2.5 w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                  placeholder="Leave a comment..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="block p-2.5 w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Leave a message..."
+                  required
                 ></textarea>
               </div>
+              <ReCAPTCHA sitekey={key} onChange={(val) => setCaptcha(val)} />
               <button
+                disabled={!captcha}
                 type="submit"
-                className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-700 sm:w-fit hover:bg-sitePrimary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
               >
-                <a href="/enquiry">Submit</a>
+                Send Message
               </button>
             </form>
           </div>
