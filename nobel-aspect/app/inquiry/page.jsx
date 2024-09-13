@@ -33,6 +33,12 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!captcha) {
+      setError("Please complete the CAPTCHA.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         `https://api.nobleaspect.com/api/inquiry/inquiries`,
@@ -43,6 +49,74 @@ const Page = () => {
           },
         }
       );
+
+      // Call your server-side API route to send the email
+      await axios.post("/api/sendEmail", {
+        to: formData.email,
+        name: `${formData.firstname} ${formData.lastname}`,
+        subject: "Inform about your noble aspect inquiry",
+        body: `
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  color: #333;
+                  background-color: #f9f9f9;
+                  margin: 0;
+                  padding: 0;
+                }
+                .email-container {
+                  max-width: 600px;
+                  margin: 20px auto;
+                  background: #ffffff;
+                  padding: 20px;
+                  border-radius: 8px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                h1 {
+                  color: #444;
+                  font-size: 22px;
+                  margin-bottom: 20px;
+                }
+                p {
+                  font-size: 16px;
+                  line-height: 1.5;
+                  margin: 0 0 15px;
+                }
+                .footer {
+                  font-size: 14px;
+                  color: #777;
+                  margin-top: 20px;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="email-container">
+                <h1>Hello ${formData.firstname},</h1>
+                <p>Thank you for reaching out to us. We have successfully received your inquiry and will get back to you shortly.</p>
+                
+                <p><strong>Inquiry Details:</strong></p>
+                <p><strong>Name:</strong> ${formData.firstname} ${formData.lastname}</p>
+                <p><strong>Email:</strong> ${formData.email}</p>
+                <p><strong>Type of Inquiry:</strong> ${formData.field}</p>
+                <p><strong>Service Interested In:</strong> ${formData.service}</p>
+                
+                <p>Here is the message you sent:</p>
+                <p>${formData.message}</p>
+                
+                <div class="footer">
+                  <p>Best regards,</p>
+                  <p>Noble Aspect</p>
+                  <p>Contact us at <a href="mailto:info@nobleaspect.com">info@nobleaspect.com</a></p>
+                </div>
+              </div>
+            </body>
+          </html>`,
+      });
 
       setSuccessMessage("The inquiry has been sent successfully!");
       setError(null);

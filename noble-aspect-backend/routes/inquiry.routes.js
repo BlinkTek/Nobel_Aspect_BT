@@ -6,6 +6,6 @@ const router = express.Router();
 router.post("/inquiries", createInquiry);
 router.get("/inquiries", getAllInquiries);
 router.get("/inquiries/:id", getInquiryById);
-router.get("/delete", deleteInquiry);
+router.get("/delete/:id", deleteInquiry);
 
 module.exports = router;

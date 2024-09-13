@@ -207,11 +207,11 @@ export default function Header() {
                 </Link>
                 <div className="border flex flex-col px-3">
                   {services.map((service, index) => (
-                    <Link key={service.serviceTitle}>
+                    <div key={service.serviceTitle}>
                       <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1">
                         <span className="text-gray-500">{service.serviceTitle}</span>
                       </a>
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </>

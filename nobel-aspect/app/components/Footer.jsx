@@ -41,7 +41,7 @@ const Footer = ({ noDesign }) => {
             {/* <Logo wordmark fix isFooter /> */}
             <div className="px-28 sm:px-20 md:px-18 lg:px-54 w-full flex items-center justify-center">
               <svg width={"251"} viewBox="0 0 795 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_1_2)">
+                <g clipPath="url(#clip0_1_2)">
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
