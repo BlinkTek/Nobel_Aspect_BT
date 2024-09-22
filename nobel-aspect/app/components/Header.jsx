@@ -22,7 +22,7 @@ import { usePathname } from "next/navigation";
 import axios from "axios";
 
 export default function Header() {
-  const pathname = usePathname();
+  const pathname = usePathname(); // Get the current path
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -51,139 +51,88 @@ export default function Header() {
     fetchData();
   }, []);
 
+  // Function to check if the link is active
+  // const isActive = (path) => pathname === path || pathname.startsWith(path);
+  const isActive = (path) => {
+    if (path === "/") {
+      // Home should only be active when the exact path is "/"
+      return pathname === "/";
+    }
+    // For other paths, use startsWith to match parent and child routes
+    return pathname.startsWith(path);
+  };
+  
+
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} disableAnimation isBordered isBlurred={false}>
       <NavbarContent justify="start">
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden text-black" />
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden text-black"
+        />
         <NavbarBrand>
           <Link href="/">
+          <div className="hidden md:flex">
             <Logo wordmark />
+          </div>
+          <div className="md:hidden flex">
+            <Logo />
+          </div>
           </Link>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/"
-            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
-          >
-            Home{" "}
-          </Link>
-        </NavbarItem>
-        {/* Dropdown menu */}
-        <Dropdown>
-          <NavbarItem>
-            <DropdownTrigger>
-              <Button
-                disableRipple
-                className="p-0 bg-transparent min-w-fit data-[hover=true]:bg-transparent"
-                radius="sm"
-                variant="light"
+        {menuItems.map((item, index) => (
+          <NavbarItem key={index}>
+            {item.link ? (
+              <Link
+                color="foreground"
+                href={item.link}
+                className={`flex items-center justify-center min-w-fit h-10 text-small rounded-small ${
+                  isActive(item.link) ? "text-sitePrimary-700 font-bold" : ""
+                }`}
               >
-                Services
-              </Button>
-            </DropdownTrigger>
+                {item.name}
+              </Link>
+            ) : (
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button
+                    disableRipple
+                    className={`p-0 ${isActive("/services") && "text-sitePrimary-700 font-bold"} bg-transparent min-w-fit data-[hover=true]:bg-transparent`}
+                    radius="sm"
+                    variant="light"
+                  >
+                    Services
+                  </Button>
+                </DropdownTrigger>
+                {!loading && (
+                  <DropdownMenu
+                    aria-label="ACME features"
+                    className="w-full"
+                    itemClasses={{
+                      base: "gap-4",
+                    }}
+                  >
+                    {services.map((service) => (
+                      <DropdownItem key={service.serviceTitle} className="focus:ring-black">
+                        <a
+                          href={`/services/${service.serviceTitle}`}
+                          className={`flex gap-2 items-center py-1 ${
+                            isActive(`/services/${service.serviceTitle}`) ? "text-sitePrimary-700 font-bold" : ""
+                          }`}
+                        >
+                          <span className="text-gray-500 font-semibold">{service.serviceTitle}</span>
+                        </a>
+                      </DropdownItem>
+                    ))}
+                  </DropdownMenu>
+                )}
+              </Dropdown>
+            )}
           </NavbarItem>
-          {/* <DropdownMenu
-            aria-label="ACME features"
-            className="w-full"
-            itemClasses={{
-              base: "gap-4",
-            }}
-          >
-            <DropdownItem key="Digital Marketing" className="focus:ring-black">
-              <a
-                href="/services/digital_marketing"
-                className="flex gap-2 items-center py-1  "
-              >
-                <Icon
-                  icon="hugeicons:marketing"
-                  width={20}
-                  height={20}
-                  className="text-sitePrimary-700"
-                />
-                <span className="text-gray-500 font-semibold">
-                  Digital Marketing
-                </span>
-              </a>
-            </DropdownItem>
-            <DropdownItem key="Branding" className="focus:ring-black">
-              <a
-                href="/services/branding"
-                className="flex gap-2 items-center py-1 "
-              >
-                <Icon
-                  icon="tabler:brand-speedtest"
-                  width={20}
-                  height={20}
-                  className="text-sitePrimary-700"
-                />
-                <span className="text-gray-500 font-semibold">Branding</span>
-              </a>
-            </DropdownItem>
-            <DropdownItem key="Designing" className="focus:ring-black">
-              <a
-                href="/services/designing"
-                className="flex gap-2 items-center py-1  "
-              >
-                <Icon
-                  icon="iconoir:design-nib"
-                  width={20}
-                  height={20}
-                  className="text-sitePrimary-700"
-                />
-                <span className="text-gray-500 font-semibold">Designing</span>
-              </a>
-            </DropdownItem>
-          </DropdownMenu> */}
-
-          {!loading && (
-            <DropdownMenu
-              aria-label="ACME features"
-              className="w-full"
-              itemClasses={{
-                base: "gap-4",
-              }}
-            >
-              {services.map((service, index) => (
-                <DropdownItem key={service.serviceTitle} className="focus:ring-black">
-                  <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1  ">
-                    <span className="text-gray-500 font-semibold">{service.serviceTitle}</span>
-                  </a>
-                </DropdownItem>
-              ))}
-            </DropdownMenu>
-          )}
-        </Dropdown>
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/casestudy"
-            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
-          >
-            Case Studies{" "}
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/about"
-            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
-          >
-            About Us{" "}
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link
-            color="foreground"
-            href="/contact"
-            className="flex items-center justify-center min-w-fit h-10 text-small rounded-small"
-          >
-            Contact Us{" "}
-          </Link>
-        </NavbarItem>
+        ))}
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem>
@@ -191,7 +140,9 @@ export default function Header() {
             as={Link}
             href="/inquiry"
             variant="bordered"
-            className="text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0"
+            className={`text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0 ${
+              isActive("/inquiry") ? "font-bold" : ""
+            }`}
           >
             Inquiry
           </Button>
@@ -202,13 +153,18 @@ export default function Header() {
           <NavbarMenuItem key={`${item}-${index}`}>
             {item.link === null ? (
               <>
-                <Link color="foreground" className="w-full" size="lg">
+                <Link color="foreground" className={`w-full  ${isActive("/services") && "text-sitePrimary-700 font-bold"}`} size="lg">
                   {item.name}
                 </Link>
                 <div className="border flex flex-col px-3">
-                  {services.map((service, index) => (
+                  {services.map((service) => (
                     <div key={service.serviceTitle}>
-                      <a href={`/services/${service.serviceTitle}`} className="flex gap-2 items-center py-1">
+                      <a
+                        href={`/services/${service.serviceTitle}`}
+                        className={`flex gap-2 items-center py-1 ${
+                          isActive(`/services/${service.serviceTitle}`) ? "font-bold text-sitePrimary-700" : ""
+                        }`}
+                      >
                         <span className="text-gray-500">{service.serviceTitle}</span>
                       </a>
                     </div>
@@ -216,7 +172,12 @@ export default function Header() {
                 </div>
               </>
             ) : (
-              <Link color="foreground" className="w-full" href={item.link} size="lg">
+              <Link
+                color="foreground"
+                className={`w-full ${isActive(item.link) ? "text-sitePrimary-700 font-bold" : ""}`}
+                href={item.link}
+                size="lg"
+              >
                 {item.name}
               </Link>
             )}

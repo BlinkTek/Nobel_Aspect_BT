@@ -39,7 +39,8 @@ const Footer = ({ noDesign }) => {
         <div className="mx-auto max-w-screen-xl text-center relative z-10">
           <a href="/" className="flex justify-center items-center text-2xl font-semibold text-gray-900 pb-5">
             {/* <Logo wordmark fix isFooter /> */}
-            <div className="px-28 sm:px-20 md:px-18 lg:px-54 w-full flex items-center justify-center">
+            <Logo wordmark />
+            {/* <div className="px-28 sm:px-20 md:px-18 lg:px-54 w-full flex items-center justify-center">
               <svg width={"251"} viewBox="0 0 795 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clipPath="url(#clip0_1_2)">
                   <path
@@ -69,7 +70,7 @@ const Footer = ({ noDesign }) => {
                   </clipPath>
                 </defs>
               </svg>
-            </div>
+            </div> */}
           </a>
           <div className="flex flex-wrap justify-center items-center mb-6 text-gray-900">
             <Link href={"/"} className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6">
@@ -98,19 +99,19 @@ const Footer = ({ noDesign }) => {
             </Link>
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-          <div className="md:flex md:items-center lg:pt-16 md:justify-between">
+          <div className=" md:flex md:items-center lg:pt-16 md:justify-between">
             <div className="flex flex-wrap justify-center items-center mb-6 text-gray-900">
               <Link href={"/policy"} className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6">
                 Privacy Policy
               </Link>
               <Link href={"/terms"} className="mr-4 text-gray-500 hover:text-sitePrimary-700 transition md:mr-6">
-                Terms of use
+                Terms of Use
               </Link>
             </div>
             <span className="text-sm text-gray-500 mb-6 sm:text-center">
               © 2019 Noble Aspect, LLC. All rights reserved.
             </span>
-            <div className="flex mt-6 space-x-6 justify-center md:mt-0">
+            <div className="flex my-6 space-x-6 justify-center md:mt-0">
               <a href="https://x.com" className="text-gray-500 hover:text-sitePrimary-700">
                 <Icon icon="hugeicons:new-twitter" width={20} />
               </a>

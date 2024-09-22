@@ -204,13 +204,13 @@ export default function Home() {
         <div className="max-w-fit min-h-screen px-10 flex gap-10 lg:gap-24 items-center z-10">
           <div className="w-full md:w-[55%] lg:w-[65%] flex flex-col gap-5 order-2 md:order-none pb-48 sm:pb-32">
             <h2 className="font-medium text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-sitePrimary-800 md:leading-10 lg:leading-[60px]">
-              Unleash your brand&apos;s potential with our{" "}
+              Unleash brand&apos;s potential with {" "}
               <span className="text-siteRubinRed-800">cutting-edge digital marketing!</span>
             </h2>
             <p className="text-xs sm:text-base lg:text-lg text-siteTextIcon-disabled font-semibold"></p>
             <a
               href="/casestudy"
-              className="w-fit flex justify-center items-center gap-3 py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
+              className="w-fit flex justify-center items-center gap-3 py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-emerald-600 focus:ring-4 focus:ring-sitePrimary-900"
             >
               See How We Work
               <svg xmlns="http://www.w3.org/2000/svg" className="w-6 font-bold" viewBox="0 0 48 48">

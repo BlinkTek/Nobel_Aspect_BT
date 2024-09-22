@@ -13,12 +13,12 @@ const Page = () => {
   const [captcha, setCaptcha] = useState(null);
 
   const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    field: "Select Industry",
-    services: "Select Services",
-    message: "",
+    firstname: "Steve",
+    lastname: "Jobs",
+    email: "hello1@yopmail.com",
+    field: "Person",
+    service: "Design",
+    message: "Hello world",
   });
 
   const [error, setError] = useState(null);
@@ -34,10 +34,10 @@ const Page = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!captcha) {
-      setError("Please complete the CAPTCHA.");
-      return;
-    }
+    // if (!captcha) {
+    //   setError("Please complete the CAPTCHA.");
+    //   return;
+    // }
 
     try {
       const response = await axios.post(

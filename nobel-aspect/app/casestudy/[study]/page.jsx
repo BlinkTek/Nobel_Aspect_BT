@@ -48,7 +48,7 @@ const Page = ({ params }) => {
               alt=""
               width={1400}
               height={200}
-              className="w-full h-full object-cover object-left-bottom"
+              className="w-auto h-96 mx-auto object-cover object-left-bottom"
             />
             {/* <Image
               src={"/casestudy.svg"}

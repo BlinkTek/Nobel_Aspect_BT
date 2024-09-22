@@ -16,7 +16,7 @@ const Designing = () => {
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="mb-8 lg:mb-16 flex flex-col gap-4 mx-auto w-full">
             <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-secondary">
-              Terms of use
+              Terms of Use
             </h2>
             <div className="flex flex-col gap-3">
               <h2 className="mt-5 text-lg md:text-xl lg:text-3xl tracking-tight font-medium text-siteTextIcon-secondary">

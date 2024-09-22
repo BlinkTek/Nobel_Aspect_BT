@@ -43,6 +43,7 @@ const Page = ({ params }) => {
             alt=""
             width={1400}
             height={200}
+            priority
             className="w-full h-full object-cover object-left-bottom"
           />
         </div>
@@ -54,7 +55,9 @@ const Page = ({ params }) => {
             <p className="text-base lg:text-lg text-siteTextIcon-disabled font-semibold">{myService?.information}</p>
           </div>
           <div className="w-full sm:w-2/3 md:w-full flex items-center justify-center order-1 md:order-none z-10">
-            <Image src={myService?.image} className="w-full h-full object-cover" alt="" width={1000} height={1000} />
+          {myService?.image && (
+            <Image src={myService?.image} className="w-full h-full object-cover" alt="" width={1000} height={1000} priority />
+          )}
           </div>
         </div>
       </section>
@@ -66,10 +69,10 @@ const Page = ({ params }) => {
             <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
               {myService?.serviceTitle}
             </h2>
-            <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
+            {/* <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
               Our battle-tested developers specialize in a wide range of Design. Here are some of the solutions that we
               can deliver for you.
-            </p>
+            </p> */}
           </div>
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
             {serviceData && serviceData?.map((item, index) => {

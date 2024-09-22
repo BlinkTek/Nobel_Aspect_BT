@@ -16,6 +16,9 @@ const Designing = () => {
         <div className="py-8 mx-auto max-w-screen-xl sm:py-16">
           <div className="space-y-8 md:space-y-0">
             <section className="bg-white dark:bg-gray-900">
+              <h2 className="mb-4 px-6 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
+                About Us
+              </h2>
               <div className="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl md:flex sm:py-16 lg:px-6">
                 <Image
                   width={500}
@@ -84,39 +87,40 @@ const Designing = () => {
             <h2 className="mb-4 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
               Our Core Values
             </h2>
-            <p className="mb-6 text-base lg:text-lg font-light text-gray-500 dark:text-gray-400">
+            <div className="mb-6 text-base lg:text-lg font-light text-gray-500 dark:text-gray-400 px-4">
               <ol>
                 <li>
-                  <b className="font-bold">1. Quality:</b> We relentlessly pursue quality in everything we do. Our commitment to quality drives
-                  us to exceed expectations and deliver exceptional results.
+                  <b className="font-bold">1. Quality:</b> We relentlessly pursue quality in everything we do. Our
+                  commitment to quality drives us to exceed expectations and deliver exceptional results.
                 </li>
                 <li>
-                  <b className="font-bold">2. Creativity:</b> Our aim to bring prospective concepts to life. We create a unique and memorable
-                  experience for our clients and their customers through creative solutions.
+                  <b className="font-bold">2. Creativity:</b> Our aim to bring prospective concepts to life. We create a
+                  unique and memorable experience for our clients and their customers through creative solutions.
                 </li>
                 <li>
-                  <b className="font-bold">3. Innovation:</b> We thrive on innovation. Curiosity fuels our exploration of new ideas,
-                  technologies, and methodologies. We embrace change as an opportunity for growth.
+                  <b className="font-bold">3. Innovation:</b> We thrive on innovation. Curiosity fuels our exploration
+                  of new ideas, technologies, and methodologies. We embrace change as an opportunity for growth.
                 </li>
                 <li>
-                  <b className="font-bold">4. Partnership:</b> We believe in the power of partnership. By fostering diverse perspectives and
-                  working together, we create solutions that resonate with our clients and their audiences.
+                  <b className="font-bold">4. Partnership:</b> We believe in the power of partnership. By fostering
+                  diverse perspectives and working together, we create solutions that resonate with our clients and
+                  their audiences.
                 </li>
                 <li>
-                  <b className="font-bold">5. Integrity:</b> Honesty, transparency, and ethical conduct are integral to our values. We build
-                  trust through our actions, maintaining unwavering ethical principles.
+                  <b className="font-bold">5. Integrity:</b> Honesty, transparency, and ethical conduct are integral to
+                  our values. We build trust through our actions, maintaining unwavering ethical principles.
                 </li>
                 <li>
-                  <b className="font-bold">6. Empathy:</b> Understanding the needs, concerns, and aspirations of our clients and their
-                  stakeholders is essential. We approach every project with empathy, ensuring that our solutions align
-                  with real-world impact.
+                  <b className="font-bold">6. Empathy:</b> Understanding the needs, concerns, and aspirations of our
+                  clients and their stakeholders is essential. We approach every project with empathy, ensuring that our
+                  solutions align with real-world impact.
                 </li>
               </ol>
               <p className="pt-3">
                 Partner with us, and together, let’s create a digital reality that’s as noble and dynamic as your
                 brand’s aspirations!
               </p>
-            </p>
+            </div>
           </div>
         </div>
       </section>

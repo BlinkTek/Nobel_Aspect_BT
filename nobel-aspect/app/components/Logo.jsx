@@ -7,8 +7,10 @@ const Logo = ({ wordmark = false, fix = false, isFooter = false }) => {
         <div className={`${isFooter ? "scale-100" : "scale-75"} h-full object-cover`}>
           <svg
             // width="795" height="240"
-            width={fix ? "251" : "100%"}
-            height={fix ? "43" : "100%"}
+            // width={fix ? "251" : "100%"}
+            // height={fix ? "43" : "100%"}
+            width="251"
+            height="43"
             viewBox="0 0 795 240"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

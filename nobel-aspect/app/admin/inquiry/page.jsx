@@ -172,7 +172,7 @@ export default function App() {
 
   const deleteenquiry = useCallback(async (user) => {
     try {
-      const response = await axios.delete(`https://api.nobleaspect.com/api/inquiry/delete/${user._id}`);
+      const response = await axios.get(`https://api.nobleaspect.com/api/inquiry/delete/${user._id}`);
     } catch (err) {
       console.log(err.response?.data?.message || "Failed to delete inquiry. Please try again later.");
     }

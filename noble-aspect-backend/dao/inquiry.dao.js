@@ -21,4 +21,5 @@ module.exports = {
   createInquiry,
   getAllInquiries,
   getInquiryById,
+  deleteInquiry,
 };
