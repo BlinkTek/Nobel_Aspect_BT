@@ -27,7 +27,7 @@ const Designing = () => {
                   src="/about_1.png"
                   alt="dashboard image"
                 />
-                <div className="mt-4 md:mt-0 w-1/2">
+                <div className="mt-4 md:mt-0 w-full md:w-1/2">
                   <h2 className="mb-4 header2 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
                     Digital Solutions with a Noble Touch
                   </h2>
@@ -49,7 +49,7 @@ const Designing = () => {
                   src="/about_3.png"
                   alt="dashboard image"
                 />
-                <div className="mt-4 md:mt-0 w-1/2 order-1">
+                <div className="mt-4 md:mt-0 w-full md:w-1/2 order-1">
                   <h2 className="mb-4 header2 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
                     Our Vision & Mission
                   </h2>
@@ -74,7 +74,7 @@ const Designing = () => {
                   src="/about_2.png"
                   alt="dashboard image"
                 />
-                <div className="mt-4 md:mt-0 w-1/2">
+                <div className="mt-4 md:mt-0 w-full md:w-1/2">
                   <h2 className="mb-4 header2 text-xl md:text-2xl lg:text-3xl font-medium text-siteTextIcon-primary dark:text-white uppercase">
                     Our Core Values
                   </h2>
