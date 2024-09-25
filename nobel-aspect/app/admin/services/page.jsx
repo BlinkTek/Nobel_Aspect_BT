@@ -400,7 +400,7 @@ export default function App() {
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%]",
+              base: "w-full sm:max-w-[44%] textcss-secondary",
               inputWrapper: "border-1",
             }}
             placeholder="Search by name..."
@@ -455,7 +455,7 @@ export default function App() {
               </DropdownMenu>
             </Dropdown>
             <Button
-              className="bg-foreground text-background"
+              className="bg-foreground text-background btncss"
               endContent={<PlusIcon />}
               size="sm"
               onPress={() => modalOpen("add")}
@@ -569,6 +569,7 @@ export default function App() {
                   key={column.uid}
                   align={column.uid === "actions" ? "center" : "start"}
                   allowsSorting={column.sortable}
+                  className="textcss-primary"
                 >
                   {column.name}
                 </TableColumn>
@@ -577,7 +578,7 @@ export default function App() {
             <TableBody emptyContent={"No users found"} items={items}>
               {items.map((item, index) => (
                 <TableRow key={item._id}>
-                  {(columnKey) => <TableCell>{renderCell(item, columnKey, index)}</TableCell>}
+                  {(columnKey) => <TableCell className="textcss-secondary">{renderCell(item, columnKey, index)}</TableCell>}
                 </TableRow>
               ))}
             </TableBody>
@@ -586,7 +587,7 @@ export default function App() {
             <ModalContent>
               {(onClose) => (
                 <>
-                  <ModalHeader className="flex flex-col gap-1">
+                  <ModalHeader className="flex flex-col gap-1 textcss-primary">
                     {modalMode === "add"
                       ? "Add Service"
                       : modalMode === "edit"
@@ -600,7 +601,7 @@ export default function App() {
                       <div className="w-full">
                         <label
                           htmlFor="serviceTitle"
-                          className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                          className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300"
                         >
                           Service title
                         </label>
@@ -611,7 +612,7 @@ export default function App() {
                           value={modalData.serviceTitle}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Enter Field"
                           required
                         />
@@ -619,7 +620,7 @@ export default function App() {
                       <div className="w-full">
                         <label
                           htmlFor="image"
-                          className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                          className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300"
                         >
                           Image
                         </label>
@@ -629,7 +630,7 @@ export default function App() {
                           id="image"
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           accept="image/*"
                           required
                         />
@@ -638,7 +639,7 @@ export default function App() {
                       <div className="sm:col-span-2">
                         <label
                           htmlFor="information"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                          className="block mb-2 textcss-primary text-sm font-medium text-gray-900 dark:text-gray-400"
                         >
                           Information
                         </label>
@@ -648,14 +649,14 @@ export default function App() {
                           value={modalData.information}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block mb-2 p-2.5 w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          className="block mb-2 p-2.5 textcss-secondary w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                           placeholder="Add information"
                           required
                         ></textarea>
 
                         <label
                           htmlFor="image"
-                          className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                          className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300"
                         >
                           Features
                         </label>
@@ -670,7 +671,7 @@ export default function App() {
                             onChange={handleChange}
                             placeholder={`Feature ${index + 1}`}
                             disabled={modalMode == "view"}
-                            className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             required
                           />
                         ))}
@@ -681,16 +682,16 @@ export default function App() {
                     </form>
                   </ModalBody>
                   <ModalFooter>
-                    <Button color="danger" variant="light" onPress={onClose}>
+                    <Button color="danger" variant="light" onPress={onClose} className="btnredcss">
                       Close
                     </Button>
                     {modalMode == "add" ? (
-                      <Button color="primary" onPress={() => handleSubmit(onClose)}>
+                      <Button color="primary" className="btncss" onPress={() => handleSubmit(onClose)}>
                         Add Service
                       </Button>
                     ) : (
                       modalMode == "edit" && (
-                        <Button color="primary" onPress={() => handleEditData(onClose)}>
+                        <Button color="primary" className="btncss" onPress={() => handleEditData(onClose)}>
                           Edit Service
                         </Button>
                       )

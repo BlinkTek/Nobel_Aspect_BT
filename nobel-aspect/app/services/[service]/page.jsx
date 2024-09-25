@@ -49,10 +49,10 @@ const Page = ({ params }) => {
         </div>
         <div className="max-w-screen-xl min-h-screen px-10 flex flex-col md:flex-row gap-10 lg:gap-24 items-center justify-center">
           <div className="w-full flex flex-col gap-5 order-2 md:order-none">
-            <h2 className="font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-siteTextIcon-primary leading-[80px]">
+            <h2 className="font-normal textcss-primary header1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-siteTextIcon-primary leading-[80px]">
               {myService?.serviceTitle}
             </h2>
-            <p className="text-base lg:text-lg text-siteTextIcon-disabled font-semibold">{myService?.information}</p>
+            <p className="textcss-secondary header3 text-base lg:text-lg text-siteTextIcon-disabled font-semibold">{myService?.information}</p>
           </div>
           <div className="w-full sm:w-2/3 md:w-full flex items-center justify-center order-1 md:order-none z-10">
           {myService?.image && (
@@ -66,7 +66,7 @@ const Page = ({ params }) => {
       <section className="bg-white">
         <div className="py-8 px-4 pb-8 mx-auto max-w-screen-xl text-center sm:py-16 sm:pb-32 lg:px-6 lg:pb-40">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
-            <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
+            <h2 className="mb-4 textcss-primary header1 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
               {myService?.serviceTitle}
             </h2>
             {/* <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
@@ -99,7 +99,7 @@ const Page = ({ params }) => {
                       </svg>
                     </div>
                   </div>
-                  <p>{item}</p>
+                  <p className="textcss-secondary header3">{item}</p>
                 </div>
               );
             })}

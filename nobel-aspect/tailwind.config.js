@@ -56,11 +56,14 @@ module.exports = {
           secondary: "#1D2433CC",
           disabled: "#1D2433A6",
         },
+        EffectGreen: "#067A49",
+        EffectRed: "#CA0026",
+        TextPrimary: "#006D66",
+        TextSecondary: "#338a85",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "bg-gradient": "linear-gradient(180deg, #EBFEF6 0%, #FFE0E6 100%)",
       },
     },

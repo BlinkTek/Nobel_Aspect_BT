@@ -37,10 +37,10 @@ const Page = ({ params }) => {
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="mb-8 lg:mb-16 mx-auto w-full">
-            <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
+            <h2 className="mb-4 text-3xl header1 md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
               {myService?.casestudyTitle}
             </h2>
-            <p className="text-base lg:text-xl font-normal text-siteTextIcon-disabled">{myService?.information}</p>
+            <p className="text-base header2 lg:text-xl font-normal text-siteTextIcon-disabled">{myService?.information}</p>
           </div>
           <div className="w-full h-full">
             <Image
@@ -63,8 +63,8 @@ const Page = ({ params }) => {
 
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-          <div className="mb-8 lg:mb-16 flex flex-col gap-3 mx-auto w-full text-black">
-            <p dangerouslySetInnerHTML={{ __html: myService?.content }} />
+          <div className="mb-8 lg:mb-16 flex flex-col gap-3 mx-auto w-full textcss-primary">
+            <div dangerouslySetInnerHTML={{ __html: myService?.content }} className="force-coloring" />
           </div>
         </div>
       </section>

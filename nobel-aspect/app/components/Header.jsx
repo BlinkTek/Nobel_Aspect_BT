@@ -15,6 +15,8 @@ import {
   DropdownMenu,
   DropdownTrigger,
   Dropdown,
+  Accordion,
+  AccordionItem,
 } from "@nextui-org/react";
 import Logo from "./Logo";
 import { Icon } from "@iconify/react";
@@ -59,25 +61,20 @@ export default function Header() {
       return pathname === "/";
     }
     // For other paths, use startsWith to match parent and child routes
-    return pathname.startsWith(path);
+    return pathname.startsWith(decodeURIComponent(path));
   };
-  
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} disableAnimation isBordered isBlurred={false}>
       <NavbarContent justify="start">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden text-black"
-        />
+        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden text-black" />
         <NavbarBrand>
-          <Link href="/">
-          <div className="hidden md:flex">
+          <Link href="/" className="h-14">
             <Logo wordmark />
-          </div>
-          <div className="md:hidden flex">
+            <div className="hidden md:flex"></div>
+            {/* <div className="md:hidden flex">
             <Logo />
-          </div>
+          </div> */}
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -90,7 +87,7 @@ export default function Header() {
                 color="foreground"
                 href={item.link}
                 className={`flex items-center justify-center min-w-fit h-10 text-small rounded-small ${
-                  isActive(item.link) ? "text-sitePrimary-700 font-bold" : ""
+                  isActive(item.link) ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
                 }`}
               >
                 {item.name}
@@ -100,7 +97,9 @@ export default function Header() {
                 <DropdownTrigger>
                   <Button
                     disableRipple
-                    className={`p-0 ${isActive("/services") && "text-sitePrimary-700 font-bold"} bg-transparent min-w-fit data-[hover=true]:bg-transparent`}
+                    className={`p-0 ${
+                      isActive("/services") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                    } bg-transparent min-w-fit data-[hover=true]:bg-transparent`}
                     radius="sm"
                     variant="light"
                   >
@@ -120,10 +119,10 @@ export default function Header() {
                         <a
                           href={`/services/${service.serviceTitle}`}
                           className={`flex gap-2 items-center py-1 ${
-                            isActive(`/services/${service.serviceTitle}`) ? "text-sitePrimary-700 font-bold" : ""
+                            isActive(`/services/${service.serviceTitle}`) ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
                           }`}
                         >
-                          <span className="text-gray-500 font-semibold">{service.serviceTitle}</span>
+                          {service.serviceTitle}
                         </a>
                       </DropdownItem>
                     ))}
@@ -141,7 +140,7 @@ export default function Header() {
             href="/inquiry"
             variant="bordered"
             className={`text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0 ${
-              isActive("/inquiry") ? "font-bold" : ""
+              isActive("/inquiry") ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
             }`}
           >
             Inquiry
@@ -153,28 +152,49 @@ export default function Header() {
           <NavbarMenuItem key={`${item}-${index}`}>
             {item.link === null ? (
               <>
-                <Link color="foreground" className={`w-full  ${isActive("/services") && "text-sitePrimary-700 font-bold"}`} size="lg">
-                  {item.name}
-                </Link>
-                <div className="border flex flex-col px-3">
-                  {services.map((service) => (
-                    <div key={service.serviceTitle}>
-                      <a
-                        href={`/services/${service.serviceTitle}`}
-                        className={`flex gap-2 items-center py-1 ${
-                          isActive(`/services/${service.serviceTitle}`) ? "font-bold text-sitePrimary-700" : ""
-                        }`}
-                      >
-                        <span className="text-gray-500">{service.serviceTitle}</span>
-                      </a>
+                <Accordion isCompact>
+                  <AccordionItem
+                    title={
+                      <p className={`w-full -m-2 ${isActive("/services") ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"}`}>
+                        {item.name}
+                      </p>
+                    }
+                    indicator={
+                      <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                        <path
+                          fill="none"
+                          stroke="black"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2.5"
+                          d="m14 7l-5 5m0 0l5 5"
+                        />
+                      </svg>
+                    }
+                  >
+                    <div className="flex flex-col px-3">
+                      {services.map((service) => (
+                        <div key={service.serviceTitle}>
+                          <a
+                            href={`/services/${service.serviceTitle}`}
+                            className={`flex gap-2 items-center py-1 ${
+                              isActive(`/services/${service.serviceTitle}`) ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                            }`}
+                          >
+                            <span
+                              className={isActive(`/services/${decodeURIComponent(service.serviceTitle)}`) ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"}
+                            >{service.serviceTitle}</span>
+                          </a>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </AccordionItem>
+                </Accordion>
               </>
             ) : (
               <Link
                 color="foreground"
-                className={`w-full ${isActive(item.link) ? "text-sitePrimary-700 font-bold" : ""}`}
+                className={`w-full ${isActive(item.link) ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"}`}
                 href={item.link}
                 size="lg"
               >

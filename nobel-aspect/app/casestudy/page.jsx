@@ -43,11 +43,11 @@ const Designing = () => {
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="mb-8 lg:mb-16 mx-auto w-full">
-            <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
+            <h2 className="mb-4 header1 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
               Case Studies
             </h2>
-            <p className="text-base lg:text-xl font-normal text-siteTextIcon-disabled">
-              At Noble Aspect, LLC, we believe in results, not just promises. Explore how our digital marketing, branding, and design prowess has reshaped businesses. These aren’t just case studies but the stepping stones for your brand’s journey. Ready to take the next step?
+            <p className="text-base header3 lg:text-xl font-normal text-siteTextIcon-disabled">
+              At Noble Aspect, LLC, we believe in results, not just promises. Explore how our digital marketing, branding, and design prowess has reshaped businesses. These aren’t just case studies but the stepping stones for your brand’s journey. Ready to take the next step? Contact Us!
             </p>
           </div>
           <div className="w-full h-full">
@@ -78,14 +78,14 @@ const Designing = () => {
                   }`}
                   onClick={() => router.push(`/casestudy/${item.casestudyTitle}`)}
                 >
-                  <h2 className="mb-4 text-2xl tracking-tight font-medium text-siteTextIcon-primary">
+                  <h2 className="mb-4 text-2xl textcss-primary tracking-tight font-medium text-siteTextIcon-primary">
                     {item?.casestudyTitle}
                   </h2>
                   <div className="w-full h-full">
                     <Image src={item?.image} alt="" width={500} height={20} className="w-full h-full object-contain" />
                   </div>
                   {hoveredDiv === index && (
-                    <p className="text-base tracking-tight font-medium text-siteTextIcon-disabled transition-opacity duration-300 ease-in-out opacity-100">
+                    <p className="text-base textcss-secondary tracking-tight font-medium text-siteTextIcon-disabled transition-opacity duration-300 ease-in-out opacity-100">
                       {item?.information}
                     </p>
                   )}

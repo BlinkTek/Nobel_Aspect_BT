@@ -22,9 +22,9 @@ const Contact = () => {
                 </svg>
               </div>
             </div>
-            <h3 className="mb-2 text-xl font-medium">Email</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">Our friendly team is here to help.</p>
-            <p className="text-siteTextIcon-primary pt-5">info@nobleaspect.com</p>
+            <h3 className="mb-2 text-xl font-medium textcss-primary">Email</h3>
+            <p className="textcss-secondary text-siteTextIcon-secondary dark:text-gray-400">Our friendly team is here to help.</p>
+            <p className="textcss-secondary text-siteTextIcon-primary pt-5">info@nobleaspect.com</p>
           </div>
 
           <div className="flex flex-col items-center text-center p-5 rounded-2xl text-gray-500 dark:text-gray-400">
@@ -44,9 +44,9 @@ const Contact = () => {
                 </svg>
               </div>
             </div>
-            <h3 className="mb-2 text-xl font-medium">Office</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">Come say hello at our office HQ.</p>
-            <p className="text-siteTextIcon-primary pt-5">
+            <h3 className="mb-2 text-xl font-medium textcss-primary">Office</h3>
+            <p className="textcss-secondary text-siteTextIcon-secondary dark:text-gray-400">Come say hello at our office HQ.</p>
+            <p className="textcss-secondary text-siteTextIcon-primary pt-5">
               99 Wall St Ste 2077 <br />
               New York, NY 10005
             </p>
@@ -69,9 +69,9 @@ const Contact = () => {
                 </svg>
               </div>
             </div>
-            <h3 className="mb-2 text-xl font-medium">Phone</h3>
-            <p className="text-siteTextIcon-secondary dark:text-gray-400">Mon-Fri from 10 am to 6 pm.</p>
-            <p className="text-siteTextIcon-primary pt-5">+1 (201) 844-2537</p>
+            <h3 className="mb-2 text-xl font-medium textcss-primary">Phone</h3>
+            <p className="textcss-secondary text-siteTextIcon-secondary dark:text-gray-400">Mon-Fri from 10 am to 6 pm.</p>
+            <p className="textcss-secondary text-siteTextIcon-primary pt-5">+1 (201) 844-2537</p>
           </div>
         </div>
       </div>

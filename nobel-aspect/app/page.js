@@ -210,7 +210,7 @@ export default function Home() {
             <p className="text-xs sm:text-base lg:text-lg text-siteTextIcon-disabled font-semibold"></p>
             <a
               href="/casestudy"
-              className="w-fit flex justify-center items-center gap-3 py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-emerald-600 focus:ring-4 focus:ring-sitePrimary-900"
+              className="w-fit btncss flex justify-center items-center gap-3 py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-emerald-600 focus:ring-4 focus:ring-sitePrimary-900"
             >
               See How We Work
               <svg xmlns="http://www.w3.org/2000/svg" className="w-6 font-bold" viewBox="0 0 48 48">
@@ -231,7 +231,7 @@ export default function Home() {
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
-            <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary">
+            <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary textcss-primary">
               Customized digital services for brand aspirations
             </h2>
           </div>
@@ -248,11 +248,11 @@ export default function Home() {
                         <Image src={item.image} width={30} height={30} />
                       </div>
                     </div>
-                    <h3 className="mb-2 text-xl font-bold -ml-6 pl-6 border-l-2 border-sitePrimary-700 text-siteTextIcon-primary">
+                    <h3 className="mb-2 text-xl font-bold -ml-6 pl-6 border-l-2 border-sitePrimary-700 text-siteTextIcon-primary textcss-primary">
                       {item.serviceTitle}
                     </h3>
-                    <p className="text-siteTextIcon-secondary">{item.information}</p>
-                    <p className="text-siteTextIcon-secondary pt-6">Customized digital services for brand aspirations</p>
+                    <p className="text-siteTextIcon-secondary textcss-secondary">{item.information}</p>
+                    {/* <p className="text-siteTextIcon-secondary pt-6">Customized digital services for brand aspirations</p> */}
                   </Link>
                 </div>
               );
@@ -265,10 +265,10 @@ export default function Home() {
       <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 text-center mx-auto w-full">
-            <h2 className="mb-4 text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
+            <h2 className="mb-4 textcss-primary text-3xl md:text-4xl lg:text-5xl tracking-tight font-medium text-siteTextIcon-primary">
               Case Studies{" "}
             </h2>
-            <p className="text-gray-500 text-base lg:text-xl font-light text-siteTextIcon-disabled">
+            <p className="text-gray-500 textcss-secondary text-base lg:text-xl font-light text-siteTextIcon-disabled">
               At Noble Aspect, LLC, we believe in results, not just promises. Explore how our digital marketing, branding, and design prowess has reshaped businesses. These aren’t just case studies but the stepping stones for your brand’s journey. Ready to take the next step? Contact Us!
             </p>
           </div>
@@ -289,14 +289,14 @@ export default function Home() {
                   }`}
                   onClick={() => router.push(`/casestudy/${item.casestudyTitle}`)}
                 >
-                  <h2 className="mb-4 text-2xl tracking-tight font-medium text-siteTextIcon-primary">
+                  <h2 className="mb-4 text-2xl textcss-primary tracking-tight font-medium text-siteTextIcon-primary">
                     {item?.casestudyTitle}
                   </h2>
                   <div className="w-full h-full">
                     <Image src={item?.image} alt="" width={500} height={20} className="w-full h-full object-contain" />
                   </div>
                   {hoveredDiv === index && (
-                    <p className="text-base tracking-tight font-medium text-siteTextIcon-disabled transition-opacity duration-300 ease-in-out opacity-100">
+                    <p className="text-base textcss-secondary tracking-tight font-medium text-siteTextIcon-disabled transition-opacity duration-300 ease-in-out opacity-100">
                       {item?.information}
                     </p>
                   )}
@@ -309,12 +309,12 @@ export default function Home() {
       {/** Newsletter Section */}
       <section className="bg-white pb-20 px-4">
         <div className="py-8 px-4 h-60 md:h-[400px] mx-auto max-w-screen-xl sm:py-16 lg:px-6 bg-[url('/newsletter-banner.jpg')] bg-cover bg-center rounded-3xl flex flex-col gap-10 items-center justify-center">
-          <h1 className="mx-auto font-medium text-sitePrimary-700 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl max-w-screen-md">
+          <h1 className="mx-auto font-medium text-sitePrimary-700 text-center text-xl sm:text-2xl md:text-3xl lg:text-4xl max-w-screen-md">
             Partner with us, and together, let&apos;s create immersive digital experiences
           </h1>
           <a
             href="/contact"
-            className="inline-flex justify-center items-center py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
+            className="inline-flex btncss justify-center items-center py-3 px-5 text-sm md:text-base font-medium text-center text-white rounded-xl bg-sitePrimary-700 hover:bg-sitePrimary-800 focus:ring-4 focus:ring-sitePrimary-900"
           >
             Contact Us
           </a>
@@ -325,7 +325,7 @@ export default function Home() {
       <section className="bg-siteNeutral-100 w-full flex justify-center">
         <div className="max-w-screen-xl w-full flex gap-12 py-8 px-4 sm:py-16 xl:px-0">
           <div className="mx-auto w-full md:w-1/2">
-            <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
+            <h2 className="mb-4 text-3xl textcss-primary tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
               Inquiry
             </h2>
             {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
@@ -334,7 +334,7 @@ export default function Home() {
                 <div className="w-full">
                   <label
                     htmlFor="firstname"
-                    className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                    className="block mb-2 text-sm textcss-primary font-semibold text-gray-900 dark:text-gray-300"
                   >
                     First Name<span className="text-red-500"> *</span>
                   </label>
@@ -343,7 +343,7 @@ export default function Home() {
                     id="firstname"
                     value={formData.firstname}
                     onChange={handleChange}
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     placeholder="First Name"
                     required
                   />
@@ -351,7 +351,7 @@ export default function Home() {
                 <div className="w-full">
                   <label
                     htmlFor="lastname"
-                    className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                    className="block mb-2 text-sm textcss-primary font-semibold text-gray-900 dark:text-gray-300"
                   >
                     Last Name<span className="text-red-500"> *</span>
                   </label>
@@ -360,7 +360,7 @@ export default function Home() {
                     id="lastname"
                     value={formData.lastname}
                     onChange={handleChange}
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     placeholder="Last Name"
                     required
                   />
@@ -368,7 +368,7 @@ export default function Home() {
               </div>
               <div className="flex gap-4">
                 <div className="w-full">
-                  <label htmlFor="email" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                  <label htmlFor="email" className="block mb-2 text-sm textcss-primary font-semibold text-gray-900 dark:text-gray-300">
                     Email<span className="text-red-500"> *</span>
                   </label>
                   <input
@@ -376,14 +376,14 @@ export default function Home() {
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     placeholder="Email address"
                     required
                   />
                 </div>
               </div>
               <div className="w-full">
-                <label htmlFor="field" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                <label htmlFor="field" className="block mb-2 text-sm textcss-primary font-semibold text-gray-900 dark:text-gray-300">
                   Select Type<span className="text-red-500"> *</span>
                 </label>
                 <select
@@ -391,7 +391,7 @@ export default function Home() {
                   id="field"
                   value={formData.field}
                   onChange={handleChange}
-                  className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block w-full p-3 mb-6 text-sm textcss-secondary text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 >
                   <option value="Select Field">Select Type</option>
@@ -401,7 +401,7 @@ export default function Home() {
                 </select>
               </div>
               <div className="w-full">
-                <label htmlFor="service" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                <label htmlFor="service" className="block mb-2 text-sm textcss-primary font-semibold text-gray-900 dark:text-gray-300">
                   Select Services<span className="text-red-500"> *</span>
                 </label>
                 <select
@@ -409,7 +409,7 @@ export default function Home() {
                   id="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block w-full p-3 mb-6 text-sm textcss-secondary text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 >
                   <option value="Select Services">Select Services</option>
@@ -419,7 +419,7 @@ export default function Home() {
                 </select>
               </div>
               <div className="sm:col-span-2">
-                <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                <label htmlFor="message" className="block textcss-primary mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
                   Message<span className="text-red-500"> *</span>
                 </label>
                 <textarea
@@ -427,7 +427,7 @@ export default function Home() {
                   rows="6"
                   value={formData.message}
                   onChange={handleChange}
-                  className="block p-2.5 w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="block p-2.5 w-full text-sm text-gray-900 textcss-secondary bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Leave a message..."
                   required
                 ></textarea>
@@ -436,7 +436,7 @@ export default function Home() {
               <button
                 disabled={!captcha}
                 type="submit"
-                className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
+                className="py-3 btncss px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
               >
                 Send Message
               </button>

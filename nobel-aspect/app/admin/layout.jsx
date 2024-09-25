@@ -29,12 +29,7 @@ const Layout = ({ children }) => {
     {
       title: "Dashboard",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <path
             fill="none"
             stroke="currentColor"
@@ -46,12 +41,7 @@ const Layout = ({ children }) => {
         </svg>
       ),
       activeIcon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <path
             fill="currentColor"
             d="M10.995 4.68v3.88A2.44 2.44 0 0 1 8.545 11h-3.86a2.38 2.38 0 0 1-1.72-.72a2.4 2.4 0 0 1-.71-1.72V4.69a2.44 2.44 0 0 1 2.43-2.44h3.87a2.42 2.42 0 0 1 1.72.72a2.4 2.4 0 0 1 .72 1.71m10.75.01v3.87a2.46 2.46 0 0 1-2.43 2.44h-3.88a2.5 2.5 0 0 1-1.73-.71a2.44 2.44 0 0 1-.71-1.73V4.69a2.4 2.4 0 0 1 .72-1.72a2.42 2.42 0 0 1 1.72-.72h3.87a2.46 2.46 0 0 1 2.44 2.44m0 10.75v3.87a2.46 2.46 0 0 1-2.43 2.44h-3.88a2.5 2.5 0 0 1-1.75-.69a2.42 2.42 0 0 1-.71-1.73v-3.87a2.4 2.4 0 0 1 .72-1.72a2.42 2.42 0 0 1 1.72-.72h3.87a2.46 2.46 0 0 1 2.44 2.44zm-10.75.01v3.87a2.46 2.46 0 0 1-2.45 2.43h-3.86a2.42 2.42 0 0 1-2.43-2.43v-3.87A2.46 2.46 0 0 1 4.685 13h3.87a2.5 2.5 0 0 1 1.73.72a2.45 2.45 0 0 1 .71 1.73"
@@ -63,12 +53,7 @@ const Layout = ({ children }) => {
     {
       title: "Services",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <g fill="none" fillRule="evenodd">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
             <path
@@ -79,12 +64,7 @@ const Layout = ({ children }) => {
         </svg>
       ),
       activeIcon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <g fill="none">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
             <path
@@ -99,12 +79,7 @@ const Layout = ({ children }) => {
     {
       title: "Case Studies",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <g fill="none">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
             <path
@@ -115,12 +90,7 @@ const Layout = ({ children }) => {
         </svg>
       ),
       activeIcon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <g fill="none">
             <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
             <path
@@ -135,31 +105,15 @@ const Layout = ({ children }) => {
     {
       title: "Inquiry",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
-          <g
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-          >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+          <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5">
             <path d="M9 9c0-3.5 5.5-3.5 5.5 0c0 2.5-2.5 2-2.5 5m0 4.01l.01-.011" />
             <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.821.487 3.53 1.338 5L2.5 21.5l4.5-.838A9.96 9.96 0 0 0 12 22" />
           </g>
         </svg>
       ),
       activeIcon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24px"
-          height="24px"
-          viewBox="0 0 24 24"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
           <path
             fill="currentColor"
             fillRule="evenodd"
@@ -215,10 +169,7 @@ const Layout = ({ children }) => {
           <div>
             <div className="flex items-center justify-between mb-8 gap-2 pb-2 border-b">
               <Logo wordmark />
-              <button
-                onClick={toggleSidebar}
-                className="md:hidden focus:outline-none text-black"
-              >
+              <button onClick={toggleSidebar} className="md:hidden focus:outline-none text-black">
                 &#x2715;
               </button>
             </div>
@@ -230,9 +181,8 @@ const Layout = ({ children }) => {
                 return (
                   <a
                     href={item.link}
-                    className={`flex text-black items-center gap-3 ${
-                      isactive &&
-                      "bg-sitePrimary-700/30 text-sitePrimary-700 font-bold"
+                    className={`flex items-center gap-3 ${
+                      isactive ? "bg-EffectRed/30 text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
                     } py-2 px-4 rounded-xl`}
                     key={index}
                   >
@@ -289,9 +239,7 @@ const Layout = ({ children }) => {
             </div>
           </header> */}
           <main className="flex-1 p-4">
-            <main className="flex-1 p-8 overflow-y-auto text-black">
-              {children}
-            </main>
+            <main className="flex-1 p-8 overflow-y-auto text-black">{children}</main>
           </main>
         </div>
       </div>

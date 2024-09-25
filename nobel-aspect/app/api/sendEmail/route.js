@@ -24,7 +24,7 @@ export async function POST(request) {
     // Send the email
     await transport.sendMail({
       from: SMTP_EMAIL,
-      to,
+      to: SMTP_EMAIL,
       subject,
       html: body,
     });

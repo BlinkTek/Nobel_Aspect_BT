@@ -265,7 +265,7 @@ export default function App() {
                 <DropdownMenu className="text-black">
                   <DropdownItem onPress={() => modalOpen("view", user)}>View</DropdownItem>
                   {/* <DropdownItem onPress={() => modalOpen("edit", user)}>Edit</DropdownItem> */}
-                  <DropdownItem onPress={() => deleteenquiry(user.id)} className="text-red-500">
+                  <DropdownItem onPress={() => deleteenquiry(user)} className="text-red-500">
                     Delete
                   </DropdownItem>
                 </DropdownMenu>
@@ -302,7 +302,7 @@ export default function App() {
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%]",
+              base: "w-full sm:max-w-[44%] textcss-secondary",
               inputWrapper: "border-1",
             }}
             placeholder="Search"
@@ -470,6 +470,7 @@ export default function App() {
                   key={column.uid}
                   align={column.uid === "actions" ? "center" : "start"}
                   allowsSorting={column.sortable}
+                  className="textcss-primary"
                 >
                   {column.name}
                 </TableColumn>
@@ -479,7 +480,7 @@ export default function App() {
               {items.map((item, index) => (
                 <TableRow key={item._id}>
                   {(columnKey) => (
-                    <TableCell>{renderCell(item, columnKey, rowsPerPage * (page - 1) + index)}</TableCell>
+                    <TableCell className="textcss-secondary">{renderCell(item, columnKey, rowsPerPage * (page - 1) + index)}</TableCell>
                   )}
                 </TableRow>
               ))}
@@ -489,7 +490,7 @@ export default function App() {
             <ModalContent>
               {(onClose) => (
                 <>
-                  <ModalHeader className="flex flex-col gap-1">
+                  <ModalHeader className="flex flex-col gap-1 textcss-primary">
                     {modalMode === "add"
                       ? "Add New Enquiry"
                       : modalMode === "edit"
@@ -612,28 +613,28 @@ export default function App() {
               </ModalBody> */}
                   <ModalBody>
                     <p className="font-bold flex flex-col">
-                      <span>Firstname:</span>
-                      <span className="font-normal">{modalData.firstname}</span>
+                      <span className="textcss-primary">Firstname:</span>
+                      <span className="font-normal textcss-secondary">{modalData.firstname}</span>
                     </p>
                     <p className="font-bold flex flex-col">
-                      <span>Lastname:</span>
-                      <span className="font-normal">{modalData.lastname}</span>
+                      <span className="textcss-primary">Lastname:</span>
+                      <span className="font-normal textcss-secondary">{modalData.lastname}</span>
                     </p>
                     <p className="font-bold flex flex-col">
-                      <span>Email:</span>
-                      <span className="font-normal">{modalData.email}</span>
+                      <span className="textcss-primary">Email:</span>
+                      <span className="font-normal textcss-secondary">{modalData.email}</span>
                     </p>
                     <p className="font-bold flex flex-col">
-                      <span>Field:</span>
-                      <span className="font-normal">{modalData.field}</span>
+                      <span className="textcss-primary">Field:</span>
+                      <span className="font-normal textcss-secondary">{modalData.field}</span>
                     </p>
                     <p className="font-bold flex flex-col">
-                      <span>Service:</span>
-                      <span className="font-normal">{modalData.service}</span>
+                      <span className="textcss-primary">Service:</span>
+                      <span className="font-normal textcss-secondary">{modalData.service}</span>
                     </p>
                     <p className="font-bold flex flex-col">
-                      <span>Information:</span>
-                      <span className="font-normal">{modalData.message}</span>
+                      <span className="textcss-primary">Information:</span>
+                      <span className="font-normal textcss-secondary">{modalData.message}</span>
                     </p>
                   </ModalBody>
                   <ModalFooter>

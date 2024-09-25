@@ -4,13 +4,15 @@ const Logo = ({ wordmark = false, fix = false, isFooter = false }) => {
   if (wordmark) {
     return (
       <>
-        <div className={`${isFooter ? "scale-100" : "scale-75"} h-full object-cover`}>
+        <div className={`${isFooter ? "scale-150" : "scale-110 md:scale-100 lg:scale-100"} h-full object-contain`}>
           <svg
             // width="795" height="240"
-            // width={fix ? "251" : "100%"}
-            // height={fix ? "43" : "100%"}
-            width="251"
-            height="43"
+            width={fix | isFooter ? "251" : "100%"}
+            height={fix | isFooter ? "43" : "100%"}
+            // width="376"
+            // height="64"
+            // width="130"
+            // height="65"
             viewBox="0 0 795 240"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

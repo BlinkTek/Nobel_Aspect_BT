@@ -40,13 +40,7 @@ const PlusIcon = ({ size = 24, width, height, ...props }) => (
     width={size || width}
     {...props}
   >
-    <g
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.5}
-    >
+    <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}>
       <path d="M6 12h12" />
       <path d="M12 18V6" />
     </g>
@@ -89,13 +83,7 @@ const SearchIcon = (props) => (
       strokeLinejoin="round"
       strokeWidth="2"
     />
-    <path
-      d="M22 22L20 20"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-    />
+    <path d="M22 22L20 20" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
   </svg>
 );
 
@@ -139,13 +127,7 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-const INITIAL_VISIBLE_COLUMNS = [
-  "id",
-  "image",
-  "casestudyTitle",
-  "information",
-  "actions",
-];
+const INITIAL_VISIBLE_COLUMNS = ["id", "image", "casestudyTitle", "information", "actions"];
 
 export default function App() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -162,9 +144,7 @@ export default function App() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `https://api.nobleaspect.com/api/caseStudy/list`
-      );
+      const response = await axios.get(`https://api.nobleaspect.com/api/caseStudy/list`);
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -223,21 +203,13 @@ export default function App() {
       }
 
       // Send the form data to the server
-      const response = await axios.post(
-        `https://api.nobleaspect.com/api/caseStudy/create`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
+      const response = await axios.post(`https://api.nobleaspect.com/api/caseStudy/create`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
     } catch (err) {
-      console.log(
-        err.response?.data?.message ||
-          "Failed to add case study. Please try again later."
-      );
+      console.log(err.response?.data?.message || "Failed to add case study. Please try again later.");
     }
 
     // Close the modal and fetch data
@@ -259,15 +231,9 @@ export default function App() {
 
     // Send the form data to the server
     try {
-      const response = await axios.put(
-        `https://api.nobleaspect.com/api/caseStudy/edit/${modalData._id}`,
-        formData
-      );
+      const response = await axios.put(`https://api.nobleaspect.com/api/caseStudy/edit/${modalData._id}`, formData);
     } catch (err) {
-      console.log(
-        err.response?.data?.message ||
-          "Failed to edit case study. Please try again later."
-      );
+      console.log(err.response?.data?.message || "Failed to edit case study. Please try again later.");
     }
     onClose();
     fetchData();
@@ -275,23 +241,16 @@ export default function App() {
 
   const deleteCaseStudy = useCallback(async (user) => {
     try {
-      const response = await axios.delete(
-        `https://api.nobleaspect.com/api/caseStudy/delete/${user._id}`
-      );
+      const response = await axios.delete(`https://api.nobleaspect.com/api/caseStudy/delete/${user._id}`);
     } catch (err) {
-      console.log(
-        err.response?.data?.message ||
-          "Failed to delete case study. Please try again later."
-      );
+      console.log(err.response?.data?.message || "Failed to delete case study. Please try again later.");
     }
     fetchData();
   }, []);
 
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
-  const [visibleColumns, setVisibleColumns] = React.useState(
-    new Set(INITIAL_VISIBLE_COLUMNS)
-  );
+  const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
   const [serviceFilter, setServiceFilter] = React.useState("all");
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [sortDescriptor, setSortDescriptor] = React.useState({
@@ -307,9 +266,7 @@ export default function App() {
   const headerColumns = React.useMemo(() => {
     if (visibleColumns === "all") return columns;
 
-    return columns.filter((column) =>
-      Array.from(visibleColumns).includes(column.uid)
-    );
+    return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
   }, [visibleColumns]);
 
   const filteredItems = React.useMemo(() => {
@@ -320,18 +277,12 @@ export default function App() {
 
       filteredUsers = filteredUsers.filter(
         (user) =>
-          user.information?.toLowerCase().includes(searchQuery) ||
-          user.image?.toLowerCase().includes(searchQuery)
+          user.information?.toLowerCase().includes(searchQuery) || user.image?.toLowerCase().includes(searchQuery)
       );
     }
 
-    if (
-      serviceFilter !== "all" &&
-      Array.from(serviceFilter).length !== serviceOptions.length
-    ) {
-      filteredUsers = filteredUsers.filter((user) =>
-        Array.from(serviceFilter).includes(user.casestudyTitle)
-      );
+    if (serviceFilter !== "all" && Array.from(serviceFilter).length !== serviceOptions.length) {
+      filteredUsers = filteredUsers.filter((user) => Array.from(serviceFilter).includes(user.casestudyTitle));
     }
 
     return filteredUsers;
@@ -376,12 +327,7 @@ export default function App() {
                 className="text-white bg-slate-500 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 onClick={() => modalOpen("view", user)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 15 15"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">
                   <path
                     fill="currentColor"
                     d="m.5 7.5l-.464-.186a.5.5 0 0 0 0 .372zm14 0l.464.186a.5.5 0 0 0 0-.372zm-7 4.5c-2.314 0-3.939-1.152-5.003-2.334a9.4 9.4 0 0 1-1.449-2.164l-.08-.18l-.004-.007v-.001L.5 7.5l-.464.186v.002l.003.004l.026.063l.078.173a10.4 10.4 0 0 0 1.61 2.406C2.94 11.653 4.814 13 7.5 13zm-7-4.5l.464.186l.004-.008a3 3 0 0 1 .08-.18a9.4 9.4 0 0 1 1.449-2.164C3.56 4.152 5.186 3 7.5 3V2C4.814 2 2.939 3.348 1.753 4.666a10.4 10.4 0 0 0-1.61 2.406a6 6 0 0 0-.104.236l-.002.004v.001H.035zm7-4.5c2.314 0 3.939 1.152 5.003 2.334a9.4 9.4 0 0 1 1.449 2.164l.08.18l.004.007v.001L14.5 7.5l.464-.186v-.002l-.003-.004l-.026-.063l-.078-.173a10.4 10.4 0 0 0-1.61-2.406C12.06 3.348 10.186 2 7.5 2zm7 4.5l-.464-.186l-.003.008l-.015.035l-.066.145a9.4 9.4 0 0 1-1.449 2.164C11.44 10.848 9.814 12 7.5 12v1c2.686 0 4.561-1.348 5.747-2.665a10.4 10.4 0 0 0 1.61-2.407a6 6 0 0 0 .104-.236l.002-.004v-.001h.001zM7.5 9A1.5 1.5 0 0 1 6 7.5H5A2.5 2.5 0 0 0 7.5 10zM9 7.5A1.5 1.5 0 0 1 7.5 9v1A2.5 2.5 0 0 0 10 7.5zM7.5 6A1.5 1.5 0 0 1 9 7.5h1A2.5 2.5 0 0 0 7.5 5zm0-1A2.5 2.5 0 0 0 5 7.5h1A1.5 1.5 0 0 1 7.5 6z"
@@ -393,12 +339,7 @@ export default function App() {
                 className="text-white bg-slate-500 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 onClick={() => modalOpen("edit", user)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 28 28"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 28 28">
                   <path
                     fill="currentColor"
                     d="M24.85 3.15a3.93 3.93 0 0 0-5.561 0L4.503 17.937c-.44.44-.76.986-.928 1.586l-1.547 5.525a.75.75 0 0 0 .924.924l5.524-1.547a3.6 3.6 0 0 0 1.587-.928L24.85 8.71a3.93 3.93 0 0 0 0-5.56m-4.5 1.06a2.432 2.432 0 1 1 3.439 3.44l-1.54 1.539l-3.439-3.44zm-2.6 2.6l3.44 3.44L9.002 22.437a2.1 2.1 0 0 1-.93.544l-4.241 1.187l1.187-4.24a2.13 2.13 0 0 1 .544-.93z"
@@ -410,12 +351,7 @@ export default function App() {
                 className="text-white bg-slate-500 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 onClick={() => deleteCaseStudy(user)}
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="1em"
-                  height="1em"
-                  viewBox="0 0 32 32"
-                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32">
                   <path
                     fill="currentColor"
                     d="M13.5 6.5V7h5v-.5a2.5 2.5 0 0 0-5 0m-2 .5v-.5a4.5 4.5 0 1 1 9 0V7H28a1 1 0 1 1 0 2h-1.508L24.6 25.568A5 5 0 0 1 19.63 30h-7.26a5 5 0 0 1-4.97-4.432L5.508 9H4a1 1 0 0 1 0-2zm2.5 6.5a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0zm5-1a1 1 0 0 0-1 1v10a1 1 0 1 0 2 0v-10a1 1 0 0 0-1-1"
@@ -456,7 +392,7 @@ export default function App() {
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%]",
+              base: "w-full sm:max-w-[44%] textcss-secondary",
               inputWrapper: "border-1",
             }}
             placeholder="Search"
@@ -470,11 +406,7 @@ export default function App() {
           <div className="flex gap-3">
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
-                  size="sm"
-                  variant="flat"
-                >
+                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
                   Select Title
                 </Button>
               </DropdownTrigger>
@@ -487,10 +419,7 @@ export default function App() {
                 onSelectionChange={setServiceFilter}
               >
                 {serviceOptions.map((service) => (
-                  <DropdownItem
-                    key={service.uid}
-                    className="capitalize text-black"
-                  >
+                  <DropdownItem key={service.uid} className="capitalize text-black">
                     {capitalize(service.name)}
                   </DropdownItem>
                 ))}
@@ -498,11 +427,7 @@ export default function App() {
             </Dropdown>
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button
-                  endContent={<ChevronDownIcon className="text-small" />}
-                  size="sm"
-                  variant="flat"
-                >
+                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
                   Columns
                 </Button>
               </DropdownTrigger>
@@ -515,17 +440,14 @@ export default function App() {
                 onSelectionChange={setVisibleColumns}
               >
                 {columns.map((column) => (
-                  <DropdownItem
-                    key={column.uid}
-                    className="capitalize text-black"
-                  >
+                  <DropdownItem key={column.uid} className="capitalize text-black">
                     {capitalize(column.name)}
                   </DropdownItem>
                 ))}
               </DropdownMenu>
             </Dropdown>
             <Button
-              className="bg-foreground text-background"
+              className="bg-foreground text-background btncss"
               endContent={<PlusIcon />}
               size="sm"
               onPress={() => modalOpen("add")}
@@ -580,22 +502,12 @@ export default function App() {
         />
         {false ? (
           <span className="text-small text-default-400">
-            {selectedKeys === "all"
-              ? "All items selected"
-              : `${selectedKeys.size} of ${items.length} selected`}
+            {selectedKeys === "all" ? "All items selected" : `${selectedKeys.size} of ${items.length} selected`}
           </span>
         ) : null}
       </div>
     );
-  }, [
-    selectedKeys,
-    items.length,
-    page,
-    pages,
-    hasSearchFilter,
-    onRowsPerPageChange,
-    rowsPerPage,
-  ]);
+  }, [selectedKeys, items.length, page, pages, hasSearchFilter, onRowsPerPageChange, rowsPerPage]);
 
   const classNames = React.useMemo(
     () => ({
@@ -630,8 +542,7 @@ export default function App() {
             bottomContentPlacement="outside"
             checkboxesProps={{
               classNames: {
-                wrapper:
-                  "after:bg-foreground after:text-background text-background",
+                wrapper: "after:bg-foreground after:text-background text-background",
               },
             }}
             classNames={classNames}
@@ -650,6 +561,7 @@ export default function App() {
                   key={column.uid}
                   align={column.uid === "actions" ? "center" : "start"}
                   allowsSorting={column.sortable}
+                  className="textcss-primary"
                 >
                   {column.name}
                 </TableColumn>
@@ -659,28 +571,19 @@ export default function App() {
               {items.map((item, index) => (
                 <TableRow key={item._id}>
                   {(columnKey) => (
-                    <TableCell>
-                      {renderCell(
-                        item,
-                        columnKey,
-                        rowsPerPage * (page - 1) + index
-                      )}
+                    <TableCell className="textcss-secondary">
+                      {renderCell(item, columnKey, rowsPerPage * (page - 1) + index)}
                     </TableCell>
                   )}
                 </TableRow>
               ))}
             </TableBody>
           </Table>
-          <Modal
-            isOpen={isOpen}
-            onOpenChange={onOpenChange}
-            className="text-black"
-            scrollBehavior="inside"
-          >
+          <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="text-black" scrollBehavior="inside">
             <ModalContent>
               {(onClose) => (
                 <>
-                  <ModalHeader className="flex flex-col gap-1">
+                  <ModalHeader className="flex flex-col gap-1 textcss-primary">
                     {modalMode === "add"
                       ? "Add Case Study"
                       : modalMode === "edit"
@@ -694,7 +597,7 @@ export default function App() {
                       <div className="w-full">
                         <label
                           htmlFor="casestudyTitle"
-                          className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                          className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300"
                         >
                           Case Study title
                         </label>
@@ -705,7 +608,7 @@ export default function App() {
                           value={modalData.casestudyTitle}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Enter Field"
                           required
                         />
@@ -713,7 +616,7 @@ export default function App() {
                       <div className="w-full">
                         <label
                           htmlFor="image"
-                          className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                          className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300"
                         >
                           Image
                         </label>
@@ -723,7 +626,7 @@ export default function App() {
                           id="image"
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           accept="image/*"
                           required
                         />
@@ -732,7 +635,7 @@ export default function App() {
                       <div className="sm:col-span-2">
                         <label
                           htmlFor="information"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                          className="block mb-2 textcss-primary text-sm font-medium text-gray-900 dark:text-gray-400"
                         >
                           Information
                         </label>
@@ -742,7 +645,7 @@ export default function App() {
                           value={modalData.information}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block p-2.5 w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          className="block p-2.5 textcss-secondary w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                           placeholder="Add information"
                           required
                         ></textarea>
@@ -751,7 +654,7 @@ export default function App() {
                       <div className="sm:col-span-2">
                         <label
                           htmlFor="information"
-                          className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+                          className="block mb-2 textcss-primary text-sm font-medium text-gray-900 dark:text-gray-400"
                         >
                           Case Study Content
                         </label>
@@ -767,22 +670,16 @@ export default function App() {
                     </form>
                   </ModalBody>
                   <ModalFooter>
-                    <Button color="danger" variant="light" onPress={onClose}>
+                    <Button color="danger" variant="light" onPress={onClose} className="btnredcss">
                       Close
                     </Button>
                     {modalMode == "add" ? (
-                      <Button
-                        color="primary"
-                        onPress={() => handleSubmit(onClose)}
-                      >
+                      <Button color="primary" className="btncss" onPress={() => handleSubmit(onClose)}>
                         Add Case Study
                       </Button>
                     ) : (
                       modalMode == "edit" && (
-                        <Button
-                          color="primary"
-                          onPress={() => handleEditData(onClose)}
-                        >
+                        <Button color="primary" className="btncss" onPress={() => handleEditData(onClose)}>
                           Edit Case Study
                         </Button>
                       )

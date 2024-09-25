@@ -64,21 +64,21 @@ const Page = () => {
       {/** Inquiry section */}
       <section className="bg-siteNeutral-0 dark:bg-gray-900 flex gap-12 py-8 px-4 sm:py-16 lg:px-28">
         <div className="mx-auto max-w-screen-md w-full md:w-1/2">
-          <h2 className="mb-4 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
+          <h2 className="mb-4 header1 text-3xl tracking-tight font-medium text-siteTextIcon-primary dark:text-white">
             Contact Us
           </h2>
           {/* <p className="mb-8 lg:mb-16 font-light text-base text-siteTextIcon-disabled dark:text-gray-400 sm:text-xl"></p> */}
 
           {/* Display success or error messages */}
           {error && <p className="mb-4 text-sm text-red-500">{error}</p>}
-          {successMessage && <p className="mb-4 text-sm text-green-500">{successMessage}</p>}
+          {successMessage && <p className="mb-4 text-sm textcss-primary text-green-500">{successMessage}</p>}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex flex-col md:flex-row gap-4">
               <div className="w-full">
                 <label
                   htmlFor="firstname"
-                  className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300"
+                  className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300"
                 >
                   First Name<span className="text-red-500"> *</span>
                 </label>
@@ -87,13 +87,13 @@ const Page = () => {
                   id="firstname"
                   value={formData.firstname}
                   onChange={handleChange}
-                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="shadow-sm textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="First Name"
                   required
                 />
               </div>
               <div className="w-full">
-                <label htmlFor="lastname" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                <label htmlFor="lastname" className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300">
                   Last Name<span className="text-red-500"> *</span>
                 </label>
                 <input
@@ -101,7 +101,7 @@ const Page = () => {
                   id="lastname"
                   value={formData.lastname}
                   onChange={handleChange}
-                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="shadow-sm textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="Last Name"
                   required
                 />
@@ -109,7 +109,7 @@ const Page = () => {
             </div>
             <div className="flex gap-4">
               <div className="w-full">
-                <label htmlFor="email" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+                <label htmlFor="email" className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300">
                   Email<span className="text-red-500"> *</span>
                 </label>
                 <input
@@ -117,14 +117,14 @@ const Page = () => {
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="shadow-sm bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="shadow-sm textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="Email address"
                   required
                 />
               </div>
             </div>
             <div className="w-full">
-              <label htmlFor="field" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+              <label htmlFor="field" className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300">
                 Select Type<span className="text-red-500"> *</span>
               </label>
               <select
@@ -132,7 +132,7 @@ const Page = () => {
                 id="field"
                 value={formData.field}
                 onChange={handleChange}
-                className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-3 mb-6 textcss-secondary text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
                 <option value="Select Field">Select Type</option>
@@ -142,7 +142,7 @@ const Page = () => {
               </select>
             </div>
             <div className="w-full">
-              <label htmlFor="service" className="block mb-2 text-sm font-semibold text-gray-900 dark:text-gray-300">
+              <label htmlFor="service" className="block mb-2 textcss-primary text-sm font-semibold text-gray-900 dark:text-gray-300">
                 Select Services<span className="text-red-500"> *</span>
               </label>
               <select
@@ -150,7 +150,7 @@ const Page = () => {
                 id="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="block w-full p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-3 mb-6 textcss-secondary text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
                 <option value="Select Services">Select Services</option>
@@ -160,7 +160,7 @@ const Page = () => {
               </select>
             </div>
             <div className="sm:col-span-2">
-              <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+              <label htmlFor="message" className="block textcss-primary mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
                 Message<span className="text-red-500"> *</span>
               </label>
               <textarea
@@ -168,7 +168,7 @@ const Page = () => {
                 rows="6"
                 value={formData.message}
                 onChange={handleChange}
-                className="block p-2.5 w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="block p-2.5 w-full textcss-secondary text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Leave a message..."
                 required
               ></textarea>
@@ -177,7 +177,7 @@ const Page = () => {
             <button
               // disabled={!captcha}
               type="submit"
-              className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
+              className="py-3 px-5 btncss text-sm font-medium text-center text-white rounded-lg bg-sitePrimary-800 w-full"
             >
               Send Message
             </button>
