@@ -3,34 +3,28 @@
 import { redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const token = JSON.parse(localStorage.getItem("token"));
-
 export default function Home() {
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
   });
-
+  
+  const token = JSON.parse(localStorage.getItem("token"));
+  setUser({
+    name: token.name,
+    email: token.email,
+  });
   redirect("/admin/services")
   
-  useEffect(() => {
-    // console.log(token);
+  // const handleChange = (e) => {
+  //   setUser({ ...user, [e.target.name]: e.target.value });
+  // };
 
-    setUser({
-      name: token.name,
-      email: token.email,
-    });
-  }, [token]);
-
-  const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("User Info:", user);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("User Info:", user);
+  // };
 
   return (
     // <div className="w-full min-h-screen">

@@ -245,7 +245,7 @@ export default function Home() {
                     <div className="flex justify-center items-center mb-4 w-10 h-10 rounded-lg bg-sitePrimary-700/25 lg:h-12 lg:w-12 p-2">
                       <div className="flex justify-center items-center rounded-md bg-white w-full h-full p-0.5">
                         {/* <Icon /> */}
-                        <Image src={item.image} width={30} height={30} />
+                        <Image src={item.image} alt="" width={30} height={30} />
                       </div>
                     </div>
                     <h3 className="mb-2 text-xl font-bold -ml-6 pl-6 border-l-2 border-sitePrimary-700 text-siteTextIcon-primary textcss-primary">
