@@ -392,8 +392,8 @@ export default function App() {
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%] textcss-secondary",
-              inputWrapper: "border-1",
+              base: "w-full sm:max-w-[44%] textcss-secondary bordercss text-TextSecondary",
+              inputWrapper: "border-1 bordercss text-TextSecondary",
             }}
             placeholder="Search"
             size="sm"
@@ -406,7 +406,7 @@ export default function App() {
           <div className="flex gap-3">
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
+                <Button endContent={<ChevronDownIcon className="text-small !text-TextPrimary" />} size="sm" variant="flat" className="!text-TextPrimary">
                   Select Title
                 </Button>
               </DropdownTrigger>
@@ -419,7 +419,7 @@ export default function App() {
                 onSelectionChange={setServiceFilter}
               >
                 {serviceOptions.map((service) => (
-                  <DropdownItem key={service.uid} className="capitalize text-black">
+                  <DropdownItem key={service.uid} className="capitalize !text-TextPrimary">
                     {capitalize(service.name)}
                   </DropdownItem>
                 ))}
@@ -427,7 +427,7 @@ export default function App() {
             </Dropdown>
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
+                <Button endContent={<ChevronDownIcon className="text-small !text-TextPrimary" />} size="sm" variant="flat" className="!text-TextPrimary">
                   Columns
                 </Button>
               </DropdownTrigger>
@@ -440,7 +440,7 @@ export default function App() {
                 onSelectionChange={setVisibleColumns}
               >
                 {columns.map((column) => (
-                  <DropdownItem key={column.uid} className="capitalize text-black">
+                  <DropdownItem key={column.uid} className="capitalize !text-TextPrimary">
                     {capitalize(column.name)}
                   </DropdownItem>
                 ))}
@@ -491,7 +491,7 @@ export default function App() {
         <Pagination
           showControls
           classNames={{
-            cursor: "bg-[#067A49] text-background",
+            cursor: "bg-TextPrimary text-background",
           }}
           color="default"
           isDisabled={hasSearchFilter}
@@ -608,7 +608,7 @@ export default function App() {
                           value={modalData.casestudyTitle}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="block w-full textcss-secondary bordercss p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           placeholder="Enter Field"
                           required
                         />
@@ -626,7 +626,7 @@ export default function App() {
                           id="image"
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block w-full textcss-secondary p-3 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          className="block w-full bordercss p-3 mb-6 text-sm text-gray-500 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           accept="image/*"
                           required
                         />
@@ -645,7 +645,7 @@ export default function App() {
                           value={modalData.information}
                           onChange={handleChange}
                           disabled={modalMode == "view"}
-                          className="block p-2.5 textcss-secondary w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                          className="block p-2.5 textcss-secondary bordercss w-full text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                           placeholder="Add information"
                           required
                         ></textarea>

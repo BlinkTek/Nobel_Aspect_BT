@@ -170,7 +170,7 @@ const Page = () => {
                   id="firstname"
                   value={formData.firstname}
                   onChange={handleChange}
-                  className="shadow-sm textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="shadow-sm bordercss textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="First Name"
                   required
                 />
@@ -187,7 +187,7 @@ const Page = () => {
                   id="lastname"
                   value={formData.lastname}
                   onChange={handleChange}
-                  className="shadow-sm textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="shadow-sm bordercss textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="Last Name"
                   required
                 />
@@ -206,7 +206,7 @@ const Page = () => {
                   id="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="shadow-sm textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                  className="shadow-sm bordercss textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                   placeholder="Email address"
                   required
                 />
@@ -224,7 +224,7 @@ const Page = () => {
                 id="field"
                 value={formData.field}
                 onChange={handleChange}
-                className="block w-full p-3 textcss-secondary mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-3 bordercss mb-6 text-sm text-gray-500 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
                 <option value="Select Field">Select Type</option>
@@ -245,7 +245,7 @@ const Page = () => {
                 id="service"
                 value={formData.service}
                 onChange={handleChange}
-                className="block w-full p-3 textcss-secondary mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="block w-full p-3 bordercss mb-6 text-sm text-gray-500 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               >
                 <option value="Select Services">Select Services</option>
@@ -266,7 +266,7 @@ const Page = () => {
                 rows="6"
                 value={formData.message}
                 onChange={handleChange}
-                className="block p-2.5 w-full textcss-secondary text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                className="block p-2.5 w-full bordercss textcss-secondary text-sm text-gray-900 bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Leave a message..."
                 required
               ></textarea>

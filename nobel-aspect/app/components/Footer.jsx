@@ -55,7 +55,7 @@ const Footer = ({ noDesign }) => {
             <Link
               href={"/"}
               className={`mr-4 transition md:mr-6 ${
-                isActive("/") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                isActive("/") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
               }`}
             >
               Home
@@ -67,7 +67,7 @@ const Footer = ({ noDesign }) => {
                 href={`/services/${service.serviceTitle}`}
                 className={`mr-4 transition md:mr-6 ${
                   isActive(`/services/${service.serviceTitle}`)
-                    ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                    ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                 }`}
               >
                 {service.serviceTitle}
@@ -76,7 +76,7 @@ const Footer = ({ noDesign }) => {
             <Link
               href={"/casestudy"}
               className={`mr-4 transition md:mr-6 ${
-                isActive("/casestudy") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                isActive("/casestudy") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
               }`}
             >
               Case Studies
@@ -84,7 +84,7 @@ const Footer = ({ noDesign }) => {
             <Link
               href={"/about"}
               className={`mr-4 transition md:mr-6 ${
-                isActive("/about") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                isActive("/about") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
               }`}
             >
               About Us
@@ -92,7 +92,7 @@ const Footer = ({ noDesign }) => {
             <Link
               href={"/contact"}
               className={`mr-4 transition md:mr-6 ${
-                isActive("/contact") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                isActive("/contact") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
               }`}
             >
               Contact Us
@@ -104,7 +104,7 @@ const Footer = ({ noDesign }) => {
               <Link
                 href={"/policy"}
                 className={`mr-4 transition md:mr-6 ${
-                  isActive("/policy") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                  isActive("/policy") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                 }`}
               >
                 Privacy Policy
@@ -112,32 +112,32 @@ const Footer = ({ noDesign }) => {
               <Link
                 href={"/terms"}
                 className={`mr-4 transition md:mr-6 ${
-                  isActive("/terms") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                  isActive("/terms") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                 }`}
               >
                 Terms of Use
               </Link>
             </div>
-            <span className="text-sm text-EffectGreen hover:text-EffectRed mb-6 sm:text-center">
+            <span className="text-sm text-TextPrimary hover:text-EffectRed mb-6 sm:text-center">
               © 2019 Noble Aspect, LLC. All rights reserved.
             </span>
             <div className="flex my-6 space-x-6 justify-center md:mt-0">
-              <a href="https://x.com" className="text-EffectGreen hover:text-EffectRed">
+              <a href="https://x.com" className="text-TextPrimary hover:text-EffectRed">
                 <Icon icon="hugeicons:new-twitter" width={20} />
               </a>
               <a
                 href="https://www.linkedin.com/company/noble-aspect-llc/"
-                className="text-EffectGreen hover:text-EffectRed"
+                className="text-TextPrimary hover:text-EffectRed"
               >
                 <Icon icon="akar-icons:linkedin-box-fill" width={20} />
               </a>
-              <a href="https://facebook.com" className="text-EffectGreen hover:text-EffectRed">
+              <a href="https://facebook.com" className="text-TextPrimary hover:text-EffectRed">
                 <Icon icon="akar-icons:facebook-fill" width={20} />
               </a>
-              <a href="https://instagram.com" className="text-EffectGreen hover:text-EffectRed">
+              <a href="https://instagram.com" className="text-TextPrimary hover:text-EffectRed">
                 <Icon icon="akar-icons:instagram-fill" width={20} />
               </a>
-              <a href="https://youtube.com" className="text-EffectGreen hover:text-EffectRed">
+              <a href="https://youtube.com" className="text-TextPrimary hover:text-EffectRed">
                 <Icon icon="akar-icons:youtube-fill" width={20} />
               </a>
             </div>

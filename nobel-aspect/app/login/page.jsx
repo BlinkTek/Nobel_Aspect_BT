@@ -89,15 +89,15 @@ const Page = () => {
               <Logo wordmark />
             </div>
             <div className="border-2 rounded-large shadow-md p-4 md:p-8 w-full max-w-md">
-              <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-800">WELCOME BACK!</h1>
-              <p className="text-gray-500 text-center mb-8">Fill the below fields to log in</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-center text-TextPrimary">WELCOME BACK!</h1>
+              <p className="text-TextSecondary text-center mb-8">Fill the below fields to log in</p>
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 <div>
-                  <label className="block text-gray-600 text-sm font-medium mb-3" htmlFor="email">
+                  <label className="block textcss-primary text-gray-600 text-sm font-medium mb-3" htmlFor="email">
                     Email Address
                   </label>
                   <input
-                    className="appearance-none border-b border-gray-500 bg-transparent w-full py-1 px-3 text-gray-800 leading-tight"
+                    className="appearance-none border-b textcss-secondary bordercss focus-visible:outline-0 focus-visible:border-b focus-visible:border-TextPrimary border-gray-500 bg-transparent w-full py-1 px-3 text-gray-800 leading-tight"
                     id="email"
                     type="email"
                     placeholder="Enter email address"
@@ -106,11 +106,11 @@ const Page = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-600 text-sm font-medium mb-3" htmlFor="password">
+                  <label className="block textcss-primary text-gray-600 text-sm font-medium mb-3" htmlFor="password">
                     Password
                   </label>
                   <input
-                    className="appearance-none border-b border-gray-500 bg-transparent w-full py-1 px-3 text-gray-800 leading-tight"
+                    className="appearance-none border-b textcss-secondary bordercss focus-visible:outline-0 focus-visible:border-b focus-visible:border-TextPrimary border-gray-500 bg-transparent w-full py-1 px-3 text-gray-800 leading-tight"
                     id="password"
                     type="password"
                     placeholder="Enter your password"
@@ -121,7 +121,7 @@ const Page = () => {
                 {error && <div className="text-red-500 text-sm text-center">{error}</div>}
                 <div className="mb-2">
                   <button
-                    className="w-full bg-sitePrimary-700 text-black font-semibold py-2 px-4 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-blue-300"
+                    className="w-full bg-sitePrimary-700 btncss text-white font-semibold py-2 px-4 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring focus:ring-blue-300"
                     type="submit"
                   >
                     Log In
@@ -129,7 +129,7 @@ const Page = () => {
                 </div>
               </form>
             </div>
-            <p className="text-siteTextIcon-disabled text-center">
+            <p className="text-TextSecondary text-center">
               © 2019 Noble Aspect, LLC.
               <br />
               All rights reserved.

@@ -21,6 +21,10 @@
     @apply textcss-secondary !important;
   }
 
+  .bordercss {
+    @apply border-TextSecondary focus-within:border-TextPrimary focus:border-TextPrimary focus-visible:border-TextPrimary active:border-TextPrimary ring-0 ring-TextPrimary focus-visible:border-opacity-0 focus-visible:border-none placeholder-shown:text-gray-500 placeholder:text-gray-500 focus-visible:outline-TextPrimary !important;
+  }
+  
   .textcss-primary {
     @apply !text-TextPrimary;
   }

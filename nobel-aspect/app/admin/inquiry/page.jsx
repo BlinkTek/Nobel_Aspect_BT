@@ -302,8 +302,8 @@ export default function App() {
           <Input
             isClearable
             classNames={{
-              base: "w-full sm:max-w-[44%] textcss-secondary",
-              inputWrapper: "border-1",
+              base: "w-full sm:max-w-[44%] textcss-secondary bordercss text-TextSecondary",
+              inputWrapper: "border-1 bordercss text-TextSecondary",
             }}
             placeholder="Search"
             size="sm"
@@ -316,7 +316,7 @@ export default function App() {
           <div className="flex gap-3">
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
+                <Button endContent={<ChevronDownIcon className="text-small !text-TextPrimary" />} size="sm" variant="flat" className="!text-TextPrimary">
                   Select Service
                 </Button>
               </DropdownTrigger>
@@ -329,7 +329,7 @@ export default function App() {
                 onSelectionChange={setServiceFilter}
               >
                 {serviceOptions.map((service) => (
-                  <DropdownItem key={service.uid} className="capitalize text-black">
+                  <DropdownItem key={service.uid} className="capitalize !text-TextPrimary">
                     {capitalize(service.name)}
                   </DropdownItem>
                 ))}
@@ -337,7 +337,7 @@ export default function App() {
             </Dropdown>
             <Dropdown>
               <DropdownTrigger className="hidden sm:flex">
-                <Button endContent={<ChevronDownIcon className="text-small" />} size="sm" variant="flat">
+                <Button endContent={<ChevronDownIcon className="text-small !text-TextPrimary" />} size="sm" variant="flat" className="!text-TextPrimary">
                   Columns
                 </Button>
               </DropdownTrigger>
@@ -350,7 +350,7 @@ export default function App() {
                 onSelectionChange={setVisibleColumns}
               >
                 {columns.map((column) => (
-                  <DropdownItem key={column.uid} className="capitalize text-black">
+                  <DropdownItem key={column.uid} className="capitalize !text-TextPrimary">
                     {capitalize(column.name)}
                   </DropdownItem>
                 ))}
@@ -401,7 +401,7 @@ export default function App() {
           isCompact
           showControls
           classNames={{
-            cursor: "bg-[#067A49] text-background",
+            cursor: "bg-TextPrimary text-background",
           }}
           isDisabled={hasSearchFilter}
           page={page}

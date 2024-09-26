@@ -26,30 +26,30 @@ const Layout = ({ children }) => {
   };
 
   const mainMenu = [
-    {
-      title: "Dashboard",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-          <path
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M8.557 2.75H4.682A1.93 1.93 0 0 0 2.75 4.682v3.875a1.94 1.94 0 0 0 1.932 1.942h3.875a1.94 1.94 0 0 0 1.942-1.942V4.682A1.94 1.94 0 0 0 8.557 2.75m10.761 0h-3.875a1.94 1.94 0 0 0-1.942 1.932v3.875a1.943 1.943 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942V4.682a1.93 1.93 0 0 0-1.932-1.932m0 10.75h-3.875a1.94 1.94 0 0 0-1.942 1.933v3.875a1.94 1.94 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942v-3.875a1.93 1.93 0 0 0-1.932-1.932M8.557 13.5H4.682a1.943 1.943 0 0 0-1.932 1.943v3.875a1.93 1.93 0 0 0 1.932 1.932h3.875a1.94 1.94 0 0 0 1.942-1.932v-3.875a1.94 1.94 0 0 0-1.942-1.942"
-          />
-        </svg>
-      ),
-      activeIcon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-          <path
-            fill="currentColor"
-            d="M10.995 4.68v3.88A2.44 2.44 0 0 1 8.545 11h-3.86a2.38 2.38 0 0 1-1.72-.72a2.4 2.4 0 0 1-.71-1.72V4.69a2.44 2.44 0 0 1 2.43-2.44h3.87a2.42 2.42 0 0 1 1.72.72a2.4 2.4 0 0 1 .72 1.71m10.75.01v3.87a2.46 2.46 0 0 1-2.43 2.44h-3.88a2.5 2.5 0 0 1-1.73-.71a2.44 2.44 0 0 1-.71-1.73V4.69a2.4 2.4 0 0 1 .72-1.72a2.42 2.42 0 0 1 1.72-.72h3.87a2.46 2.46 0 0 1 2.44 2.44m0 10.75v3.87a2.46 2.46 0 0 1-2.43 2.44h-3.88a2.5 2.5 0 0 1-1.75-.69a2.42 2.42 0 0 1-.71-1.73v-3.87a2.4 2.4 0 0 1 .72-1.72a2.42 2.42 0 0 1 1.72-.72h3.87a2.46 2.46 0 0 1 2.44 2.44zm-10.75.01v3.87a2.46 2.46 0 0 1-2.45 2.43h-3.86a2.42 2.42 0 0 1-2.43-2.43v-3.87A2.46 2.46 0 0 1 4.685 13h3.87a2.5 2.5 0 0 1 1.73.72a2.45 2.45 0 0 1 .71 1.73"
-          />
-        </svg>
-      ),
-      link: "/admin",
-    },
+    // {
+    //   title: "Dashboard",
+    //   icon: (
+    //     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+    //       <path
+    //         fill="none"
+    //         stroke="currentColor"
+    //         strokeLinecap="round"
+    //         strokeLinejoin="round"
+    //         strokeWidth="1.5"
+    //         d="M8.557 2.75H4.682A1.93 1.93 0 0 0 2.75 4.682v3.875a1.94 1.94 0 0 0 1.932 1.942h3.875a1.94 1.94 0 0 0 1.942-1.942V4.682A1.94 1.94 0 0 0 8.557 2.75m10.761 0h-3.875a1.94 1.94 0 0 0-1.942 1.932v3.875a1.943 1.943 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942V4.682a1.93 1.93 0 0 0-1.932-1.932m0 10.75h-3.875a1.94 1.94 0 0 0-1.942 1.933v3.875a1.94 1.94 0 0 0 1.942 1.942h3.875a1.94 1.94 0 0 0 1.932-1.942v-3.875a1.93 1.93 0 0 0-1.932-1.932M8.557 13.5H4.682a1.943 1.943 0 0 0-1.932 1.943v3.875a1.93 1.93 0 0 0 1.932 1.932h3.875a1.94 1.94 0 0 0 1.942-1.932v-3.875a1.94 1.94 0 0 0-1.942-1.942"
+    //       />
+    //     </svg>
+    //   ),
+    //   activeIcon: (
+    //     <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+    //       <path
+    //         fill="currentColor"
+    //         d="M10.995 4.68v3.88A2.44 2.44 0 0 1 8.545 11h-3.86a2.38 2.38 0 0 1-1.72-.72a2.4 2.4 0 0 1-.71-1.72V4.69a2.44 2.44 0 0 1 2.43-2.44h3.87a2.42 2.42 0 0 1 1.72.72a2.4 2.4 0 0 1 .72 1.71m10.75.01v3.87a2.46 2.46 0 0 1-2.43 2.44h-3.88a2.5 2.5 0 0 1-1.73-.71a2.44 2.44 0 0 1-.71-1.73V4.69a2.4 2.4 0 0 1 .72-1.72a2.42 2.42 0 0 1 1.72-.72h3.87a2.46 2.46 0 0 1 2.44 2.44m0 10.75v3.87a2.46 2.46 0 0 1-2.43 2.44h-3.88a2.5 2.5 0 0 1-1.75-.69a2.42 2.42 0 0 1-.71-1.73v-3.87a2.4 2.4 0 0 1 .72-1.72a2.42 2.42 0 0 1 1.72-.72h3.87a2.46 2.46 0 0 1 2.44 2.44zm-10.75.01v3.87a2.46 2.46 0 0 1-2.45 2.43h-3.86a2.42 2.42 0 0 1-2.43-2.43v-3.87A2.46 2.46 0 0 1 4.685 13h3.87a2.5 2.5 0 0 1 1.73.72a2.45 2.45 0 0 1 .71 1.73"
+    //       />
+    //     </svg>
+    //   ),
+    //   link: "/admin",
+    // },
     {
       title: "Services",
       icon: (
@@ -169,7 +169,7 @@ const Layout = ({ children }) => {
           <div>
             <div className="flex items-center justify-between mb-8 gap-2 pb-2 border-b">
               <Logo wordmark />
-              <button onClick={toggleSidebar} className="md:hidden focus:outline-none text-black">
+              <button onClick={toggleSidebar} className="md:hidden focus:outline-none text-red-500">
                 &#x2715;
               </button>
             </div>
@@ -203,7 +203,7 @@ const Layout = ({ children }) => {
             </nav>
           </div>
 
-          <div className="flex gap-2 text-left items-center">
+          {/* <div className="flex gap-2 text-left items-center">
             <Image
               src={"https://i.pravatar.cc/150?u=a042581f4e29026024d"}
               width={100}
@@ -215,16 +215,16 @@ const Layout = ({ children }) => {
               <h1 className="text-black font-bold">{token?.name || "User"}</h1>
               <h1 className="text-black">{token?.role || "Admin"}</h1>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Content Area */}
         <div className={`flex-1 flex flex-col md:ml-64`}>
-          {/* <header className="flex items-center gap-6 bg-white p-4 border-b">
+          <header className="md:hidden flex items-center gap-6 bg-white p-4 border-b">
             <button onClick={toggleSidebar} className="md:hidden text-gray-800 focus:outline-none">
               &#9776;
             </button>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <button onClick={() => router.back()} className="text-gray-800 focus:outline-none border rounded-lg p-1">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" viewBox="0 0 15 15">
                   <path
@@ -236,8 +236,8 @@ const Layout = ({ children }) => {
                 </svg>
               </button>
               <h1 className="text-xl font-semibold uppercase text-black">{pathname.split("/")[2]}</h1>
-            </div>
-          </header> */}
+            </div> */}
+          </header>
           <main className="flex-1 p-4">
             <main className="flex-1 p-8 overflow-y-auto text-black">{children}</main>
           </main>

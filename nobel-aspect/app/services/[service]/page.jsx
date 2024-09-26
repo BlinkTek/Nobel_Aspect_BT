@@ -88,7 +88,7 @@ const Page = ({ params }) => {
                   <div className="flex justify-center items-center mb-4 rounded-full bg-sitePrimary-700/15 h-14 w-14 p-2">
                     <div className="flex justify-center items-center rounded-full bg-white w-full h-full shadow-small">
                       <svg
-                        className="w-5 h-5 text-siteTextIcon-primary lg:w-6 lg:h-6"
+                        className="w-5 h-5 text-TextPrimary lg:w-6 lg:h-6"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                       >

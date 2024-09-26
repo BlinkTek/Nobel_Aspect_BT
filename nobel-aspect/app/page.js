@@ -343,7 +343,7 @@ export default function Home() {
                     id="firstname"
                     value={formData.firstname}
                     onChange={handleChange}
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 bordercss"
                     placeholder="First Name"
                     required
                   />
@@ -360,7 +360,7 @@ export default function Home() {
                     id="lastname"
                     value={formData.lastname}
                     onChange={handleChange}
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 bordercss"
                     placeholder="Last Name"
                     required
                   />
@@ -376,7 +376,7 @@ export default function Home() {
                     id="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
+                    className="shadow-sm bg-white border border-gray-300 text-gray-900 textcss-secondary text-sm rounded-lg block w-full p-2.5 bordercss"
                     placeholder="Email address"
                     required
                   />
@@ -391,7 +391,7 @@ export default function Home() {
                   id="field"
                   value={formData.field}
                   onChange={handleChange}
-                  className="block w-full p-3 mb-6 text-sm textcss-secondary text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block w-full p-3 mb-6 text-sm !text-gray-500 border border-gray-300 rounded-lg bg-white bordercss"
                   required
                 >
                   <option value="Select Field">Select Type</option>
@@ -409,7 +409,7 @@ export default function Home() {
                   id="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="block w-full p-3 mb-6 text-sm textcss-secondary text-gray-900 border border-gray-300 rounded-lg bg-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="block w-full p-3 mb-6 text-sm !text-gray-500 border border-gray-300 rounded-lg bg-white bordercss"
                   required
                 >
                   <option value="Select Services">Select Services</option>
@@ -427,7 +427,7 @@ export default function Home() {
                   rows="6"
                   value={formData.message}
                   onChange={handleChange}
-                  className="block p-2.5 w-full text-sm text-gray-900 textcss-secondary bg-white resize-none rounded-lg shadow-sm border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  className="block p-2.5 w-full text-sm text-gray-900 textcss-secondary bg-white resize-none rounded-lg shadow-sm border border-gray-300 bordercss"
                   placeholder="Leave a message..."
                   required
                 ></textarea>

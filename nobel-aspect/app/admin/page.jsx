@@ -1,6 +1,9 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import React, { useEffect, useState } from "react";
+
+const token = JSON.parse(localStorage.getItem("token"));
 
 export default function Home() {
   const [user, setUser] = useState({
@@ -9,10 +12,10 @@ export default function Home() {
     password: "",
   });
 
-  const token = JSON.parse(localStorage.getItem("token"));
-
+  redirect("/admin/services")
+  
   useEffect(() => {
-    console.log(token);
+    // console.log(token);
 
     setUser({
       name: token.name,

@@ -87,7 +87,7 @@ export default function Header() {
                 color="foreground"
                 href={item.link}
                 className={`flex items-center justify-center min-w-fit h-10 text-small rounded-small ${
-                  isActive(item.link) ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                  isActive(item.link) ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                 }`}
               >
                 {item.name}
@@ -98,7 +98,7 @@ export default function Header() {
                   <Button
                     disableRipple
                     className={`p-0 ${
-                      isActive("/services") ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                      isActive("/services") ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                     } bg-transparent min-w-fit data-[hover=true]:bg-transparent`}
                     radius="sm"
                     variant="light"
@@ -119,7 +119,7 @@ export default function Header() {
                         <a
                           href={`/services/${service.serviceTitle}`}
                           className={`flex gap-2 items-center py-1 ${
-                            isActive(`/services/${service.serviceTitle}`) ? "text-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                            isActive(`/services/${service.serviceTitle}`) ? "text-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                           }`}
                         >
                           {service.serviceTitle}
@@ -140,7 +140,7 @@ export default function Header() {
             href="/inquiry"
             variant="bordered"
             className={`text-sitePrimary-700 border border-sitePrimary-700 focus:!ring-0 ${
-              isActive("/inquiry") ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+              isActive("/inquiry") ? "text-EffectRed border-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
             }`}
           >
             Inquiry
@@ -155,7 +155,7 @@ export default function Header() {
                 <Accordion isCompact>
                   <AccordionItem
                     title={
-                      <p className={`w-full -m-2 ${isActive("/services") ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"}`}>
+                      <p className={`w-full -m-2 ${isActive("/services") ? "text-EffectRed border-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"}`}>
                         {item.name}
                       </p>
                     }
@@ -178,11 +178,11 @@ export default function Header() {
                           <a
                             href={`/services/${service.serviceTitle}`}
                             className={`flex gap-2 items-center py-1 ${
-                              isActive(`/services/${service.serviceTitle}`) ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"
+                              isActive(`/services/${service.serviceTitle}`) ? "text-EffectRed border-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"
                             }`}
                           >
                             <span
-                              className={isActive(`/services/${decodeURIComponent(service.serviceTitle)}`) ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"}
+                              className={isActive(`/services/${decodeURIComponent(service.serviceTitle)}`) ? "text-EffectRed border-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"}
                             >{service.serviceTitle}</span>
                           </a>
                         </div>
@@ -194,7 +194,7 @@ export default function Header() {
             ) : (
               <Link
                 color="foreground"
-                className={`w-full ${isActive(item.link) ? "text-EffectRed border-EffectRed font-bold" : "text-EffectGreen hover:text-EffectRed"}`}
+                className={`w-full ${isActive(item.link) ? "text-EffectRed border-EffectRed font-bold" : "text-TextPrimary hover:text-EffectRed"}`}
                 href={item.link}
                 size="lg"
               >
