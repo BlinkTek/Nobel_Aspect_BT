@@ -97,7 +97,7 @@ const Page = () => {
                     Email Address
                   </label>
                   <input
-                    className="appearance-none border-b textcss-secondary bordercss focus-visible:outline-0 focus-visible:border-b focus-visible:border-TextPrimary border-gray-500 bg-transparent w-full py-1 px-3 text-gray-800 leading-tight"
+                    className="shadow-sm bordercss textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     id="email"
                     type="email"
                     placeholder="Enter email address"
@@ -110,7 +110,7 @@ const Page = () => {
                     Password
                   </label>
                   <input
-                    className="appearance-none border-b textcss-secondary bordercss focus-visible:outline-0 focus-visible:border-b focus-visible:border-TextPrimary border-gray-500 bg-transparent w-full py-1 px-3 text-gray-800 leading-tight"
+                    className="shadow-sm bordercss textcss-secondary bg-white border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
                     id="password"
                     type="password"
                     placeholder="Enter your password"
